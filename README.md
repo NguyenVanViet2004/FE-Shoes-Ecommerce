@@ -1,1 +1,1 @@
-# FE-Shoe-Ecommerce
+# FE-Shoes-Ecommerce

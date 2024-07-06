@@ -1,21 +1,19 @@
+import { Atom, AudioWaveform } from '@tamagui/lucide-icons'
 import { Link, Tabs } from 'expo-router'
 import { Button, useTheme } from 'tamagui'
-import { Atom, AudioWaveform } from '@tamagui/lucide-icons'
 
-export default function TabLayout() {
+export default function TabLayout (): React.ReactElement {
   const theme = useTheme()
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: theme.red10.val,
+        tabBarActiveTintColor: theme.red10.val
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <Atom color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Button mr="$4" bg="$purple8" color="$purple12">
@@ -23,13 +21,15 @@ export default function TabLayout() {
               </Button>
             </Link>
           ),
+          tabBarIcon: ({ color }) => <Atom color={color} />,
+          title: 'Tab One'
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
           tabBarIcon: ({ color }) => <AudioWaveform color={color} />,
+          title: 'Tab Two'
         }}
       />
     </Tabs>

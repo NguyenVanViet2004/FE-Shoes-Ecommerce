@@ -4,7 +4,7 @@ import shoesReducer from 'features/ShoeSlice'
 // Define a Redux store
 const store = configureStore({
   reducer: {
-    shoesReducer: shoesReducer
+    shoesReducer
   }
 })
 

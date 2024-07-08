@@ -4,13 +4,13 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
 import { useColorScheme } from 'react-native'
+import { Provider } from 'react-redux'
 import { TamaguiProvider } from 'tamagui'
 
 import { useAppFonts } from '~/hooks/useAppFonts'
 import { useInitializeI18n } from '~/hooks/useTranslation'
-import config from '~/tamagui.config'
-import { Provider } from 'react-redux'
 import store from '~/redux/store'
+import config from '~/tamagui.config'
 
 export {
   // Catch any errors thrown by the Layout component.

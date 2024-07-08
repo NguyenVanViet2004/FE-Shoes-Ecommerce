@@ -1475,7 +1475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:^7.24.7, @babel/template@npm:^7.3.3":
+"@babel/template@npm:^7.22.15, @babel/template@npm:^7.24.7, @babel/template@npm:^7.3.3":
   version: 7.24.7
   resolution: "@babel/template@npm:7.24.7"
   dependencies:
@@ -4238,6 +4238,19 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.23.3"
   checksum: babe5077b2c7852a572be868a7ea8a3dd3986b0eb1780bf9e85ef2e302e0b6bfd27263d911e9682d6219d7d6259dbd79d0fbc9a247367dae8de0b0d85008d156
+  languageName: node
+  linkType: hard
+
+"@tamagui/babel-plugin@npm:^1.101.7":
+  version: 1.101.7
+  resolution: "@tamagui/babel-plugin@npm:1.101.7"
+  dependencies:
+    "@babel/generator": "npm:^7.23.3"
+    "@babel/helper-plugin-utils": "npm:^7.22.5"
+    "@babel/template": "npm:^7.22.15"
+    "@babel/traverse": "npm:^7.23.3"
+    "@tamagui/static": "npm:1.101.7"
+  checksum: 7ae142d9d082ecea3b9827e7f8808ae4c80e14d1dc9d102c84a255e7e459de0770cafaa44b532b77d5028db84d684f413c42571a3185d135dc766355fef16894
   languageName: node
   linkType: hard
 
@@ -9907,6 +9920,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.23.1"
     "@react-navigation/native": "npm:^6.0.2"
     "@reduxjs/toolkit": "npm:^2.2.3"
+    "@tamagui/babel-plugin": "npm:^1.101.7"
     "@tamagui/config": "npm:^1.94.4"
     "@tamagui/lucide-icons": "npm:^1.94.4"
     "@tamagui/metro-plugin": "npm:^1.94.4"

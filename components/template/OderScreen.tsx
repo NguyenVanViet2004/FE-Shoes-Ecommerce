@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const OderScreen = () => {
-    return (
-        <View>
-            <Text>OderScreen</Text>
-        </View>
-    )
+  return (
+    <View>
+      <Text>OderScreen</Text>
+    </View>
+  )
 }
 
 export default OderScreen

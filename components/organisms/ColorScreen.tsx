@@ -1,46 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import * as Animatable from 'react-native-animatable'
+import Animated, { FadeIn, useAnimatedRef } from 'react-native-reanimated'
 
-import Colors from '../atoms/Colors';
+import Colors from '../atoms/Colors'
 
-import Animated, { FadeIn, useAnimatedRef } from 'react-native-reanimated';
-
-type ColorScreenProps = {
+interface ColorScreenProps {
   route: {
-    name: string;
-  };
+    name: string
+  }
   navigation: {
-    goBack: () => void;
-    addListener: (event: string, callback: () => void) => () => void;
-  };
-};
+    goBack: () => void
+    addListener: (event: string, callback: () => void) => () => void
+  }
+}
 
 const ColorScreen: React.FC<ColorScreenProps> = ({ route, navigation }) => {
-  const viewRef = useAnimatedRef<Animated.View>(null);
-  const [bgColor, setBgColor] = useState<string>(Colors.white);
+  const viewRef = useAnimatedRef<Animated.View>(null)
+  const [bgColor, setBgColor] = useState<string>(Colors.white)
 
   useEffect(() => {
     switch (route.name) {
       case 'Home':
-        setBgColor(Colors.primary);
-        break;
+        setBgColor(Colors.primary)
+        break
       case 'Search':
-        setBgColor(Colors.green);
-        break;
+        setBgColor(Colors.green)
+        break
       case 'Add':
-        setBgColor(Colors.red);
-        break;
+        setBgColor(Colors.red)
+        break
       case 'Account':
-        setBgColor(Colors.purple);
-        break;
+        setBgColor(Colors.purple)
+        break
       case 'Like':
-        setBgColor(Colors.yellow);
-        break;
+        setBgColor(Colors.yellow)
+        break
       default:
-        setBgColor(Colors.white);
+        setBgColor(Colors.white)
     }
-  }, [route.name]);
+  }, [route.name])
 
   // useEffect(() => {
   //   const unsubscribe = navigation.addListener('focus', () => {
@@ -64,32 +63,32 @@ const ColorScreen: React.FC<ColorScreenProps> = ({ route, navigation }) => {
       /> */}
       <View style={[styles.container, { backgroundColor: bgColor }]} />
     </Animated.View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  rowView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  separator: {
-    height: 0.3,
-    width: '100%',
-    backgroundColor: Colors.gray,
-    opacity: 0.8,
-  },
   boldText: {
-    fontWeight: 'bold',
+    fontWeight: 'bold'
+  },
+  container: {
+    flex: 1
   },
   contentContainerStyle: {
-    paddingBottom: 200,
+    paddingBottom: 200
   },
   contentContainerStyle2: {
-    paddingBottom: 100,
+    paddingBottom: 100
   },
-});
+  rowView: {
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  separator: {
+    backgroundColor: Colors.gray,
+    height: 0.3,
+    opacity: 0.8,
+    width: '100%'
+  }
+})
 
-export default ColorScreen;
+export default ColorScreen

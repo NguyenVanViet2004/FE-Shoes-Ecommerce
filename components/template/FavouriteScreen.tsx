@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const Favourite = () => {
   return (
@@ -13,8 +13,8 @@ export default Favourite
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    flex: 1,
+    justifyContent: 'center'
+  }
 })

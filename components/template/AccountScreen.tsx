@@ -1,20 +1,20 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const AccountScreen: React.FC = () => {
-    return (
-        <View style={styles.container}>
-            <Text>Settings Screen</Text>
-        </View>
-    );
-};
+  return (
+    <View style={styles.container}>
+      <Text>Settings Screen</Text>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center'
+  }
+})
 
-export default AccountScreen;
+export default AccountScreen

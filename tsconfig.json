@@ -7,7 +7,9 @@
     },
     "strict": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsx": "preserve"
+    
   },
   "include": [
     "**/*.ts",

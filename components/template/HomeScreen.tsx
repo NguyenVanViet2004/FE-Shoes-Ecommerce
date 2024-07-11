@@ -7,6 +7,8 @@ const HomeScreen: React.FC = () => {
             <Text>Home Screen</Text>
         </View>
     );
+
+
 };
 
 const styles = StyleSheet.create({

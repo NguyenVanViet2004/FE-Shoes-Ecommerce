@@ -9,6 +9,7 @@ const Favourite = (): any => {
   )
 }
 
+
 export default Favourite
 
 const styles = StyleSheet.create({

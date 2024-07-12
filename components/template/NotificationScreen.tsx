@@ -9,4 +9,5 @@ const NotificationScreen = (): any => {
   )
 }
 
+
 export default NotificationScreen

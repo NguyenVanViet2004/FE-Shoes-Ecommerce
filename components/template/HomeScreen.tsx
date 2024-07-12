@@ -9,6 +9,7 @@ const HomeScreen = (): any => {
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

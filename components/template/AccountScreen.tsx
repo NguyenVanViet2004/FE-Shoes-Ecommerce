@@ -9,6 +9,7 @@ const AccountScreen = (): any => {
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

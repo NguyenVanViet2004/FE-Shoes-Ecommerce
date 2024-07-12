@@ -3,18 +3,24 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
+      "~/*": [
+        "./*"
+      ],
     },
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "preserve"
-    
+    "jsx": "preserve",
+    "noImplicitAny": false, // Cho phép sử dụng kiểu any
+    "noImplicitThis": false, // Cho phép sử dụng this với kiểu không xác định
+    "alwaysStrict": false, // Tắt chế độ strict cho tất cả các tệp
+    "strictNullChecks": true,
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "jest.setup.js"  ]
+    "expo-env.d.ts",
+    "jest.setup.js"
+  ]
 }

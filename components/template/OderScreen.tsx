@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
-const OderScreen = () => {
+const OderScreen = (): any => {
   return (
     <View>
       <Text>OderScreen</Text>
@@ -10,5 +10,3 @@ const OderScreen = () => {
 }
 
 export default OderScreen
-
-const styles = StyleSheet.create({})

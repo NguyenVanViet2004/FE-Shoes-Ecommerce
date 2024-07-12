@@ -16,12 +16,12 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 export const Icons = {
   AntDesign,
   Entypo,
-  Feather,
   EvilIcons,
+  Feather,
   FontAwesome,
   FontAwesome5,
-  Ionicons,
   Foundation,
+  Ionicons,
   MaterialCommunityIcons,
   MaterialIcons,
   Octicons,
@@ -42,7 +42,10 @@ const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
   return (
     <>
       {type && name && (
-        <Tag name={name} size={size || fontSize} color={color} style={style} />
+        <Tag name={name}
+          size={size || fontSize}
+          color={color}
+          style={style} />
       )}
     </>
   )

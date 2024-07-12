@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import * as Animatable from 'react-native-animatable'
 import Animated, { FadeIn, useAnimatedRef } from 'react-native-reanimated'
 
 import Colors from '../atoms/Colors'

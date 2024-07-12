@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Favourite = () => {
+const Favourite = (): any => {
   return (
     <View style={styles.container}>
       <Text>Favourite</Text>

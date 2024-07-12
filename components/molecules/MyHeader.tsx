@@ -4,8 +4,7 @@ import { Badge, Surface, Title, useTheme } from 'react-native-paper'
 import Feather from 'react-native-vector-icons/Feather'
 
 import Colors from '../atoms/Colors'
-import Icon from '../atoms/Icons'
-import ColorScreen from '../organisms/ColorScreen'
+
 const IconSize = 24
 
 interface AppHeaderProps {
@@ -52,12 +51,17 @@ const AppHeader: React.FC<AppHeaderProps> = ({
     <View style={styles.view}>
       {menu && (
         <TouchableOpacity onPress={onPressMenu}>
-          <Feather name="menu" size={IconSize} color={iconColor || color} />
+          <Feather name="menu"
+            size={IconSize}
+            color={iconColor || color} />
         </TouchableOpacity>
       )}
       {back && (
         <TouchableOpacity onPress={onPressBack}>
-          <Feather name="arrow-left" size={IconSize} color={iconColor || color} />
+          <Feather
+            name="arrow-left"
+            size={IconSize}
+            color={iconColor || color} />
         </TouchableOpacity>
       )}
     </View>
@@ -71,16 +75,27 @@ const AppHeader: React.FC<AppHeaderProps> = ({
       : (
         <View style={[styles.view, styles.rightView]}>
           {optionalBtn && (
-            <TouchableOpacity style={styles.rowView} onPress={optionalBtnPress}>
-              <Feather name={optionalBtn} size={IconSize} color={iconColor || color} />
+            <TouchableOpacity
+              style={styles.rowView}
+              onPress={optionalBtnPress}>
+              <Feather
+                name={optionalBtn}
+                size={IconSize}
+                color={iconColor || color} />
               {optionalBadge && (
-                <Badge style={{ position: 'absolute', right: -10, top: -5 }}>{optionalBadge}</Badge>
+                <Badge
+                  style={{ position: 'absolute', right: -10, top: -5 }}>
+                  {optionalBadge}
+                </Badge>
               )}
             </TouchableOpacity>
           )}
           {right && right !== '' && (
             <TouchableOpacity onPress={onRightPress}>
-              <Feather name={right} size={IconSize} color={iconColor || color} />
+              <Feather
+                name={right}
+                size={IconSize}
+                color={iconColor || color} />
             </TouchableOpacity>
           )}
         </View>
@@ -89,12 +104,18 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 
   const TitleView: React.FC = () => (
     <View style={styles.titleView}>
-      <Title style={{ color: iconColor || color, textAlign: titleAlight }}>{title}</Title>
+      <Title s
+        tyle={{
+          color: iconColor ||
+            color,
+          textAlign: titleAlight
+        }}>{title}</Title>
     </View>
   )
 
   return (
-    <Surface style={[styles.header, style, { backgroundColor }]}>
+    <Surface style={[styles.header,
+      style, { backgroundColor }]}>
       <LeftView />
       <TitleView />
       <RightView />

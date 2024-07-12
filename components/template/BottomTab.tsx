@@ -21,7 +21,6 @@ import HomeScreen from './HomeScreen'
 import NotificationScreen from './NotificationScreen'
 import OderScreen from './OderScreen'
 
-// Định nghĩa kiểu cho các mục trong mảng Tab
 interface TabItem {
   route: string
   label: string
@@ -131,7 +130,7 @@ const TabButton: React.FC<TabButtonProps> =
           style={styles.container}>
           <View
             style={[styles.btn,
-              { backgroundColor: bgColor, borderColor: bgColor }]}>
+            { backgroundColor: bgColor, borderColor: bgColor }]}>
             <Animatable.View
               ref={circleRef}
               style={styles.circle} />

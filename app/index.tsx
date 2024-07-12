@@ -1,14 +1,16 @@
 import { StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Text } from 'tamagui'
+
+import SignInTemplate from '~/components/templates/SignInTemplate'
 
 const index = (): JSX.Element => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text
+      {/* <Text
         textAlign="center"
         color={'red'} fontSize={20}
-        fontWeight={'bold'}>FE Shoe Ecommerce</Text>
+        fontWeight={'bold'}>FE Shoe Ecommerce</Text> */}
+      <SignInTemplate/>
     </SafeAreaView>
   )
 }

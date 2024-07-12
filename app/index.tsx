@@ -6,10 +6,6 @@ import SignInTemplate from '~/components/templates/SignInTemplate'
 const index = (): JSX.Element => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Text
-        textAlign="center"
-        color={'red'} fontSize={20}
-        fontWeight={'bold'}>FE Shoe Ecommerce</Text> */}
       <SignInTemplate/>
     </SafeAreaView>
   )

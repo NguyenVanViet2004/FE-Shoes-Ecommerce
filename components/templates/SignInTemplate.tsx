@@ -3,18 +3,16 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Image, Text } from 'tamagui'
 
+import Colors from '~/constants/Colors'
+
 import InputCustom from '../molecules/InputCustom'
 
-const backgroundColorMain = '#F8F9FA'
-const backgroundColorWhite = '#FFF'
-const backgroundColorBlue = '#5B9EE1'
-
 const SignInTemplate: React.FC = (): JSX.Element => {
-  const [showPass, setShowPass] = useState(true)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [showPass, setShowPass] = useState<boolean>(true)
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
-  useEffect(() => {
+  useEffect((): void => {
     console.log(email)
     console.log(password)
   }, [email, password])
@@ -27,35 +25,30 @@ const SignInTemplate: React.FC = (): JSX.Element => {
     <SafeAreaView style={styles.container}>
       <View style={styles.back}>
         <TouchableOpacity style={styles.buttonBack}>
-          <AntDesign name="left" size={18} color="black" />
+          <AntDesign name="left" size={18} color={Colors.black} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.header}>
-        <Text fontSize={28} fontWeight="500" color={'#1A2530'}>
+        <Text fontSize={28} fontWeight="500" color={Colors.black}>
           Hello Again!
         </Text>
-        <Text fontSize={16} fontWeight="400" color="#707B81">
+        <Text fontSize={16} fontWeight="400" color={Colors.textGray}>
           Welcome Back You’ve Been Missed!
         </Text>
       </View>
 
       <View style={styles.form}>
+
         <View style={styles.inputGroup}>
-          <Text fontSize={16} fontWeight="500" color={'#1A2530'}>
-            Email Address
-          </Text>
           <InputCustom
-            label="Email"
+            label="Email Address"
             placeholder="Enter email"
             onChangeText={text => { setEmail(text) }}
           />
         </View>
 
         <View style={styles.inputGroup}>
-          <Text fontSize={16} fontWeight="500" color={'#1A2530'}>
-            Password
-          </Text>
           <View style={styles.passwordInputContainer}>
             <InputCustom
               label="Password"
@@ -69,8 +62,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
                 >
                   {
                     showPass
-                      ? (<Feather name="eye" size={24}color="#1A2530"/>)
-                      : (<Feather name="eye-off" size={24} color="#1A2530"/>)
+                      ? (<Feather name="eye"size={24}color={Colors.black}/>)
+                      : (<Feather name="eye-off"size={24}color={Colors.black}/>)
                   }
                 </TouchableOpacity>
               }
@@ -84,7 +77,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           fontWeight="400"
           fontSize={13}
           textAlign="right"
-          color="#707B81"
+          color={Colors.textGray}
           marginTop={10}
         >
           Recovery Password
@@ -100,7 +93,10 @@ const SignInTemplate: React.FC = (): JSX.Element => {
 
         <TouchableOpacity style={styles.googleSignInButton}>
           <Image src={require('../../assets/images/icon_google.png')} />
-          <Text color="#1A2530" fontSize={18} fontWeight="500">
+          <Text
+            color={Colors.black}
+            fontSize={18}
+            fontWeight="500">
             Sign in with google
           </Text>
         </TouchableOpacity>
@@ -109,14 +105,17 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       <View style={styles.footer}>
         <Text
           fontSize={12}
-          color="#707B81"
+          color={Colors.textGray}
           textAlign="center"
           fontWeight="400"
         >
           Don’t have an account?
         </Text>
         <TouchableOpacity>
-          <Text fontSize={12} fontWeight="bold" color={'#1A2530'}>
+          <Text
+            fontSize={12}
+            fontWeight="bold"
+            color={Colors.black}>
             Sign Up for free
           </Text>
         </TouchableOpacity>
@@ -131,14 +130,14 @@ const styles = StyleSheet.create({
   },
   buttonBack: {
     alignItems: 'center',
-    backgroundColor: backgroundColorWhite,
+    backgroundColor: Colors.backgroundColorWhite,
     borderRadius: 40,
     height: 44,
     justifyContent: 'center',
     width: 44
   },
   container: {
-    backgroundColor: backgroundColorMain,
+    backgroundColor: Colors.backgroundColorMain,
     height: '100%',
     paddingHorizontal: 20,
     width: '100%'
@@ -155,7 +154,7 @@ const styles = StyleSheet.create({
   },
   googleSignInButton: {
     alignItems: 'center',
-    backgroundColor: backgroundColorWhite,
+    backgroundColor: Colors.backgroundColorWhite,
     borderRadius: 50,
     flexDirection: 'row',
     gap: 10,
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
   },
   signInButton: {
     alignItems: 'center',
-    backgroundColor: backgroundColorBlue,
+    backgroundColor: Colors.backgroundColorBlue,
     borderRadius: 50,
     marginTop: 30,
     padding: 16

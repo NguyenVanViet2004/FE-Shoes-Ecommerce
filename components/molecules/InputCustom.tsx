@@ -1,5 +1,7 @@
 import React from 'react'
-import { Input, type InputProps, XStack, YStack } from 'tamagui'
+import { Input, type InputProps, Text, XStack, YStack } from 'tamagui'
+
+import Colors from '~/constants/Colors'
 
 type props = {
   placeholder: string
@@ -10,7 +12,16 @@ type props = {
 
 const InputCustom: React.FC<props> = (props: props) => {
   return (
-    <YStack>
+    <YStack
+      gap={10}
+    >
+      <Text
+        fontSize={16}
+        fontWeight="500"
+        color={Colors.black}
+      >
+        {props.label}
+      </Text>
       <XStack
       >
         <Input

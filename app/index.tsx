@@ -1,23 +1,26 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { View } from 'tamagui'
 
-// import OnboardingTemplate from '~/components/templates/OnboardingTemplate'
+import OnboardingTemplate from '~/components/templates/OnboardingTemplate'
 import SplashTemplate from '~/components/templates/SplashTemplate'
 import useStorage from '~/hooks/useStorage'
 
 const index = (): JSX.Element => {
   const { getItem, setItem } = useStorage()
-  const [firstTime, setFirstTime] = useState(true)
-  const [loading, setLoading] = useState(true)
+  const [firstTime, setFirstTime] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
 
-  const FIRST_TIME_USE_APP = 'firstTimeUseApp'
+  const FIRST_TIME_USE_APP = 'FIRST-TIME-USE-APP'
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const checkFirstTime = async (): Promise<void> => {
       try {
         const user = await getItem(FIRST_TIME_USE_APP)
         if (user === undefined) {
-          setFirstTime(false)
+          setFirstTime(true)
+          setItem(FIRST_TIME_USE_APP, 'false').catch(e => {
+            console.log('Error set first time: ', e)
+          })
         }
       } catch (error) {
         console.log('Error check first time:', error)
@@ -33,29 +36,15 @@ const index = (): JSX.Element => {
 
   useLayoutEffect(() => {
     if (!loading && firstTime) {
-      console.log('move to Login')
+      console.log('move to Onboarding')
     }
   }, [loading])
 
   useLayoutEffect(() => {
     if (!loading && !firstTime) {
-      console.log('move to Onboarding')
+      console.log('move to Login')
     }
   }, [loading])
-
-  useEffect(() => {
-    const setUseApp = async (): Promise<void> => {
-      try {
-        await setItem(FIRST_TIME_USE_APP, 'true')
-      } catch (error) {
-        console.log('Error setting used app status:', error)
-      }
-    }
-
-    setUseApp().catch((error) => {
-      console.log('Error setUsedApp:', error)
-    })
-  }, [firstTime, setItem])
 
   if (loading) {
     return <SplashTemplate />
@@ -63,8 +52,8 @@ const index = (): JSX.Element => {
 
   return (
     <View flex={1}>
-      <SplashTemplate/>
-      {/* <OnboardingTemplate/> */}
+      {/* <SplashTemplate/> */}
+      <OnboardingTemplate/>
     </View>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useColorScheme } from 'react-native'
 import { Button, type ButtonProps } from 'tamagui'
 
 import getColors from '~/constants/Colors'
@@ -8,13 +9,13 @@ type Props = {
 } & ButtonProps
 
 export const ButtonCustom = (props: Props): React.ReactElement => {
-  const colors = getColors('dark')
+  const colors = getColors(useColorScheme())
   return (
     <Button
       {...props}
       fontWeight={'500'}
       fontSize={18}
-      color="white"
+      color={colors.textButton}
       backgroundColor={colors.cornflowerBlue}
       borderRadius={50}
 

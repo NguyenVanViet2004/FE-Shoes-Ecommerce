@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
-import { Animated, FlatList, StyleSheet, useWindowDimensions, type ViewToken } from 'react-native'
+import { Animated, FlatList, StyleSheet, useColorScheme, useWindowDimensions, type ViewToken } from 'react-native'
+import { RFPercentage } from 'react-native-responsive-fontsize'
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import { Image, Text, View } from 'tamagui'
 
 import { ButtonCustom } from '~/components/atoms/ButtonCustom'
@@ -11,9 +13,9 @@ import useTranslation from '~/hooks/useTranslation'
 const OnboardingTemplate = (): JSX.Element => {
   const { t } = useTranslation()
   const { width } = useWindowDimensions()
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState<number>(0)
   const scroolX = useRef(new Animated.Value(0)).current
-  const [buttonText, setButtonText] = useState('Get Started')
+  const [buttonText, setButtonText] = useState<string>('Get Started')
 
   const viewableItemsChanged = useRef(({ viewableItems }:
   { viewableItems: ViewToken[] }) => {
@@ -28,7 +30,7 @@ const OnboardingTemplate = (): JSX.Element => {
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
 
-  const slideRef = useRef<FlatList<any>>(null)
+  const slideRef = useRef<FlatList<number>>(null)
 
   const data = [
     {
@@ -52,31 +54,31 @@ const OnboardingTemplate = (): JSX.Element => {
   ]
 
   const OnboardingItem = ({ item }: any): any => {
-    const colorlight = getColors('light')
     return (
       <View style={[styles.containerItem, { width }]}>
         <View flex={3}>
           <View alignItems="center">
             <Text
-              color={colorlight.lightGray}
-              marginTop="32%"
-              fontSize={154}
+              color={colors.lightGray}
+              marginTop={hp('17%')}
+              fontSize={RFPercentage(22)}
               style={styles.nikeText}>
               NIKE
             </Text>
           </View>
           <Image
+            marginTop={hp('14%')}
             source={item.img}
-            style={styles.image}
           />
         </View>
         <View flexDirection="row" marginLeft={20} flex={1.5}>
           <ContentOnboarding flex={4} title={item.title} des={item.des} />
           <View flex={0.5}></View>
         </View>
-        <Dot marginTop={'96%'} right={40} />
-        <Dot marginTop={'34%'} marginLeft={47} />
-        <Dot marginTop={'109%'} marginLeft={20} />
+        <Dot style={{ marginTop: hp('50%'), right: wp('10%') }} />
+        <Dot style={{ marginLeft: wp('15%'), marginTop: hp('15%') }} />
+        <Dot style={{ marginLeft: wp('9%'), marginTop: hp('55%') }} />
+
       </View>
     )
   }
@@ -125,13 +127,11 @@ const OnboardingTemplate = (): JSX.Element => {
       slideRef
         .current
         .scrollToIndex({ animated: true, index: currentIndex + 1 })
-    } else {
-      console.log('Last item')
     }
   }
-  const colors = getColors('dark')
+  const colors = getColors(useColorScheme())
   return (
-    <View backgroundColor={colors.tint} flex={1}>
+    <View backgroundColor={colors.background} flex={1}>
       <View flex={3}>
         <FlatList
           data={data}
@@ -175,9 +175,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 41,
     marginHorizontal: 20
-  },
-  image: {
-    marginTop: '30%'
   },
   nikeText: {
     fontWeight: 'bold',

@@ -123,6 +123,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   )
 }
 
+
+
 export default AppHeader
 
 const styles = StyleSheet.create({
@@ -150,3 +152,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16
   }
 })
+
+
+

@@ -1,5 +1,6 @@
 import { AntDesign, Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Image, Text } from 'tamagui'
 
@@ -11,6 +12,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const [showPass, setShowPass] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+
+  const { t } = useTranslation()
 
   useEffect((): void => {
     console.log(email)
@@ -31,10 +34,10 @@ const SignInTemplate: React.FC = (): JSX.Element => {
 
       <View style={styles.header}>
         <Text fontSize={28} fontWeight="500" color={Colors.black}>
-          Hello Again!
+          {t('Hello Again')}
         </Text>
         <Text fontSize={16} fontWeight="400" color={Colors.textGray}>
-          Welcome Back You’ve Been Missed!
+          {t('Welcome Back You’ve Been Missed!')}
         </Text>
       </View>
 
@@ -42,8 +45,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
 
         <View style={styles.inputGroup}>
           <InputCustom
-            label="Email Address"
-            placeholder="Enter email"
+            label={t('Email Address')}
+            placeholder={t('Enter email')}
             onChangeText={text => { setEmail(text) }}
           />
         </View>
@@ -51,7 +54,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
         <View style={styles.inputGroup}>
           <View style={styles.passwordInputContainer}>
             <InputCustom
-              label="Password"
+              label={t('Password')}
               placeholder="***********"
               secureTextEntry={showPass}
               onChangeText={text => { setPassword(text) }}
@@ -80,14 +83,14 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           color={Colors.textGray}
           marginTop={10}
         >
-          Recovery Password
+          {t('Recovery Password')}
         </Text>
       </TouchableOpacity>
 
       <View>
         <TouchableOpacity style={styles.signInButton}>
           <Text color="#FFF" fontSize={18} fontWeight="500">
-            Sign In
+            {t('Sign In')}
           </Text>
         </TouchableOpacity>
 
@@ -97,7 +100,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
             color={Colors.black}
             fontSize={18}
             fontWeight="500">
-            Sign in with google
+            {t('Sign in with google')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -109,14 +112,14 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           textAlign="center"
           fontWeight="400"
         >
-          Don’t have an account?
+          {t('Don’t have an account?')}
         </Text>
         <TouchableOpacity>
           <Text
             fontSize={12}
             fontWeight="bold"
             color={Colors.black}>
-            Sign Up for free
+            {t('Sign Up for free')}
           </Text>
         </TouchableOpacity>
       </View>

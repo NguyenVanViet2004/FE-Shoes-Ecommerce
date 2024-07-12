@@ -26,7 +26,7 @@ const Colors = {
 
   black: '#000',
 
-  black: '#112233',
+
 
   blue: '#0984FF',
 
@@ -48,11 +48,11 @@ const Colors = {
 
   gray: '#CCCCCC',
 
-  gray: '#A0AEC0',
+
 
   green: '#60c5a8',
 
-  green: '#19c5a8',
+
 
   green2: '#039a83',
 
@@ -60,7 +60,6 @@ const Colors = {
 
   light: '#EEEEEE',
 
-  light: '#fcfcfc',
 
   lightGreen: '#aaffaa',
 
@@ -87,14 +86,14 @@ const Colors = {
   purple: '#8f06e4',
   purpleAlpha: 'rgba(146, 6, 228, 0.15)',
   red: '#ff2f68',
-  red: '#E66155',
+
   redAlpha: 'rgba(255, 84, 84, 0.15)',
   skyBlue: 'skyblue',
   steelBlue: 'steelblue',
   white: 'white',
-  white: 'white',
+
   yellow: '#f8c907',
-  yellow: '#FEC10B'
+
 }
 
 export default Colors

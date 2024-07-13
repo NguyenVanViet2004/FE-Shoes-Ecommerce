@@ -12,6 +12,7 @@ const OderScreen = (): any => {
     </SafeAreaView>
   )
 }
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

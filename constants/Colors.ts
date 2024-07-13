@@ -4,6 +4,7 @@ const tintColorDark = '#fff'
 const colors = {
   dark: {
     background: '#000',
+    backgroundApp: '#fff',
     cornflowerBlue: '#5B9EE1',
     lightGray: '#F2F2F2',
     midnightBlue: '#1A2530',
@@ -16,6 +17,7 @@ const colors = {
   },
   light: {
     background: '#fff',
+    backgroundApp: '#fff',
     cornflowerBlue: '#5B9EE1',
     lightGray: '#F2F2F2',
     midnightBlue: '#1A2530',

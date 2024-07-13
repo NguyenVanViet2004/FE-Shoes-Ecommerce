@@ -16,8 +16,8 @@ const index = (): JSX.Element => {
       try {
         const user = await getItem(FIRST_TIME_USE_APP)
         if (user === undefined) {
-          setFirstTime(false)
-          setItem(FIRST_TIME_USE_APP, 'true').catch(e => {
+          setFirstTime(true)
+          setItem(FIRST_TIME_USE_APP, 'false').catch(e => {
             console.log(e)
           })
         }

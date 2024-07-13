@@ -18,7 +18,7 @@ const index = (): JSX.Element => {
         if (user === undefined) {
           setFirstTime(true)
           setItem(FIRST_TIME_USE_APP, 'false').catch(e => {
-            console.log(e)
+            console.log('Error set first time: ', e)
           })
         }
       } catch (error) {

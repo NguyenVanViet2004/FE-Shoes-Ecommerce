@@ -1,6 +1,8 @@
 import { type ColorSchemeName } from 'react-native'
+
 const tintColorLight = '#2f95dc'
 const tintColorDark = '#fff'
+
 const colors = {
   dark: {
     background: '#000',
@@ -33,4 +35,5 @@ const colors = {
 const getColors = (colorScheme: ColorSchemeName): any => {
   return colorScheme === 'dark' ? colors.dark : colors.light
 }
+
 export default getColors

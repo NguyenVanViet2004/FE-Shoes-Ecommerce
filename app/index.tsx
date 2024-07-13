@@ -1,3 +1,5 @@
+import { useRouter } from 'expo-router'
+import { type ExpoRouter } from 'expo-router/types/expo-router'
 import { isNil } from 'lodash'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { Spinner } from 'tamagui'
@@ -9,6 +11,7 @@ const index = (): JSX.Element => {
   const { getItem, setItem } = useStorage()
   const [firstTime, setFirstTime] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const router = useRouter()
 
   const FIRST_TIME_USE_APP = 'FIRST-TIME-USE-APP'
 
@@ -31,13 +34,7 @@ const index = (): JSX.Element => {
 
   useLayoutEffect(() => {
     if (!isLoading && !firstTime) {
-      console.log('move to Login')
-    }
-  }, [isLoading])
-
-  useLayoutEffect(() => {
-    if (!isLoading && !firstTime) {
-      console.log('move to Login')
+      router.replace('/(tabs)' as ExpoRouter.Href)
     }
   }, [isLoading])
 

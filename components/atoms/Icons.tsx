@@ -28,28 +28,29 @@ export const Icons = {
   Octicons,
   SimpleLineIcons
 }
-
+type IntrinsicAttributes = /*unresolved*/ any
 export interface IconProps {
-  type: Function
-  name: string
-  color?: string
-  size?: number
-  style?: StyleProp<ViewStyle>
+  type: IntrinsicAttributes & IconProps;
+  name: string;
+  color?: string;
+  size?: number;
+  style?: StyleProp<ViewStyle>;
 }
 
 const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
-  const fontSize = 24
-  const Tag = type
+  const Tag = type;
   return (
     <>
       {type && name && (
-        <Tag name={name}
-          size={size || fontSize}
+        <Tag
+          name={name}
+          size={size}
           color={color}
-          style={style} />
+          style={style}
+        />
       )}
     </>
-  )
-}
+  );
+};
 
 export default Icon

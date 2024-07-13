@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react'
 import { Animated, FlatList, StyleSheet, useColorScheme, useWindowDimensions, type ViewToken } from 'react-native'
-import { Image, Text, View } from 'tamagui'
+import { View } from 'tamagui'
 
-import Dot from '~/components/atoms/Dot'
 import { PositiveButton } from '~/components/atoms/PositiveButton'
-import { ContentOnboarding } from '~/components/molecules/ContentOnboarding'
 import getColors from '~/constants/Colors'
 import dataOnboarding from '~/constants/DataOnboarding'
 import useTranslation from '~/hooks/useTranslation'
 
+import { OnboardingItem } from '../molecules/OnboardingItem'
+
 const OnboardingTemplate = (): JSX.Element => {
   const { t } = useTranslation()
-  const { width, height } = useWindowDimensions()
+  const { width } = useWindowDimensions()
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const scrollX = useRef(new Animated.Value(0)).current
   const [buttonText, setButtonText] = useState<string>('Get Started')
@@ -30,36 +30,6 @@ const OnboardingTemplate = (): JSX.Element => {
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
 
   const slideRef = useRef<FlatList<number>>(null)
-
-  const OnboardingItem = ({ item }: any): any => {
-    const colorlight = getColors(useColorScheme())
-    return (
-      <View style={[styles.containerItem, { width }]}>
-        <View flex={3} alignItems="center" justifyContent="center">
-          <View alignItems="center">
-            <Text
-              color={colorlight.lightGray}
-              marginTop={height * 0.10}
-              fontSize={154}
-              style={styles.nikeText}>
-              NIKE
-            </Text>
-          </View>
-          <Image
-            marginTop={height * 0.08}
-            source={item.img}
-          />
-        </View>
-        <View flexDirection="row" marginLeft={20} flex={1.5}>
-          <ContentOnboarding flex={4} title={item.title} des={item.des} />
-          <View flex={0.5}></View>
-        </View>
-        <Dot position="absolute" top={'53%'} right={40}/>
-        <Dot position="absolute" top= {'20%'} left= {47}/>
-        <Dot position="absolute" top= {'60%'} left= {20}/>
-      </View>
-    )
-  }
 
   const Paginator = (data: any): any => {
     return (
@@ -139,9 +109,6 @@ const OnboardingTemplate = (): JSX.Element => {
 export default OnboardingTemplate
 
 const styles = StyleSheet.create({
-  containerItem: {
-    flex: 1
-  },
   dot: {
     borderRadius: 16,
     height: 5,
@@ -153,9 +120,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 41,
     marginHorizontal: 20
-  },
-  nikeText: {
-    fontWeight: 'bold',
-    position: 'absolute'
   }
 })

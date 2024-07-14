@@ -8,7 +8,6 @@ interface ButtonCustomProps {
   textColor?: string
   backgroundColor?: string
   icon?: JSX.Element
-
 }
 const ButtonCustom: React.FC<ButtonCustomProps> = (
   {
@@ -43,7 +42,6 @@ const ButtonCustom: React.FC<ButtonCustomProps> = (
     </YStack>
   )
 }
-
 const styles = StyleSheet.create({
   customButton: {
     alignItems: 'center',

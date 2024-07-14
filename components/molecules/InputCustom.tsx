@@ -1,8 +1,8 @@
 import React from 'react'
+import { useColorScheme } from 'react-native'
 import { Input, type InputProps, Text, XStack, YStack } from 'tamagui'
 
-import Colors from '~/constants/Colors'
-
+import getColors from '~/constants/Colors'
 type props = {
   placeholder: string
   label: string
@@ -11,6 +11,7 @@ type props = {
 } & InputProps
 
 const InputCustom: React.FC<props> = (props: props) => {
+  const colors = getColors(useColorScheme())
   return (
     <YStack
       gap={10}
@@ -18,7 +19,7 @@ const InputCustom: React.FC<props> = (props: props) => {
       <Text
         fontSize={16}
         fontWeight="500"
-        color={Colors.black}
+        color={colors.midnightBlue}
       >
         {props.label}
       </Text>
@@ -34,12 +35,10 @@ const InputCustom: React.FC<props> = (props: props) => {
           width={'100%'}
           borderWidth={0}
           color={'black'}
-
         />
         {
           props.icon
         }
-
       </XStack>
     </YStack>
 

@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
+      "~/*": [
+        "./*"
+      ],
     },
     "strict": true,
     "resolveJsonModule": true,
@@ -13,6 +15,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "jest.setup.js"  ]
+    "expo-env.d.ts",
+    "jest.setup.js"
+  ]
 }

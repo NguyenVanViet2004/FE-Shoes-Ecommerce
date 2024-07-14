@@ -15,7 +15,7 @@ export const PositiveButton = (props: Props): React.ReactElement => {
       {...props}
       fontWeight={'500'}
       fontSize={18}
-      color={colors.textButton}
+      color={colors.white}
       backgroundColor={colors.cornflowerBlue}
       borderRadius={50}
 

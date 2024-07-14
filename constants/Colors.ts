@@ -13,8 +13,8 @@ const colors = {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
     text: '#fff',
-    textButton: 'white',
-    tint: tintColorDark
+    tint: tintColorDark,
+    white: '#FFFFFF'
   },
   light: {
     background: '#fff',
@@ -26,8 +26,8 @@ const colors = {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
     text: '#000',
-    textButton: 'white',
-    tint: tintColorLight
+    tint: tintColorLight,
+    white: '#FFFFFF'
   }
 }
 

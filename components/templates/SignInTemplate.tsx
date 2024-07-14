@@ -1,8 +1,10 @@
 import { Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, StyleSheet, TouchableOpacity, useColorScheme, View } from 'react-native'
 import { Image, Text } from 'tamagui'
-import Colors from '~/constants/Colors'
+
+import getColors from '~/constants/Colors'
+
 import BackCustom from '../molecules/BackCustom'
 import ButtonCustom from '../molecules/ButtonCustom'
 import InputCustom from '../molecules/InputCustom'
@@ -12,9 +14,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const [showPass, setShowPass] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-
   const { t } = useTranslation()
-
+  const colors = getColors(useColorScheme())
   useEffect((): void => {
     console.log(email)
     console.log(password)
@@ -37,21 +38,20 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.lightSilver }]}
+    >
       <BackCustom onPress={handleBack} />
-      
       <View style={styles.header}>
-        <Text fontSize={28} fontWeight="500" color={Colors.black}>
+        <Text fontSize={28} fontWeight="500" color={colors.midnightBlue}>
           {t('Hello Again')}
         </Text>
-        <Text fontSize={16} fontWeight="400" color={Colors.textGray}>
+        <Text fontSize={16} fontWeight="400" color={colors.slateGray}>
           {t('Welcome Back You’ve Been Missed!')}
         </Text>
       </View>
 
       <View style={styles.form}>
-
         <View style={styles.inputGroup}>
           <InputCustom
             label={t('Email Address')}
@@ -59,7 +59,6 @@ const SignInTemplate: React.FC = (): JSX.Element => {
             onChangeText={text => { setEmail(text) }}
           />
         </View>
-
         <View style={styles.inputGroup}>
           <View style={styles.passwordInputContainer}>
             <InputCustom
@@ -74,8 +73,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
                 >
                   {
                     showPass
-                      ? (<Feather name="eye"size={24}color={Colors.black}/>)
-                      : (<Feather name="eye-off"size={24}color={Colors.black}/>)
+                      ? (<Feather name="eye"size={24}color={colors.black}/>)
+                      : (<Feather name="eye-off"size={24}color={colors.black}/>)
                   }
                 </TouchableOpacity>
               }
@@ -89,37 +88,31 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           fontWeight="400"
           fontSize={13}
           textAlign="right"
-          color={Colors.textGray}
+          color={colors.slateGray}
           marginTop={10}
         >
           {t('Recovery Password')}
         </Text>
       </TouchableOpacity>
-
-
       <View>
-
         <ButtonCustom
           onPress={handleSignIn}
           buttonText={t('Sign In')}
-          backgroundColor={Colors.backgroundColorBlue}
-          textColor={Colors.backgroundColorWhite}
+          backgroundColor={colors.cornflowerBlue}
+          textColor={colors.white}
         />
-
         <ButtonCustom
           onPress={handleSignInByGoogle}
           buttonText={t('Sign in with google')}
-          backgroundColor={Colors.backgroundColorWhite}
-          textColor={Colors.black}
+          backgroundColor={colors.white}
+          textColor={colors.midnightBlue}
           icon={<Image src={require('../../assets/images/icon_google.png')} />}
         />
-
       </View>
-
       <View style={styles.footer}>
         <Text
           fontSize={12}
-          color={Colors.textGray}
+          color={colors.slateGray}
           textAlign="center"
           fontWeight="400"
         >
@@ -129,7 +122,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           <Text
             fontSize={12}
             fontWeight="bold"
-            color={Colors.black}>
+            color={colors.midnightBlue}>
             {t('Sign Up for free')}
           </Text>
         </TouchableOpacity>
@@ -137,10 +130,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
     </SafeAreaView>
   )
 }
-
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.backgroundColorMain,
     height: '100%',
     paddingHorizontal: 20,
     width: '100%'

@@ -3,11 +3,10 @@ import { Animated, FlatList, StyleSheet, useColorScheme, useWindowDimensions, ty
 import { View } from 'tamagui'
 
 import { PositiveButton } from '~/components/atoms/PositiveButton'
+import { OnboardingItem } from '~/components/molecules/OnboardingItem'
 import getColors from '~/constants/Colors'
 import dataOnboarding from '~/constants/DataOnboarding'
 import useTranslation from '~/hooks/useTranslation'
-
-import { OnboardingItem } from '../molecules/OnboardingItem'
 
 const OnboardingTemplate = (): JSX.Element => {
   const { t } = useTranslation()

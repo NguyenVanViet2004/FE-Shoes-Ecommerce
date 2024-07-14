@@ -2,7 +2,11 @@ import { type ColorSchemeName } from 'react-native'
 const tintColorLight = '#2f95dc'
 const tintColorDark = '#fff'
 
+
 const colors = {
+
+ 
+
   dark: {
     background: '#000',
     backgroundApp: '#fff',
@@ -14,7 +18,13 @@ const colors = {
     tabIconSelected: tintColorDark,
     text: '#fff',
     tint: tintColorDark,
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+
+    Blue: '#5B9EE1',
+    Main: '#F8F9FA',
+    White: '#FFF',
+    black: '#1A2530',
+    Gray: '#707B81',
   },
   light: {
     background: '#fff',
@@ -27,8 +37,16 @@ const colors = {
     tabIconSelected: tintColorLight,
     text: '#000',
     tint: tintColorLight,
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+
+    Blue: '#5B9EE1',
+    Main: '#F8F9FA',
+    White: '#FFF',
+    black: '#1A2530',
+    textGray: '#707B81',
   }
+
+
 }
 
 const getColors = (colorScheme: ColorSchemeName): any => {

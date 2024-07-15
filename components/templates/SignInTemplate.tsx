@@ -2,13 +2,11 @@ import { Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, useColorScheme, View } from 'react-native'
 import { Image, Text } from 'tamagui'
-
 import getColors from '~/constants/Colors'
-
-import BackCustom from '../molecules/BackCustom'
-import ButtonCustom from '../molecules/ButtonCustom'
+import { AntDesign } from '@expo/vector-icons'
 import InputCustom from '../molecules/InputCustom'
 import useTranslation from './../../hooks/useTranslation'
+import { PositiveButton } from '../atoms/PositiveButton'
 
 const SignInTemplate: React.FC = (): JSX.Element => {
   const [showPass, setShowPass] = useState<boolean>(true)
@@ -26,22 +24,25 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   }
 
   const handleBack = (): void => {
-
   }
-
   const handleSignIn = (): void => {
-    
   }
-
   const handleSignInByGoogle = (): void => {
-    
   }
 
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors.lightSilver }]}
     >
-      <BackCustom onPress={handleBack} />
+      <PositiveButton
+        icon={<AntDesign name="left" size={18} color={colors.black} />}
+        width={44}
+        height={44}
+        marginTop={60}
+        padding={0}
+        backgroundColor={colors.white}
+        onPress={handleBack}
+      />
       <View style={styles.header}>
         <Text fontSize={28} fontWeight="500" color={colors.midnightBlue}>
           {t('Hello Again')}
@@ -73,8 +74,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
                 >
                   {
                     showPass
-                      ? (<Feather name="eye"size={24}color={colors.black}/>)
-                      : (<Feather name="eye-off"size={24}color={colors.black}/>)
+                      ? (<Feather name="eye" size={24} color={colors.black} />)
+                      : (<Feather name="eye-off" size={24} color={colors.black} />)
                   }
                 </TouchableOpacity>
               }
@@ -95,18 +96,23 @@ const SignInTemplate: React.FC = (): JSX.Element => {
         </Text>
       </TouchableOpacity>
       <View>
-        <ButtonCustom
+        <PositiveButton
           onPress={handleSignIn}
-          buttonText={t('Sign In')}
+          title={t('Sign In')}
+          color={colors.white}
+          height={54}
           backgroundColor={colors.cornflowerBlue}
-          textColor={colors.white}
+          marginTop={30}
+
         />
-        <ButtonCustom
+        <PositiveButton
           onPress={handleSignInByGoogle}
-          buttonText={t('Sign in with google')}
+          title={t('Sign in with google')}
           backgroundColor={colors.white}
-          textColor={colors.midnightBlue}
-          icon={<Image src={require('../../assets/images/icon_google.png')} />}
+          color={colors.midnightBlue}
+          marginTop={30}
+          height={54}
+          icon={<Image src={require('~/assets/images/icon_google.png')} />}
         />
       </View>
       <View style={styles.footer}>

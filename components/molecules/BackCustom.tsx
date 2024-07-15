@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native'
-import { XStack, YStack } from 'tamagui'
+import { useColorScheme } from 'react-native'
+import { Button, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -16,25 +16,20 @@ const BackCustom: React.FC<BackCustomProps> = ({ onPress }) => {
       marginTop={60}
     >
       <XStack>
-        <TouchableOpacity
-          style={[styles.buttonBack, { backgroundColor: colors.white }]}
+        <Button
+          padding={0}
+          width={44}
+          height={44}
+          borderRadius={40}
+          backgroundColor={colors.white}
+          borderWidth={0}
           onPress={onPress}
         >
           <AntDesign name="left" size={18} color={colors.black} />
-        </TouchableOpacity>
+        </Button>
       </XStack>
     </YStack>
   )
 }
-const styles = StyleSheet.create({
-  buttonBack: {
-    alignItems: 'center',
-
-    borderRadius: 40,
-    height: 44,
-    justifyContent: 'center',
-    width: 44
-  }
-})
 
 export default BackCustom

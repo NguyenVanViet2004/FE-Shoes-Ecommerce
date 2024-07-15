@@ -1,12 +1,13 @@
-import { Feather } from '@expo/vector-icons'
+import { AntDesign, Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, useColorScheme, View } from 'react-native'
 import { Image, Text } from 'tamagui'
+
 import getColors from '~/constants/Colors'
-import { AntDesign } from '@expo/vector-icons'
+
+import { PositiveButton } from '../atoms/PositiveButton'
 import InputCustom from '../molecules/InputCustom'
 import useTranslation from './../../hooks/useTranslation'
-import { PositiveButton } from '../atoms/PositiveButton'
 
 const SignInTemplate: React.FC = (): JSX.Element => {
   const [showPass, setShowPass] = useState<boolean>(true)
@@ -74,8 +75,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
                 >
                   {
                     showPass
-                      ? (<Feather name="eye" size={24} color={colors.black} />)
-                      : (<Feather name="eye-off" size={24} color={colors.black} />)
+                      ? (<Feather name="eye"size={24}color={colors.black}/>)
+                      : (<Feather name="eye-off"size={24}color={colors.black}/>)
                   }
                 </TouchableOpacity>
               }

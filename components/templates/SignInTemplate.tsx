@@ -26,15 +26,15 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   }
 
   const handleBack = (): void => {
-    console.log('Click to back')
+
   }
 
   const handleSignIn = (): void => {
-    console.log('Click Signin')
+    
   }
 
   const handleSignInByGoogle = (): void => {
-    console.log('Click signin by google')
+    
   }
 
   return (

@@ -1,24 +1,20 @@
 import React from 'react'
-import { useColorScheme } from 'react-native'
 import { Button, type ButtonProps } from 'tamagui'
-
-import getColors from '~/constants/Colors'
-
 type Props = {
-  title: string
+  title?: string
+  icon?: JSX.Element
 } & ButtonProps
-
 export const PositiveButton = (props: Props): React.ReactElement => {
-  const colors = getColors(useColorScheme())
   return (
     <Button
       {...props}
       fontWeight={'500'}
       fontSize={18}
-      color={colors.white}
-      backgroundColor={colors.cornflowerBlue}
+      borderWidth={0}
       borderRadius={50}
-
-    >{props.title}</Button>
+      icon={props.icon}
+    >
+      {props.title}
+    </Button>
   )
 }

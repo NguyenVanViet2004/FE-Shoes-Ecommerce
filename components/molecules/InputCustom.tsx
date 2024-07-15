@@ -30,11 +30,12 @@ const InputCustom: React.FC<props> = (props: props) => {
           paddingHorizontal={16}
           borderRadius={50}
           height={48}
-          backgroundColor={'#FFF'}
+          backgroundColor={colors.white}
           alignItems="center"
           width={'100%'}
+          color={colors.black}
           borderWidth={0}
-          color={'black'}
+
         />
         {
           props.icon

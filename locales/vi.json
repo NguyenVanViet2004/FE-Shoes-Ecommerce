@@ -1,4 +1,14 @@
 {
-    "next":"Tiếp",
-    "getStarted":"Bắt đầu"
+    "next": "Tiếp",
+    "getStarted": "Bắt đầu",
+    "helloAgain": "Xin chào trở lại",
+    "welcomeBackYouveBeenMissed": "Chào mừng trở lại! Chúng tôi đã nhớ bạn!",
+    "emailAddress": "Địa chỉ email",
+    "enterEmail": "Nhập email",
+    "password": "Mật khẩu",
+    "recoveryPassword": "Quên mật khẩu",
+    "signIn": "Đăng nhập",
+    "signInWithGoogle": "Đăng nhập bằng google",
+    "dontHaveAnAccount": "Bạn chưa có tài khoản?",
+    "signUpForFree": "Đăng ký miễn phí"
 }

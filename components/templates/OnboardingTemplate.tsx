@@ -98,7 +98,9 @@ const OnboardingTemplate = (): JSX.Element => {
       </View>
       <View style={styles.footer}>
         {Paginator(dataOnboarding)}
-        <PositiveButton paddingHorizontal={32} title={buttonText}
+        <PositiveButton
+          paddingHorizontal={32}
+          title={buttonText}
           onPress={() => { scrollToNext() }} />
       </View>
     </View>

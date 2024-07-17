@@ -1,3 +1,7 @@
+import {
+  type BottomTabBarButtonProps,
+  createBottomTabNavigator
+} from '@react-navigation/bottom-tabs'
 import React, { useEffect, useRef } from 'react'
 import {
   SafeAreaView,
@@ -5,18 +9,15 @@ import {
   useColorScheme,
   View
 } from 'react-native'
-import {
-  type BottomTabBarButtonProps,
-  createBottomTabNavigator
-} from '@react-navigation/bottom-tabs'
 import * as Animatable from 'react-native-animatable'
+
 import getColors from '~/constants/Colors'
 import Icon, { Icons } from '~/components/atoms/Icons'
-import AccountScreen from '~/components/template/AccountScreen'
-import Favourite from '~/components/template/FavouriteScreen'
-import HomeScreen from '~/components/template/HomeScreen'
-import NotificationScreen from '~/components/template/NotificationScreen'
-import OderScreen from '~/components/template/OderScreen'
+import AccountScreen from '~/components/templates/AccountScreen'
+import Favourite from '~/components/templates/FavouriteScreen'
+import HomeScreen from '~/components/templates/HomeScreen'
+import NotificationScreen from '~/components/templates/NotificationScreen'
+import OderScreen from '~/components/templates/OderScreen'
 import { Button } from 'tamagui'
 
 interface TabItem {
@@ -52,7 +53,7 @@ const TabArr: TabItem[] = [
   {
     component: NotificationScreen,
     icon: 'notifications-none',
-    label: 'Notifications',
+    label: 'Notify',
     route: 'Notifications',
     type: Icons.MaterialIcons
   },
@@ -188,6 +189,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+    borderRadius: 0,
     flex: 1,
     height: 70,
     justifyContent: 'center'
@@ -196,13 +198,12 @@ const styles = StyleSheet.create({
     flex: 1
   },
   tabBar: {
-    borderRadius: 16,
     height: 70,
     margin: 16,
     position: 'absolute'
   },
   text: {
-    color: colors.primary,
+    color: colors.black,
     fontSize: 10,
     fontWeight: '500',
     textAlign: 'center'

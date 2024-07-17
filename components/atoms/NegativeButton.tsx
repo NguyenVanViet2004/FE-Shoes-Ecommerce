@@ -5,6 +5,7 @@ type Props = {
   title?: string
   icon?: JSX.Element
 } & ButtonProps
+
 export const NegativeButton = (props: Props): React.ReactElement => {
   return (
     <Button
@@ -13,8 +14,8 @@ export const NegativeButton = (props: Props): React.ReactElement => {
       fontSize={18}
       borderWidth={0}
       borderRadius={50}
-      icon={props.icon}
-    >
+      icon={props.icon}>
+
       {props.title}
     </Button>
   )

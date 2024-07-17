@@ -6,7 +6,7 @@ import getColors from '~/constants/Colors'
 
 interface Props {
   title: string
-  subtitle: string
+  subtitle?: string
 }
 
 const FooterComponent: React.FC<Props> = ({ title, subtitle }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useColorScheme, type ViewStyle } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView, useColorScheme, type ViewStyle } from 'react-native'
+
 import getColors from '~/constants/Colors'
 
 interface Props {

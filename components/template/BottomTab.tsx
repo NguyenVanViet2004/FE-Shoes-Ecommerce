@@ -1,17 +1,15 @@
-import {
-  type BottomTabBarButtonProps,
-  createBottomTabNavigator
-} from '@react-navigation/bottom-tabs'
 import React, { useEffect, useRef } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
-  TouchableOpacity,
   useColorScheme,
   View
 } from 'react-native'
+import {
+  type BottomTabBarButtonProps,
+  createBottomTabNavigator
+} from '@react-navigation/bottom-tabs'
 import * as Animatable from 'react-native-animatable'
-
 import getColors from '~/constants/Colors'
 import Icon, { Icons } from '~/components/atoms/Icons'
 import AccountScreen from '~/components/template/AccountScreen'
@@ -19,6 +17,7 @@ import Favourite from '~/components/template/FavouriteScreen'
 import HomeScreen from '~/components/template/HomeScreen'
 import NotificationScreen from '~/components/template/NotificationScreen'
 import OderScreen from '~/components/template/OderScreen'
+import { Button } from 'tamagui'
 
 interface TabItem {
   route: string
@@ -100,8 +99,6 @@ const TabButton: React.FC<TabButtonProps> =
     const viewRef = useRef<any>(null)
     const circleRef = useRef<any>(null)
     const textRef = useRef<any>(null)
-    const isDarkMode = getColors(useColorScheme())
-    const color = isDarkMode ? colors.white : colors.black
     const bgColor = colors.background
 
     useEffect(() => {
@@ -117,9 +114,8 @@ const TabButton: React.FC<TabButtonProps> =
     }, [focused])
 
     return (
-      <TouchableOpacity
+      <Button
         onPress={onPress}
-        activeOpacity={1}
         style={styles.container}>
         <Animatable.View
           ref={viewRef}
@@ -138,15 +134,13 @@ const TabButton: React.FC<TabButtonProps> =
           </View>
           <Animatable.Text
             ref={textRef}
-            style={[styles.text, { color }]}>
+            style={styles.text}>
             {item.label}
           </Animatable.Text>
         </Animatable.View>
-      </TouchableOpacity>
+      </Button>
     )
   }
-
-
 
 const BottomTabBar: React.FC = () => {
   return (

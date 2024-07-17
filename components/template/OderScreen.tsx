@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 import { Text } from 'tamagui'
-const OderScreen = (): any => {
+const OderScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text

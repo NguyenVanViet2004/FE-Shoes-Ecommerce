@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 import { Text } from 'tamagui'
-const AccountScreen = (): any => {
+const AccountScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text

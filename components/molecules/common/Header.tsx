@@ -1,8 +1,8 @@
-import { isNumber } from 'lodash'
+import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
 import { Image, Text, XStack, YStack } from 'tamagui'
-import SafeArea from '~/components/atoms/SafeArea'
+
 import getColors from '~/constants/Colors'
 
 interface props {
@@ -22,39 +22,39 @@ const Header: React.FC<props> = ({ iconLeft, iconRight, title, subtitle }) => {
   }
 
   return (
-    <SafeArea>
-      <YStack>
-        <XStack>
-          {iconLeft !== undefined && renderIcon(iconLeft)}
-          {iconRight !== undefined && renderIcon(iconRight)}
-        </XStack>
-        <XStack
-          justifyContent="center"
-        >
+
+    <YStack marginTop={60}>
+      <XStack>
+
+        {!isNil(iconLeft) && renderIcon(iconLeft)}
+        <XStack flex={1}>
+
           <YStack
             alignItems="center"
-            marginTop={30}
-            gap={10}
-          >
+            marginTop={80}
+            gap={10}>
+
             <Text
               fontSize={28}
-              fontWeight="500"
-              color={colors.midnightBlue}
-            >
+              fontWeight="bold"
+              color={colors.midnightBlue}>
               {title}
             </Text>
+
             <Text
               fontSize={16}
-              fontWeight="400"
-              color={colors.slateGray}
-            >
+              fontWeight="500"
+              color={colors.slateGray}>
               {subtitle}
             </Text>
-          </YStack>
-        </XStack>
 
-      </YStack>
-    </SafeArea>
+          </YStack>
+
+        </XStack>
+        {!isNil(iconRight) && renderIcon(iconRight)}
+      </XStack>
+
+    </YStack>
   )
 }
 export default Header

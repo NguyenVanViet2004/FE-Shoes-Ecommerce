@@ -10,18 +10,29 @@ import InputForm from '~/components/molecules/InputForm'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
+
+
 const SignInTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
 
   const handleBack = (): void => {
   }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingHorizontal: 20,
+      backgroundColor: colors.lightSilver
+    }
+  })
+
   return (
     <SafeArea style={styles.container}>
       <Header
-        title={t('helloAgain')}
-        subtitle={t('welcomeBackYouveBeenMissed')}
-        iconLeft={
+        title={t('SignIn.helloAgain')}
+        subtitle={t('SignIn.welcomeBackYouveBeenMissed')}
+        leftIcon={
           <NegativeButton
             icon={<AntDesign name="left" size={18} color={colors.black} />}
             width={44}
@@ -34,17 +45,10 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       <InputForm />
 
       <FooterComponent
-        title={t('dontHaveAnAccount')}
-        subtitle={t('signUpForFree')} />
+        title={t('SignIn.dontHaveAnAccount')}
+        subtitle={t('SignIn.signUpForFree')} />
 
     </SafeArea>
   )
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20
-  }
-})
-
 export default SignInTemplate

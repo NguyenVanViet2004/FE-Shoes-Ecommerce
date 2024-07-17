@@ -6,13 +6,13 @@ import { Image, Text, XStack, YStack } from 'tamagui'
 import getColors from '~/constants/Colors'
 
 interface props {
-  iconLeft?: number | React.ReactElement
-  iconRight?: number | React.ReactElement
+  leftIcon?: number | React.ReactElement
+  rightIcon?: number | React.ReactElement
   title: string
   subtitle?: string
 }
 
-const Header: React.FC<props> = ({ iconLeft, iconRight, title, subtitle }) => {
+const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
   const colors = getColors(useColorScheme())
   const renderIcon = (icon: number | ReactElement): React.ReactElement => {
     if (isNumber(icon)) {
@@ -26,7 +26,7 @@ const Header: React.FC<props> = ({ iconLeft, iconRight, title, subtitle }) => {
     <YStack marginTop={60}>
       <XStack>
 
-        {!isNil(iconLeft) && renderIcon(iconLeft)}
+        {!isNil(leftIcon) && renderIcon(leftIcon)}
         <XStack flex={1}>
 
           <YStack
@@ -51,7 +51,7 @@ const Header: React.FC<props> = ({ iconLeft, iconRight, title, subtitle }) => {
           </YStack>
 
         </XStack>
-        {!isNil(iconRight) && renderIcon(iconRight)}
+        {!isNil(rightIcon) && renderIcon(rightIcon)}
       </XStack>
 
     </YStack>

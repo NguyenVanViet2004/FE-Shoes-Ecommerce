@@ -1,7 +1,5 @@
 import React from 'react'
-import { SafeAreaView, useColorScheme, type ViewStyle } from 'react-native'
-
-import getColors from '~/constants/Colors'
+import { SafeAreaView, type ViewStyle } from 'react-native'
 
 interface Props {
   children: React.ReactNode
@@ -9,11 +7,9 @@ interface Props {
 }
 
 const SafeArea = (props: Props): JSX.Element => {
-  const colors = getColors(useColorScheme())
-
   return (
     <SafeAreaView
-      style={[props.style, { backgroundColor: colors.lightSilver }]}
+      style={props.style}
       testID="SafeArea">
       {props.children}
     </SafeAreaView>

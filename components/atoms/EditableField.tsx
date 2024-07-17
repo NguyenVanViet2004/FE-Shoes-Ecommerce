@@ -9,7 +9,7 @@ type props = {
   icon?: JSX.Element
 } & InputProps
 
-const InputCustom: React.FC<props> = (props: props) => {
+const EditableField: React.FC<props> = (props: props) => {
   const colors = getColors(useColorScheme())
   return (
     <YStack gap={10}>
@@ -40,4 +40,5 @@ const InputCustom: React.FC<props> = (props: props) => {
   )
 }
 
-export default InputCustom
+export default EditableField
+

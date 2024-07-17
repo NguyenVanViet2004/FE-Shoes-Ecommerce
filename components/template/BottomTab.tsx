@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.primary,
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: '500',
     textAlign: 'center'
   }

@@ -2,7 +2,6 @@ import {
   type BottomTabBarButtonProps,
   createBottomTabNavigator
 } from '@react-navigation/bottom-tabs'
-import { useTheme } from '@react-navigation/native'
 import React, { useEffect, useRef } from 'react'
 import {
   SafeAreaView,
@@ -14,12 +13,12 @@ import {
 import * as Animatable from 'react-native-animatable'
 
 import getColors from '~/constants/Colors'
-import Icon, { Icons } from '../atoms/Icons'
-import AccountScreen from './AccountScreen'
-import Favourite from './FavouriteScreen'
-import HomeScreen from './HomeScreen'
-import NotificationScreen from './NotificationScreen'
-import OderScreen from './OderScreen'
+import Icon, { Icons } from '~/components/atoms/Icons'
+import AccountScreen from '~/components/template/AccountScreen'
+import Favourite from '~/components/template/FavouriteScreen'
+import HomeScreen from '~/components/template/HomeScreen'
+import NotificationScreen from '~/components/template/NotificationScreen'
+import OderScreen from '~/components/template/OderScreen'
 
 interface TabItem {
   route: string
@@ -101,9 +100,7 @@ const TabButton: React.FC<TabButtonProps> =
     const viewRef = useRef<any>(null)
     const circleRef = useRef<any>(null)
     const textRef = useRef<any>(null)
-    const isDarkMode = useColorScheme() === 'dark'
-
-
+    const isDarkMode = getColors(useColorScheme())
     const color = isDarkMode ? colors.white : colors.black
     const bgColor = colors.background
 
@@ -148,6 +145,8 @@ const TabButton: React.FC<TabButtonProps> =
       </TouchableOpacity>
     )
   }
+
+
 
 const BottomTabBar: React.FC = () => {
   return (

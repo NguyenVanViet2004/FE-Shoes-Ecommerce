@@ -1,6 +1,4 @@
-import React from 'react'
-import { type StyleProp, type ViewStyle } from 'react-native'
-import AntDesign from '@expo/vector-icons/AntDesign';
+import AntDesign from '@expo/vector-icons/AntDesign'
 import Entypo from '@expo/vector-icons/Entypo'
 import EvilIcons from '@expo/vector-icons/EvilIcons'
 import Feather from '@expo/vector-icons/Feather'
@@ -12,7 +10,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import Octicons from '@expo/vector-icons/Octicons'
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
-
+import { type StyleProp, type ViewStyle } from 'react-native'
 export const Icons = {
   AntDesign,
   Entypo,
@@ -27,9 +25,9 @@ export const Icons = {
   Octicons,
   SimpleLineIcons
 }
-type IntrinsicAttributes = /* unresolved */ any
+
 export interface IconProps {
-  type: IntrinsicAttributes & IconProps
+  type: any
   name: string
   color?: string
   size?: number

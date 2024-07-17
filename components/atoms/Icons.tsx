@@ -27,9 +27,9 @@ export const Icons = {
   Octicons,
   SimpleLineIcons
 }
-// type IntrinsicAttributes = /* unresolved */ any
+type IntrinsicAttributes = /* unresolved */ any
 export interface IconProps {
-  type: any
+  type: IntrinsicAttributes & IconProps
   name: string
   color?: string
   size?: number

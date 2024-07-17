@@ -7,7 +7,8 @@ import {
   SafeAreaView,
   StyleSheet,
   useColorScheme,
-  View
+  View,
+  Dimensions
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 
@@ -19,6 +20,8 @@ import HomeScreen from '~/components/templates/HomeScreen'
 import NotificationScreen from '~/components/templates/NotificationScreen'
 import OderScreen from '~/components/templates/OderScreen'
 import { Button } from 'tamagui'
+
+const { width } = Dimensions.get('window');
 
 interface TabItem {
   route: string
@@ -101,7 +104,7 @@ const TabButton: React.FC<TabButtonProps> =
     const circleRef = useRef<any>(null)
     const textRef = useRef<any>(null)
     const bgColor = colors.background
-
+    const responsiveFontSize = width * 0.02
     useEffect(() => {
       if (focused) {
         viewRef.current?.animate(animate1)
@@ -135,7 +138,7 @@ const TabButton: React.FC<TabButtonProps> =
           </View>
           <Animatable.Text
             ref={textRef}
-            style={styles.text}>
+            style={[styles.text, { fontSize: responsiveFontSize }]}>
             {item.label}
           </Animatable.Text>
         </Animatable.View>
@@ -204,7 +207,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.black,
-    fontSize: 10,
     fontWeight: '500',
     textAlign: 'center'
   }

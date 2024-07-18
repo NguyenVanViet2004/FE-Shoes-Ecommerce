@@ -1,16 +1,16 @@
 {
     "next": "Next",
     "getStarted": "Get Started",
-    "SignIn": {
+    "signIn": {
         "helloAgain": "Hello Again!",
-        "welcomeBackYouveBeenMissed": "Welcome Back You’ve Been Missed!",
+        "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
         "emailAddress": "Email Address",
         "enterEmail": "Enter email",
         "password": "Password",
         "recoveryPassword": "Recovery Password",
         "signIn": "Sign In",
         "signInWithGoogle": "Sign in with google",
-        "dontHaveAnAccount": "Don’t have an account?",
+        "doNotHaveAnAccount": "Don’t have an account?",
         "signUpForFree": "Sign Up for free"
     }
 }

@@ -1,14 +1,16 @@
 {
     "next": "Tiếp",
     "getStarted": "Bắt đầu",
-    "helloAgain": "Xin chào trở lại",
-    "welcomeBackYouveBeenMissed": "Chào mừng trở lại! Chúng tôi đã nhớ bạn!",
-    "emailAddress": "Địa chỉ email",
-    "enterEmail": "Nhập email",
-    "password": "Mật khẩu",
-    "recoveryPassword": "Quên mật khẩu",
-    "signIn": "Đăng nhập",
-    "signInWithGoogle": "Đăng nhập bằng google",
-    "dontHaveAnAccount": "Bạn chưa có tài khoản?",
-    "signUpForFree": "Đăng ký miễn phí"
+    "signIn": {
+        "helloAgain": "Hello Again!",
+        "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
+        "emailAddress": "Email Address",
+        "enterEmail": "Enter email",
+        "password": "Password",
+        "recoveryPassword": "Recovery Password",
+        "signIn": "Sign In",
+        "signInWithGoogle": "Sign in with google",
+        "doNotHaveAnAccount": "Don’t have an account?",
+        "signUpForFree": "Sign Up for free"
+    }
 }

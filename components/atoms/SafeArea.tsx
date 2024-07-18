@@ -1,5 +1,6 @@
 import React from 'react'
-import { SafeAreaView, type ViewStyle } from 'react-native'
+import { type ViewStyle } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 interface Props {
   children: React.ReactNode

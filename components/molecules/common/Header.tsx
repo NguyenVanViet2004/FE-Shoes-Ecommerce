@@ -22,38 +22,28 @@ const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
   }
 
   return (
-
-    <YStack marginTop={60}>
-      <XStack>
-
-        {!isNil(leftIcon) && renderIcon(leftIcon)}
-        <XStack flex={1}>
-
-          <YStack
-            alignItems="center"
-            marginTop={80}
-            gap={10}>
-
-            <Text
-              fontSize={28}
-              fontWeight="bold"
-              color={colors.midnightBlue}>
-              {title}
-            </Text>
-
-            <Text
-              fontSize={16}
-              fontWeight="500"
-              color={colors.slateGray}>
-              {subtitle}
-            </Text>
-
-          </YStack>
-
-        </XStack>
+    <YStack marginTop={20}>
+      {!isNil(leftIcon) && renderIcon(leftIcon)}
+      <XStack alignItems="center" justifyContent="center">
+        <YStack
+          alignItems="center"
+          marginTop={50}
+          gap={10}>
+          <Text
+            fontSize={28}
+            fontWeight="bold"
+            color={colors.midnightBlue}>
+            {title}
+          </Text>
+          <Text
+            fontSize={16}
+            fontWeight="500"
+            color={colors.slateGray}>
+            {subtitle}
+          </Text>
+        </YStack>
         {!isNil(rightIcon) && renderIcon(rightIcon)}
       </XStack>
-
     </YStack>
   )
 }

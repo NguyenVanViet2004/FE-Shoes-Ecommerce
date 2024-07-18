@@ -15,7 +15,6 @@ export const NegativeButton = (props: Props): React.ReactElement => {
       borderWidth={0}
       borderRadius={50}
       icon={props.icon}>
-
       {props.title}
     </Button>
   )

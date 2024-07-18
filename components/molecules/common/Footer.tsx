@@ -1,6 +1,6 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Text, XStack, YStack } from 'tamagui'
+import { Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -13,9 +13,8 @@ const FooterComponent: React.FC<Props> = ({ title, subtitle }) => {
   const colors = getColors(useColorScheme())
 
   return (
-    <YStack justifyContent="flex-end" flex={1}>
-      <XStack justifyContent="center" gap={8} bottom={50}>
-
+    <YStack justifyContent="flex-end">
+      <XStack justifyContent="center" gap={8} bottom={10}>
         <Text
           fontSize={12}
           color={colors.slateGray}
@@ -24,15 +23,12 @@ const FooterComponent: React.FC<Props> = ({ title, subtitle }) => {
           {title}
         </Text>
 
-        <Button unstyled>
-          <Text
-            fontSize={12}
-            fontWeight="bold"
-            color={colors.midnightBlue}>
-            {subtitle}
-          </Text>
-        </Button>
-
+        <Text
+          fontSize={12}
+          fontWeight="bold"
+          color={colors.midnightBlue}>
+          {subtitle}
+        </Text>
       </XStack>
     </YStack>
 

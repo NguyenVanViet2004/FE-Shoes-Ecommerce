@@ -1,16 +1,14 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
+import { Button } from 'tamagui'
 
-import { NegativeButton } from '~/components/atoms/NegativeButton'
 import SafeArea from '~/components/atoms/SafeArea'
 import FooterComponent from '~/components/molecules/common/Footer'
 import Header from '~/components/molecules/common/Header'
 import InputForm from '~/components/molecules/InputForm'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
-
-
 
 const SignInTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()
@@ -19,36 +17,41 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const handleBack = (): void => {
   }
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingHorizontal: 20,
-      backgroundColor: colors.lightSilver
-    }
-  })
-
   return (
-    <SafeArea style={styles.container}>
+    <SafeArea style={{
+      ...styles.container,
+      backgroundColor: colors.lightSilver
+    }}>
       <Header
-        title={t('SignIn.helloAgain')}
-        subtitle={t('SignIn.welcomeBackYouveBeenMissed')}
+        title={t('signIn.helloAgain')}
+        subtitle={t('signIn.welcomeBackYouHaveBeenMissed')}
         leftIcon={
-          <NegativeButton
-            icon={<AntDesign name="left" size={18} color={colors.black} />}
-            width={44}
-            height={44}
-            padding={0}
+          <Button
+            unstyled
+            onPress={handleBack}
+            padding={10}
+            borderRadius={50}
             backgroundColor={colors.white}
-            onPress={handleBack} />
+            alignSelf="baseline">
+            <AntDesign name="left" size={18}
+              color={colors.black} />
+          </Button>
         } />
 
       <InputForm />
 
       <FooterComponent
-        title={t('SignIn.dontHaveAnAccount')}
-        subtitle={t('SignIn.signUpForFree')} />
+        title={t('signIn.doNotHaveAnAccount')}
+        subtitle={t('signIn.signUpForFree')} />
 
     </SafeArea>
   )
 }
 export default SignInTemplate
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20
+  }
+})

@@ -1,87 +1,79 @@
 import { Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Image, Text, YStack } from 'tamagui'
+import { Image, Text, YStack } from 'tamagui'
 
-import EditableField from '~/components/atoms/EditableField'
+import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
 import { NegativeButton } from '~/components/atoms/NegativeButton'
 import { PositiveButton } from '~/components/atoms/PositiveButton'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 const InputForm: React.FC = (): JSX.Element => {
-    const { t } = useTranslation()
-    const [showPassword, setShowPassword] = useState<boolean>(true)
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const colors = getColors(useColorScheme())
+  const { t } = useTranslation()
+  const [showPassword, setShowPassword] = useState<boolean>(true)
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const colors = getColors(useColorScheme())
 
-    useEffect((): void => {
-    }, [email, password])
+  useEffect((): void => {
+  }, [email, password])
 
-    const togglePassword = (): void => {
-        setShowPassword(!showPassword)
-    }
-    return (
-        <YStack>
-            <YStack gap={30} marginTop={68}>
-                <EditableField
-                    label={t('SignIn.emailAddress')}
-                    placeholder={t('SignIn.enterEmail')}
-                    onChangeText={text => { setEmail(text) }}
-                />
+  const togglePasswordVisibility = (): void => {
+    setShowPassword(!showPassword)
+  }
 
-                <EditableField
-                    label={t('SignIn.password')}
-                    placeholder="•••••••••••••"
-                    secureTextEntry={showPassword}
-                    onChangeText={text => { setPassword(text) }}
-                    icon={
-                        <Button
-                            unstyled
-                            justifyContent="center"
-                            right={40}
-                            onPress={togglePassword}
-                            icon={
-                                showPassword
-                                ? (<Feather name="eye-off" size={24} />)
-                                : (<Feather name="eye" size={24} />)
-                            }
-                        />  
-                    }
-                />
-            </YStack>
-            <Button unstyled marginTop={10}>
-                <Text
-                    fontWeight="400"
-                    fontSize={13}
-                    textAlign="right"
-                    color={colors.slateGray}>
+  return (
+    <YStack flex={1}>
+      <YStack gap={30} marginTop={68}>
+        <FormInputWithLabel
+          label={t('signIn.emailAddress')}
+          placeholder={t('signIn.enterEmail')}
+          onChangeText={text => { setEmail(text) }}
+        />
 
-                    {t('SignIn.recoveryPassword')}
-                </Text>
-            </Button>
+        <FormInputWithLabel
+          label={t('signIn.password')}
+          placeholder="•••••••••••••"
+          secureTextEntry={showPassword}
+          onChangeText={text => { setPassword(text) }}
+          icon=
+            {showPassword
+              ? <Feather name="eye-off" size={24}
+                onPress={togglePasswordVisibility} />
+              : <Feather name="eye" size={24}
+                onPress={togglePasswordVisibility} />
+            } />
+      </YStack>
 
-            <YStack>
-                <PositiveButton
-                    title={t('SignIn.signIn')}
-                    color={colors.white}
-                    height={54}
-                    backgroundColor={colors.cornflowerBlue}
-                    marginTop={30} />
-                <NegativeButton
-                    title={t('SignIn.signInWithGoogle')}
-                    backgroundColor={colors.white}
-                    color={colors.midnightBlue}
-                    marginTop={30}
-                    height={54}
-                    icon={
-                        <Image src={require('~/assets/images/icon_google.png')} />
-                    } />
+      <Text
+        fontWeight="400"
+        fontSize={13}
+        textAlign="right"
+        marginTop={10}
+        color={colors.slateGray}>
+        {t('signIn.recoveryPassword')}
+      </Text>
 
-            </YStack>
-        </YStack>
-    )
+      <PositiveButton
+        title={t('signIn.signIn')}
+        color={colors.white}
+        height={54}
+        backgroundColor={colors.cornflowerBlue}
+        marginTop={30} />
+
+      <NegativeButton
+        title={t('signIn.signInWithGoogle')}
+        backgroundColor={colors.white}
+        color={colors.midnightBlue}
+        marginTop={30}
+        height={54}
+        icon={
+          <Image src={require('~/assets/images/icon_google.png')} />
+        } />
+
+    </YStack>
+  )
 }
 
 export default InputForm

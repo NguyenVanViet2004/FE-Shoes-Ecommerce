@@ -1,3 +1,4 @@
+import { isNil } from 'lodash'
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { Input, type InputProps, Text, XStack, YStack } from 'tamagui'
@@ -9,11 +10,11 @@ type props = {
   icon?: JSX.Element
 } & InputProps
 
-const EditableField: React.FC<props> = (props: props) => {
+const FormInputWithLabel: React.FC<props> = (props: props) => {
   const colors = getColors(useColorScheme())
+
   return (
     <YStack gap={10}>
-
       <Text
         fontSize={16}
         fontWeight="bold"
@@ -21,24 +22,24 @@ const EditableField: React.FC<props> = (props: props) => {
         {props.label}
       </Text>
 
-      <XStack>
+      <XStack
+        paddingHorizontal={16}
+        borderRadius={50}
+        height={48}
+        backgroundColor={colors.white}
+        alignItems="center">
         <Input
+          unstyled
           {...props}
-          paddingHorizontal={16}
-          borderRadius={50}
-          height={48}
-          backgroundColor={colors.white}
-          alignItems="center"
-          width={'100%'}
+          flex={1}
           color={colors.black}
-          borderWidth={0}/>
+          borderWidth={0} />
 
-        {props.icon}
+        {!isNil(props.icon) && props.icon}
       </XStack>
 
     </YStack>
   )
 }
 
-export default EditableField
-
+export default FormInputWithLabel

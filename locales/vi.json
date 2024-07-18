@@ -1,4 +1,16 @@
 {
-    "next":"Tiếp",
-    "getStarted":"Bắt đầu"
+    "next": "Tiếp",
+    "getStarted": "Bắt đầu",
+    "signIn": {
+        "helloAgain": "Hello Again!",
+        "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
+        "emailAddress": "Email Address",
+        "enterEmail": "Enter email",
+        "password": "Password",
+        "recoveryPassword": "Recovery Password",
+        "signIn": "Sign In",
+        "signInWithGoogle": "Sign in with google",
+        "doNotHaveAnAccount": "Don’t have an account?",
+        "signUpForFree": "Sign Up for free"
+    }
 }

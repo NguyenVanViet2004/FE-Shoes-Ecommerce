@@ -4,7 +4,6 @@ const tintColorDark = '#fff'
 
 const colors = {
   dark: {
-
     accent: '#112233',
     background: '#000',
     backgroundApp: '#fff',
@@ -56,7 +55,6 @@ const colors = {
     tabIconSelected: tintColorDark,
     text: '#fff',
     tint: tintColorDark,
-
     white: '#FFFFFF',
     yellow: '#f8c907'
   },
@@ -64,7 +62,6 @@ const colors = {
     accent: '#112233',
     background: '#fff',
     backgroundApp: '#fff',
-    black: '#000000',
     bag10Bg: '#979dc1',
     bag11Bg: '#c7d3c0',
     bag1Bg: '#ea7a72',
@@ -76,7 +73,7 @@ const colors = {
     bag7Bg: '#d1c8c3',
     bag8Bg: '#dca47f',
     bag9Bg: '#eb849c',
-
+    black: '#000000',
     blue: '#0984FF',
     cornflowerBlue: '#5B9EE1',
     dark: '#333',
@@ -90,12 +87,10 @@ const colors = {
     green2: '#039a83',
     light: '#EEEEEE',
     lightGray: '#F2F2F2',
-
-    lightSilver: '#F8F9FA',
-
     lightGreen: '#aaffaa',
     lightOverlayColor: 'rgba(255, 255, 255, 0.6)',
     lightRed: '#ff4f7e',
+    lightSilver: '#F8F9FA',
     line: '#282C35',
     midnightBlue: '#1A2530',
     orange: '#FF886B',
@@ -116,7 +111,6 @@ const colors = {
     tabIconSelected: tintColorLight,
     text: '#000',
     tint: tintColorLight,
-
     white: '#FFFFFF',
     yellow: '#f8c907'
   }

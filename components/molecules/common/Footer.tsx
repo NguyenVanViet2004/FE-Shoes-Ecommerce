@@ -1,20 +1,21 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Text, XStack, YStack } from 'tamagui'
+import { Button, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
 interface Props {
   title: string
   subtitle?: string
+  onPress?: () => void
 }
 
-const FooterComponent: React.FC<Props> = ({ title, subtitle }) => {
+const FooterComponent: React.FC<Props> = ({ title, subtitle, onPress }) => {
   const colors = getColors(useColorScheme())
 
   return (
-    <YStack justifyContent="flex-end">
-      <XStack justifyContent="center" gap={8} bottom={10}>
+    <YStack bottom={10}>
+      <XStack justifyContent="center" gap={8}>
         <Text
           fontSize={12}
           color={colors.slateGray}
@@ -23,12 +24,14 @@ const FooterComponent: React.FC<Props> = ({ title, subtitle }) => {
           {title}
         </Text>
 
-        <Text
-          fontSize={12}
-          fontWeight="bold"
-          color={colors.midnightBlue}>
-          {subtitle}
-        </Text>
+        <Button onPress={onPress} unstyled>
+          <Text
+            fontSize={12}
+            fontWeight="bold"
+            color={colors.midnightBlue}>
+            {subtitle}
+          </Text>
+        </Button>
       </XStack>
     </YStack>
 

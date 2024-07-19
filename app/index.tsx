@@ -34,16 +34,16 @@ const index = (): JSX.Element => {
 
   useLayoutEffect(() => {
     if (!isLoading && !firstTime) {
-      router.replace('/(tabs)' as ExpoRouter.Href)
+      router.replace('/BottomBar' as ExpoRouter.Href)
     }
   }, [isLoading])
 
   if (isLoading) {
-    return <Spinner flex={1} justifyContent="center" size="large"/>
+    return <Spinner flex={1} justifyContent="center" size="large" />
   }
 
   return (
-    <OnboardingTemplate/>
+    <OnboardingTemplate />
   )
 }
 

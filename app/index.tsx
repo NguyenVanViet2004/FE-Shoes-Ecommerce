@@ -34,7 +34,7 @@ const index = (): JSX.Element => {
 
   useLayoutEffect(() => {
     if (!isLoading && !firstTime) {
-      router.replace('/(tabs)' as ExpoRouter.Href)
+      router.replace('/BottomBar' as ExpoRouter.Href)
     }
   }, [isLoading])
 

@@ -4,72 +4,21 @@ import {
 } from '@react-navigation/bottom-tabs'
 import React, { useEffect, useRef } from 'react'
 import {
+  Dimensions,
+  Platform,
   SafeAreaView,
   StyleSheet,
   useColorScheme,
-  View,
-  Dimensions
+  View
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
-
-import getColors from '~/constants/Colors'
-import Icon, { Icons } from '~/components/atoms/Icons'
-import AccountScreen from '~/components/templates/AccountScreen'
-import Favourite from '~/components/templates/FavouriteScreen'
-import HomeScreen from '~/components/templates/HomeScreen'
-import NotificationScreen from '~/components/templates/NotificationScreen'
-import OderScreen from '~/components/templates/OderScreen'
 import { Button } from 'tamagui'
 
-const { width } = Dimensions.get('window');
+import Icon from '~/components/atoms/Icons'
+import getColors from '~/constants/Colors'
+import TabItems, { type TabItem } from '~/constants/TabItems'
 
-interface TabItem {
-  route: string
-  label: string
-  type: any
-  icon: string
-  component: React.ComponentType<any>
-}
-const colors = getColors(useColorScheme())
-const TabArr: TabItem[] = [
-  {
-    component: HomeScreen,
-    icon: 'home',
-    label: 'Home',
-    route: 'Home',
-    type: Icons.AntDesign
-  },
-  {
-    component: Favourite,
-    icon: 'heart',
-    label: 'Favourite',
-    route: 'Favourite',
-    type: Icons.Feather
-  },
-  {
-    component: OderScreen,
-    icon: 'shopping-cart',
-    label: 'Oder',
-    route: 'Oder',
-    type: Icons.Feather
-  },
-  {
-    component: NotificationScreen,
-    icon: 'notifications-none',
-    label: 'Notify',
-    route: 'Notifications',
-    type: Icons.MaterialIcons
-  },
-  {
-    component: AccountScreen,
-    icon: 'user-circle-o',
-    label: 'Account',
-    route: 'Account',
-    type: Icons.FontAwesome
-  }
-]
-
-const Tab = createBottomTabNavigator()
+const { width } = Dimensions.get('window')
 
 const animate1 = {
   0: { scale: 0.5, translateY: 7 },
@@ -99,12 +48,14 @@ type TabButtonProps = BottomTabBarButtonProps & {
 
 const TabButton: React.FC<TabButtonProps> =
   ({ item, onPress, accessibilityState }) => {
+    const colors = getColors(useColorScheme())
     const focused = accessibilityState?.selected ?? false
     const viewRef = useRef<any>(null)
     const circleRef = useRef<any>(null)
     const textRef = useRef<any>(null)
-    const bgColor = colors.background
+    const backgroundColor = colors.background
     const responsiveFontSize = width * 0.02
+
     useEffect(() => {
       if (focused) {
         viewRef.current?.animate(animate1)
@@ -127,7 +78,12 @@ const TabButton: React.FC<TabButtonProps> =
           style={styles.container}>
           <View
             style={
-              [styles.btn, { backgroundColor: bgColor, borderColor: bgColor }]}>
+              [styles.btn,
+                {
+                  backgroundColor: focused ? colors.primary : backgroundColor,
+                  borderColor: backgroundColor
+                }
+              ]}>
             <Animatable.View
               ref={circleRef}
               style={styles.circle} />
@@ -147,15 +103,17 @@ const TabButton: React.FC<TabButtonProps> =
   }
 
 const BottomTabBar: React.FC = () => {
+  const Tab = createBottomTabNavigator()
+
   return (
-    <SafeAreaView style={styles.safeareaviewcontainer}>
+    <SafeAreaView style={styles.safeAreaViewContainer}>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarStyle: styles.tabBar
         }}
       >
-        {TabArr.map((item, index) => (
+        {TabItems.map((item, index) => (
           <Tab.Screen
             key={index}
             name={item.route}
@@ -175,8 +133,6 @@ const BottomTabBar: React.FC = () => {
 const styles = StyleSheet.create({
   btn: {
     alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.white,
     borderRadius: 25,
     borderWidth: 4,
     height: 50,
@@ -186,27 +142,39 @@ const styles = StyleSheet.create({
   circle: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
-    backgroundColor: colors.primary,
     borderRadius: 25,
     justifyContent: 'center'
   },
   container: {
     alignItems: 'center',
     borderRadius: 0,
+    borderWidth: 0,
     flex: 1,
+    gap: 10,
     height: 70,
     justifyContent: 'center'
   },
-  safeareaviewcontainer: {
+  safeAreaViewContainer: {
     flex: 1
   },
   tabBar: {
     height: 70,
     margin: 16,
-    position: 'absolute'
+    position: 'absolute',
+    ...Platform.select({
+      android: {
+        elevation: 8
+      },
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { height: 2, width: 0 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5
+      }
+    }),
+    borderRadius: 15,
   },
   text: {
-    color: colors.black,
     fontWeight: '500',
     textAlign: 'center'
   }

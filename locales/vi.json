@@ -2,15 +2,28 @@
     "next": "Tiếp",
     "getStarted": "Bắt đầu",
     "signIn": {
-        "helloAgain": "Hello Again!",
-        "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
-        "emailAddress": "Email Address",
-        "enterEmail": "Enter email",
-        "password": "Password",
-        "recoveryPassword": "Recovery Password",
-        "signIn": "Sign In",
-        "signInWithGoogle": "Sign in with google",
-        "doNotHaveAnAccount": "Don’t have an account?",
-        "signUpForFree": "Sign Up for free"
+        "helloAgain": "Xin chào trở lại!",
+        "welcomeBackYouHaveBeenMissed": "Chào mừng trở lại! Chúng tôi đã nhớ bạn!",
+        "emailAddress": "Địa chỉ email",
+        "enterEmail": "Nhập email",
+        "password": "Mật khẩu",
+        "recoveryPassword": "Quên mật khẩu",
+        "signIn": "Đăng nhập",
+        "signInWithGoogle": "Đăng nhập bằng google",
+        "doNotHaveAnAccount": "Bạn chưa có tài khoản?",
+        "signUpForFree": "Đăng ký miễn phí"
+    },
+    "signUp": {
+        "createAccount": "Tạo tài khoản",
+        "letsCreateAccountTogether": "Hãy tạo tài khoản cùng nhau",
+        "yourName": "Tên của bạn",
+        "enterName": "Nhập tên",
+        "emailAddress": "Địa chỉ email",
+        "enterEmail": "Nhập email",
+        "password": "Mật khẩu",
+        "signUp": "Đăng ký",
+        "signInWithGoogle": "Đăng nhập bằng Google",
+        "alreadyHaveAnAccount": "Đã có tài khoản?",
+        "signIn": "Đăng nhập"
     }
 }

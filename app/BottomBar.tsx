@@ -70,6 +70,7 @@ const TabButton: React.FC<TabButtonProps> =
 
     return (
       <Button
+        unstyled
         onPress={onPress}
         style={styles.container}>
         <Animatable.View
@@ -79,10 +80,10 @@ const TabButton: React.FC<TabButtonProps> =
           <View
             style={
               [styles.btn,
-                {
-                  backgroundColor: focused ? colors.primary : backgroundColor,
-                  borderColor: backgroundColor
-                }
+              {
+                backgroundColor: focused ? colors.primary : backgroundColor,
+                borderColor: backgroundColor
+              }
               ]}>
             <Animatable.View
               ref={circleRef}

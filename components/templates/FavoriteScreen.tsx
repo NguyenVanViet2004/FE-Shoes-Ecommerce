@@ -1,18 +1,18 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 import { Text } from 'tamagui'
-const Favourite: React.FC = () => {
+const Favorite: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text
         textAlign="center"
         fontSize={20}
-      >Favourite</Text>
+      >Favorite</Text>
     </SafeAreaView>
   )
 }
 
-export default Favourite
+export default Favorite
 
 const styles = StyleSheet.create({
   container: {

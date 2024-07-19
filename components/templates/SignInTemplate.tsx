@@ -18,6 +18,9 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const handleBack = (): void => {
   }
 
+  const handleSignUp = (): void => {
+  }
+
   return (
     <SafeArea style={{
       ...styles.container,

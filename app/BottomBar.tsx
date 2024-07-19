@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         shadowRadius: 5
       }
     }),
-    borderRadius: 15,
+    borderRadius: 15
   },
   text: {
     fontWeight: '500',

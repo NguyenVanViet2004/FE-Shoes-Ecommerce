@@ -1,12 +1,12 @@
 {
     "next": "Tiếp",
     "getStarted": "Bắt đầu",
+    "emailAddress": "Địa chỉ email",
+    "enterEmail": "Nhập email",
+    "password": "Mật khẩu",
     "signIn": {
         "helloAgain": "Xin chào trở lại!",
         "welcomeBackYouHaveBeenMissed": "Chào mừng trở lại! Chúng tôi đã nhớ bạn!",
-        "emailAddress": "Địa chỉ email",
-        "enterEmail": "Nhập email",
-        "password": "Mật khẩu",
         "recoveryPassword": "Quên mật khẩu",
         "signIn": "Đăng nhập",
         "signInWithGoogle": "Đăng nhập bằng google",
@@ -16,11 +16,6 @@
     "signUp": {
         "createAccount": "Tạo tài khoản",
         "letsCreateAccountTogether": "Hãy tạo tài khoản cùng nhau",
-        "yourName": "Tên của bạn",
-        "enterName": "Nhập tên",
-        "emailAddress": "Địa chỉ email",
-        "enterEmail": "Nhập email",
-        "password": "Mật khẩu",
         "signUp": "Đăng ký",
         "signInWithGoogle": "Đăng nhập bằng Google",
         "alreadyHaveAnAccount": "Đã có tài khoản?",

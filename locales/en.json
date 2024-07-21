@@ -1,12 +1,12 @@
 {
     "next": "Next",
     "getStarted": "Get Started",
+    "emailAddress": "Email Address",
+    "enterEmail": "Enter email",
+    "password": "Password",
     "signIn": {
         "helloAgain": "Hello Again!",
         "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
-        "emailAddress": "Email Address",
-        "enterEmail": "Enter email",
-        "password": "Password",
         "recoveryPassword": "Recovery Password",
         "signIn": "Sign In",
         "signInWithGoogle": "Sign in with google",
@@ -16,11 +16,6 @@
     "signUp": {
         "createAccount": "Create Account",
         "letsCreateAccountTogether": "Let’s Create Account Together",
-        "yourName": "Your Name",
-        "enterName": "Enter name",
-        "emailAddress": "Email Address",
-        "enterEmail": "Enter email",
-        "password": "Password",
         "signUp": "Sign Up",
         "signInWithGoogle": "Sign in with google",
         "alreadyHaveAnAccount": "Already have an account?",

@@ -75,9 +75,14 @@ const HomeScreen: React.FC = () => {
                 from={{ opacity: 0, translateY: 50 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 transition={{ delay: index * 200 }}
-                style={isSelected
-                  ? [styles.selectedItemContainer, { backgroundColor: colors.cornflowerBlue }]
-                  : styles.unSelectedItemContainer}
+                style={
+                  isSelected
+                    ? [
+                        styles.selectedItemContainer,
+                        { backgroundColor: colors.cornflowerBlue }
+                      ]
+                    : styles.unSelectedItemContainer
+                }
               >
                 <ButtonIcon
                   style={isSelected ? styles.selectedLogo : {}}

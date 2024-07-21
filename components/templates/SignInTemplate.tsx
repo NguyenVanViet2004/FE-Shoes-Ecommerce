@@ -6,13 +6,14 @@ import { Button } from 'tamagui'
 import SafeArea from '~/components/atoms/SafeArea'
 import FooterComponent from '~/components/molecules/common/Footer'
 import Header from '~/components/molecules/common/Header'
-import InputForm from '~/components/molecules/InputForm'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
+import InputForm from '~/components/molecules/InputForm'
 
 const SignInTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
+ 
 
   const handleBack = (): void => {
 
@@ -20,6 +21,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
 
   const handleSignUp = (): void => {
   }
+
 
   return (
     <SafeArea style={{
@@ -44,8 +46,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
 
       <InputForm
         titleButton={t('signIn.signIn')}
-        titleButtonGoogle={t('signIn.signInWithGoogle')}
-      />
+        titleButtonGoogle={t('signIn.signInWithGoogle')}/>
+
 
       <FooterComponent
         onPress={handleSignUp}

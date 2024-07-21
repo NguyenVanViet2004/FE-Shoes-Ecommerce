@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, FlatList, Dimensions, useColorScheme } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
-import Header from '~/components/molecules/common/Header'
-import { Button } from 'tamagui';
-import { t } from 'i18next';
 import getColors from '~/constants/Colors';
+import HeaderDetails from '../molecules/HeaderDetails';
 const images = [
     require('~/assets/images/shoes1.png'),
     require('~/assets/images/shoes2.png'),
@@ -13,12 +10,13 @@ const images = [
 const sizes = ['38', '39', '40', '41', '42', '43'];
 const colors = getColors(useColorScheme())
 export default function Details() {
-    const [selectedSize, setSelectedSize] = useState('40');
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [selectedSize, setSelectedSize] = useState<string>('40');
+    const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
     return (
         <View style={styles.container}>
             <ScrollView>
+                <HeaderDetails />
                 <View style={styles.imageContainer}>
                     <FlatList
                         data={images}
@@ -53,15 +51,25 @@ export default function Details() {
                             <Image key={index} source={img} style={styles.galleryImage} />
                         ))}
                     </View>
-                    <Text style={styles.sizeText}>Size</Text>
+                    <View style={styles.distribute}>
+                        <View style={styles.header}>
+                            <Text style={styles.titleSize}>Size</Text>
+                            <View style={styles.sizeOptions}>
+                                <Text style={[styles.sizeOption, styles.activeSizeOption]}>EU</Text>
+                                <Text style={styles.sizeOption}>US</Text>
+                                <Text style={styles.sizeOption}>UK</Text>
+                            </View>
+                        </View>
+                        <View style={styles.divider} />
+                    </View>
                     <View style={styles.sizeContainer}>
                         {sizes.map(size => (
                             <TouchableOpacity
                                 key={size}
-                                style={[styles.sizeButton, { backgroundColor: size === selectedSize ? '#5b9ee1' : '#f8f9fa' }]}
+                                style={[styles.sizeButton, { backgroundColor: size === selectedSize ? colors.blue : colors.whiteSmoke }]}
                                 onPress={() => setSelectedSize(size)}
                             >
-                                <Text style={[styles.sizeText, { color: size === selectedSize ? '#f8f9fa' : '#000' }]}>{size}</Text>
+                                <Text style={[styles.sizeText, { color: size === selectedSize ? colors.whiteSmoke : colors.black }]}>{size}</Text>
                             </TouchableOpacity>
                         ))}
                     </View >
@@ -95,10 +103,10 @@ export default function Details() {
                         {sizes.map(size => (
                             <TouchableOpacity
                                 key={size}
-                                style={[styles.sizeButton, { backgroundColor: size === selectedSize ? '#5b9ee1' : '#f8f9fa' }]}
+                                style={[styles.sizeButton, { backgroundColor: size === selectedSize ? colors.blue : colors.whiteSmoke }]}
                                 onPress={() => setSelectedSize(size)}
                             >
-                                <Text style={[styles.sizeText, { color: size === selectedSize ? '#f8f9fa' : '#000' }]}>{size}</Text>
+                                <Text style={[styles.sizeText, { color: size === selectedSize ? colors.whiteSmoke : colors.black }]}>{size}</Text>
                             </TouchableOpacity>
                         ))}
                     </View >
@@ -122,10 +130,11 @@ export default function Details() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFF',
+        backgroundColor: colors.white,
     },
     imageContainer: {
         height: 300,
+        backgroundColor: colors.whiteSmoke
     },
     image: {
         width: Dimensions.get('window').width,
@@ -141,7 +150,7 @@ const styles = StyleSheet.create({
     dot: {
         height: 8,
         width: 8,
-        backgroundColor: 'silver',
+        backgroundColor: colors.darkGray,
         borderRadius: 4,
         marginHorizontal: 4,
     },
@@ -149,62 +158,99 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     bestSeller: {
-        color: '#007BFF',
+        color: colors.blue,
         fontWeight: 'medium',
         fontSize: 16,
         marginVertical: 8,
     },
     title: {
         fontSize: 24,
-        fontWeight: 'medium',
         marginVertical: 7,
+        fontWeight: 'bold',
     },
     price: {
         fontSize: 20,
         marginVertical: 7,
+        fontWeight: 'bold',
     },
     description: {
         fontSize: 16,
-        color: '#555',
+        color: colors.darkGray2,
         marginVertical: 7,
     },
     galleryText: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
         marginVertical: 7,
     },
     galleryContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        marginHorizontal: 10,
-        gap: 10
+        gap: 10,
     },
     galleryImage: {
         width: 60,
         height: 60,
         borderRadius: 10,
         borderWidth: 1,
-        backgroundColor: '#f8f9fa',
+        backgroundColor: colors.whiteSmoke,
 
+    },
+    distribute: {
+        paddingVertical: 16,
+        backgroundColor: colors.white,
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    titleSize: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: colors.black,
+    },
+    sizeOptions: {
+        flexDirection: 'row',
+    },
+    sizeOption: {
+        marginHorizontal: 8,
+        fontSize: 16,
+        color: colors.darkGray,
+    },
+    activeSizeOption: {
+        fontWeight: 'bold',
+        color: colors.black,
+    },
+    divider: {
+        borderBottomColor: colors.blue,
+        borderStyle: 'dotted',
+        marginTop: 8,
     },
     sizeText: {
         fontSize: 16,
         marginVertical: 7,
+        fontWeight: 'medium',
     },
     sizeContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     sizeButton: {
-        borderColor: 'silver',
+        borderColor: colors.whiteSmoke,
         borderRadius: 50,
         width: 40,
         alignItems: 'center',
         marginVertical: 10,
-        backgroundColor: "#f8f9fa",
+        backgroundColor: colors.whiteSmoke,
+        shadowColor: colors.black,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 3,
     },
     finalPrice: {
-        color: '#6b6b6b',
+        color: colors.darkGray,
         fontSize: 16,
     },
     finalPriceValue: {
@@ -213,14 +259,14 @@ const styles = StyleSheet.create({
         marginVertical: 7,
     },
     addToCartButton: {
-        backgroundColor: '#4a90e2',
+        backgroundColor: colors.blue,
         paddingVertical: 12,
         paddingHorizontal: 24,
         borderRadius: 24,
-        marginRight: 20
+
     },
     addToCartText: {
-        color: '#FFF',
+        color: colors.white,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -229,13 +275,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 16,
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
         borderRadius: 12,
-        shadowColor: '#000',
+        shadowColor: colors.black,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 8,
         elevation: 3,
+        marginTop: 20
     },
     priceValueContainer: {
         flexDirection: 'column',

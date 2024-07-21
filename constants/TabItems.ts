@@ -1,6 +1,6 @@
 import { Icons } from '~/components/atoms/Icons'
-import AccountTemplate from '~/components/templates/AccountTemplate'
-import Favorite from '~/components/templates/FavouriteTempalte'
+import AccountScreen from '~/components/templates/AccountTemplate'
+import Favorite from '~/components/templates/FavoriteTemplate'
 import HomeScreen from '~/components/templates/HomeTemplate'
 import NotificationScreen from '~/components/templates/NotificationTemplate'
 import OderScreen from '~/components/templates/OderTemplate'

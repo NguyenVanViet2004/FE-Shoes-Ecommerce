@@ -35,7 +35,7 @@ const brands = [
   }
 ]
 
-const HomeScreen: React.FC = () => {
+const HomeTemplate: React.FC = () => {
   const colors = getColors(useColorScheme())
 
   const [selectedBranch, setSelectBranch] =
@@ -77,13 +77,8 @@ const HomeScreen: React.FC = () => {
                 transition={{ delay: index * 200 }}
                 style={
                   isSelected
-                    ? [
-                        styles.selectedItemContainer,
-                        { backgroundColor: colors.cornflowerBlue }
-                      ]
-                    : styles.unSelectedItemContainer
-                }
-              >
+                    ? [styles.selectedItemContainer]
+                    : styles.unSelectedItemContainer}>
                 <ButtonIcon
                   style={isSelected ? styles.selectedLogo : {}}
                   icon={item.logo}
@@ -154,6 +149,7 @@ const HomeScreen: React.FC = () => {
   )
 }
 
+const color = getColors(useColorScheme())
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -173,6 +169,7 @@ const styles = StyleSheet.create({
   },
   selectedItemContainer: {
     alignItems: 'center',
+    backgroundColor: color.cornflowerBlue,
     borderRadius: 40,
     flexDirection: 'row',
     marginRight: 16,
@@ -187,4 +184,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeScreen
+export default HomeTemplate

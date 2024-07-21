@@ -1,6 +1,6 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Text, XStack, YStack } from 'tamagui'
+import { Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -24,14 +24,14 @@ const FooterComponent: React.FC<Props> = ({ title, subtitle, onPress }) => {
           {title}
         </Text>
 
-        <Button onPress={onPress} unstyled>
-          <Text
-            fontSize={12}
-            fontWeight="bold"
-            color={colors.midnightBlue}>
-            {subtitle}
-          </Text>
-        </Button>
+        <Text
+          onPress={onPress}
+          fontSize={12}
+          fontWeight="bold"
+          color={colors.midnightBlue}>
+          {subtitle}
+        </Text>
+
       </XStack>
     </YStack>
 

@@ -1,50 +1,52 @@
-import Entypo from '@expo/vector-icons/Entypo'
-import Feather from '@expo/vector-icons/Feather'
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native'
+import { isNil, isNumber } from 'lodash'
+import React, { type ReactElement } from 'react'
+import { useColorScheme } from 'react-native'
+import { Image, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
-const colors = getColors(useColorScheme())
-const HeaderDetails: React.FC = () => {
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.iconButton}>
-        <Entypo name="chevron-left" size={24} color={colors.black} />
-      </TouchableOpacity>
-      <Text style={styles.title}>Men’s Shoes</Text>
-      <TouchableOpacity style={styles.iconButton}>
-        <Feather name="shopping-cart" size={24} color={colors.black} />
-      </TouchableOpacity>
-    </View>
-  )
+
+interface props {
+  leftIcon?: number | React.ReactElement
+  rightIcon?: number | React.ReactElement
+  title: string
+  subtitle?: string
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: colors.whiteSmke,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 16
-  },
-  iconButton: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderRadius: 20,
-    elevation: 3,
-    height: 40,
-    justifyContent: 'center',
-    shadowColor: colors.black,
-    shadowOffset: { height: 2, width: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    width: 40
-  },
-  title: {
-    color: colors.black,
-    fontSize: 18,
-    fontWeight: 'bold'
+const HeaderDetails: React.FC<props> = ({
+  leftIcon,
+  rightIcon,
+  title,
+  subtitle
+}) => {
+  const colors = getColors(useColorScheme())
+  const renderIcon = (icon: number | ReactElement): React.ReactElement => {
+    if (isNumber(icon)) {
+      return <Image source={icon} />
+    }
+    return icon
   }
-})
+
+  return (
+    <XStack
+      paddingHorizontal={15}
+      alignItems="center"
+      justifyContent="space-between"
+      paddingVertical={5}
+    >
+      {!isNil(leftIcon) && renderIcon(leftIcon)}
+      <YStack alignItems="center">
+        <Text fontSize={16} fontWeight={'bold'} color={colors.midnightBlue}>
+          {title}
+        </Text>
+        {subtitle != null && subtitle !== '' && (
+          <Text fontSize={16} fontWeight="500" color={colors.slateGray}>
+            {subtitle}
+          </Text>
+        )}
+      </YStack>
+      {!isNil(rightIcon) && renderIcon(rightIcon)}
+    </XStack>
+  )
+}
 
 export default HeaderDetails

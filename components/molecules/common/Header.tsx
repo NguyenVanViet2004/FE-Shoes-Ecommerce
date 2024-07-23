@@ -8,7 +8,7 @@ import getColors from '~/constants/Colors'
 interface props {
   leftIcon?: number | React.ReactElement
   rightIcon?: number | React.ReactElement
-  title: string
+  title?: string
   subtitle?: string
 }
 
@@ -23,11 +23,10 @@ const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
 
   return (
     <YStack marginTop={20}>
-      {!isNil(leftIcon) && renderIcon(leftIcon)}
-      <XStack alignItems="center" justifyContent="center">
+      <XStack alignItems="center" justifyContent="space-between">
+        {!isNil(leftIcon) && renderIcon(leftIcon)}
         <YStack
           alignItems="center"
-          marginTop={50}
           gap={10}>
           <Text
             fontSize={28}

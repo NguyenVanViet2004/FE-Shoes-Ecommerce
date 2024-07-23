@@ -1,16 +1,17 @@
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import { MotiView } from 'moti'
 import React, { useState } from 'react'
-import { FlatList, SafeAreaView, StyleSheet, useColorScheme } from 'react-native'
-import { Image, ScrollView, Text, View } from 'tamagui'
+import { FlatList, StyleSheet, useColorScheme } from 'react-native'
+import { Button, Image, ScrollView, Text, View } from 'tamagui'
 
 import { ButtonIcon } from '~/components/atoms/ButtonIcon'
 import { TextInputSearch } from '~/components/atoms/TextInputSearch'
-import { HeaderComponent } from '~/components/molecules/HeaderComponent'
 import { InforShoes } from '~/components/molecules/InforShoes'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
 import getColors from '~/constants/Colors'
+
+import Header from '../molecules/common/Header'
 
 const brands = [
   {
@@ -42,22 +43,35 @@ const HomeTemplate: React.FC = () => {
     useState<{ logo: number, name: string }>()
   return (
     <ScrollView>
-      <SafeAreaView style={styles.container}>
+      <View flex={1} paddingHorizontal={20} paddingTop={40}>
 
-        <HeaderComponent
-          marginBottom={24}
-          iconLeft={
-            <Entypo
-              name="grid"
-              size={25}
-              color={colors.midnightBlue}
-              style={styles.icon} />}
-          iconRight={
-            <Ionicons
-              name="bag-handle-outline"
-              size={25}
-              color="black"
-              style={styles.icon} />}
+        <Header
+          leftIcon={
+            <Button
+              unstyled
+              padding={10}
+              borderRadius={50}
+              backgroundColor={colors.white}
+              alignSelf="baseline">
+              <Entypo
+                name="grid"
+                size={25}
+                color={colors.midnightBlue} />
+            </Button>
+          }
+          rightIcon={
+            <Button
+              unstyled
+              padding={10}
+              borderRadius={50}
+              backgroundColor={colors.white}
+              alignSelf="baseline">
+              <Ionicons
+                name="bag-handle-outline"
+                size={25}
+                color={colors.midnightBlue} />
+            </Button>
+          }
         />
 
         <View marginBottom={32}>
@@ -70,15 +84,16 @@ const HomeTemplate: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           renderItem={({ item, index }) => {
             const isSelected = selectedBranch?.name === item.name
+            const transitionStyle = isSelected
+              ? [styles.selectItem, { backgroundColor: colors.cornflowerBlue }]
+              : styles.unSelectItem
             return (
               <MotiView
                 from={{ opacity: 0, translateY: 50 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 transition={{ delay: index * 200 }}
-                style={
-                  isSelected
-                    ? [styles.selectedItemContainer]
-                    : styles.unSelectedItemContainer}>
+                style={transitionStyle}
+              >
                 <ButtonIcon
                   style={isSelected ? styles.selectedLogo : {}}
                   icon={item.logo}
@@ -144,22 +159,12 @@ const HomeTemplate: React.FC = () => {
             source={require('assets/images/shoes2.png')}
             style={styles.img} />
         </View>
-      </SafeAreaView>
+      </View>
     </ScrollView>
   )
 }
 
-const color = getColors(useColorScheme())
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingBottom: 20,
-    paddingHorizontal: 20,
-    paddingTop: 40
-  },
-  icon: {
-    padding: 9
-  },
   img: {
     aspectRatio: 1,
     flex: 1,
@@ -167,9 +172,8 @@ const styles = StyleSheet.create({
     maxWidth: 120,
     resizeMode: 'contain'
   },
-  selectedItemContainer: {
+  selectItem: {
     alignItems: 'center',
-    backgroundColor: color.cornflowerBlue,
     borderRadius: 40,
     flexDirection: 'row',
     marginRight: 16,
@@ -179,7 +183,7 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25
   },
-  unSelectedItemContainer: {
+  unSelectItem: {
     marginRight: 16
   }
 })

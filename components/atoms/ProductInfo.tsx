@@ -1,51 +1,36 @@
 import React from 'react'
-import { StyleSheet, Text, View, ViewStyle, TextStyle } from 'react-native'
-
+import { Text, View } from 'tamagui'
 interface Colors {
-    blue: string
+  blue: string
 }
 
 interface ProductInfoProps {
-    colors: Colors
+  colors: Colors
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = ({ colors }) => {
-    return (
-        <View style={styles.detailsContainer}>
-            <Text style={[styles.bestSeller, { color: colors.blue }]}>BEST SELLER</Text>
-            <Text style={styles.title}>Nike Air Jordan</Text>
-            <Text style={styles.price}>$967.800</Text>
-            <Text style={styles.description}>
-                Air Jordan là một thương hiệu giày bóng rổ, thể thao, thời trang và
-                quần áo phong cách của Mỹ được sản xuất bởi Nike....
-            </Text>
-        </View>
-    )
+  return (
+    <View paddingHorizontal={20}>
+      <Text
+        fontSize={16}
+        fontWeight="500"
+        marginVertical={8}
+        color={colors.blue}
+      >
+        BEST SELLER
+      </Text>
+      <Text fontSize={24} fontWeight="bold" marginVertical={7}>
+        Nike Air Jordan
+      </Text>
+      <Text fontSize={20} fontWeight="bold" marginVertical={7}>
+        $967.800
+      </Text>
+      <Text fontSize={16} marginVertical={7}>
+        Air Jordan là một thương hiệu giày bóng rổ, thể thao, thời trang và quần
+        áo phong cách của Mỹ được sản xuất bởi Nike....
+      </Text>
+    </View>
+  )
 }
-
-const styles = StyleSheet.create({
-    bestSeller: {
-        fontSize: 16,
-        fontWeight: '500',  // Corrected from 'medium' to '500'
-        marginVertical: 8
-    } as TextStyle,
-    description: {
-        fontSize: 16,
-        marginVertical: 7
-    } as TextStyle,
-    detailsContainer: {
-        paddingHorizontal: 20
-    } as ViewStyle,
-    price: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginVertical: 7
-    } as TextStyle,
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginVertical: 7
-    } as TextStyle
-})
 
 export default ProductInfo

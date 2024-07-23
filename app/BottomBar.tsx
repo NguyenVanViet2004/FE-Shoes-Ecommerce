@@ -46,27 +46,30 @@ type TabButtonProps = BottomTabBarButtonProps & {
   item: TabItem
 }
 
-const TabButton: React.FC<TabButtonProps> =
-  ({ item, onPress, accessibilityState }) => {
-    const colors = getColors(useColorScheme())
-    const focused = accessibilityState?.selected ?? false
-    const viewRef = useRef<any>(null)
-    const circleRef = useRef<any>(null)
-    const textRef = useRef<any>(null)
-    const backgroundColor = colors.background
-    const responsiveFontSize = width * 0.02
+const TabButton: React.FC<TabButtonProps> = ({
+  item,
+  onPress,
+  accessibilityState
+}) => {
+  const colors = getColors(useColorScheme())
+  const focused = accessibilityState?.selected ?? false
+  const viewRef = useRef<any>(null)
+  const circleRef = useRef<any>(null)
+  const textRef = useRef<any>(null)
+  const backgroundColor = colors.background
+  const responsiveFontSize = width * 0.02
 
-    useEffect(() => {
-      if (focused) {
-        viewRef.current?.animate(animate1)
-        circleRef.current?.animate(circle1)
-        textRef.current?.transitionTo({ scale: 1 })
-      } else {
-        viewRef.current?.animate(animate2)
-        circleRef.current?.animate(circle2)
-        textRef.current?.transitionTo({ scale: 0 })
-      }
-    }, [focused])
+  useEffect(() => {
+    if (focused) {
+      viewRef.current?.animate(animate1)
+      circleRef.current?.animate(circle1)
+      textRef.current?.transitionTo({ scale: 1 })
+    } else {
+      viewRef.current?.animate(animate2)
+      circleRef.current?.animate(circle2)
+      textRef.current?.transitionTo({ scale: 0 })
+    }
+  }, [focused])
 
     return (
       <Button
@@ -120,8 +123,7 @@ const BottomTabBar: React.FC = () => {
             name={item.route}
             component={item.component}
             options={{
-              tabBarButton: (props) =>
-                <TabButton {...props} item={item} />,
+              tabBarButton: (props) => <TabButton {...props} item={item} />,
               tabBarShowLabel: false
             }}
           />

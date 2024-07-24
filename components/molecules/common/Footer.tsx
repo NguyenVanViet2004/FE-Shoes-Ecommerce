@@ -24,6 +24,7 @@ const FooterComponent: React.FC<Props> = ({ title, subtitle, onPress }) => {
           {title}
         </Text>
 
+
         <Text
           onPress={onPress}
           fontSize={12}

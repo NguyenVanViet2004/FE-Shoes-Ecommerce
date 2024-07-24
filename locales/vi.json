@@ -16,6 +16,9 @@
     "home":{
         "seeAll":"Tất cả",
         "popularShoes":"Phổ biến",
-        "newArrivals": "Mới"
+        "newArrivals": "Mới",
+        "topSeller": "Bán chạy",
+        "bestChoice": "TỐT NHẤT",
+        "bestSeller": "Bán chạy nhất"
     }
 }

@@ -16,6 +16,9 @@
     "home":{
         "seeAll":"See all",
         "popularShoes":"Popular Shoes",
-        "newArrivals": "New Arrivals"
+        "newArrivals": "New Arrivals",
+        "topSeller": "Top Sell",
+        "bestChoice": "BEST CHOICE",
+        "bestSeller": "Best Seller"
     }
 }

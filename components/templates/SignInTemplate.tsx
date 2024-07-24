@@ -17,6 +17,9 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const handleBack = (): void => {
   }
 
+  const handleSignUp = (): void => {
+  }
+
   return (
     <SafeArea style={{
       ...styles.container,
@@ -38,9 +41,12 @@ const SignInTemplate: React.FC = (): JSX.Element => {
           </Button>
         } />
 
-      <InputForm />
+      <InputForm
+        titleButton={t('signIn.signIn')}
+        titleButtonGoogle={t('signIn.signInWithGoogle')}/>
 
       <FooterComponent
+        onPress={handleSignUp}
         title={t('signIn.doNotHaveAnAccount')}
         subtitle={t('signIn.signUpForFree')} />
 

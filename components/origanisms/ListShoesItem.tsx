@@ -5,13 +5,19 @@ import { Image, Text, View } from 'tamagui'
 
 import { ButtonAdd } from '~/components/atoms/ButtonAdd'
 import getColors from '~/constants/Colors'
+import useTranslation from '~/hooks/useTranslation'
 
 interface Props {
   index: number
+  label: string
+  nameShoes: string
+  price: string
 }
 
 export const ListShoesItem = (props: Props): React.ReactElement => {
   const colors = getColors(useColorScheme())
+  const { t } = useTranslation()
+
   return (
     <MotiView
       style={[styles.container, { backgroundColor: colors.white }]}
@@ -30,15 +36,15 @@ export const ListShoesItem = (props: Props): React.ReactElement => {
           <Text
             fontSize={12}
             fontWeight={400}
-            color={colors.cornflowerBlue}>Best Seller</Text>
+            color={colors.cornflowerBlue}>{t('home.' + props.label)}</Text>
           <Text
             fontSize={16}
             fontWeight={500}
-            color={colors.midnightBlue}>Nike Jordan</Text>
+            color={colors.midnightBlue}>{props.nameShoes}</Text>
           <Text
             fontSize={14}
             fontWeight={500}
-            color={colors.midnightBlue}>$493.00</Text>
+            color={colors.midnightBlue}>${props.price}</Text>
         </View>
         <ButtonAdd alignSelf="flex-end" />
       </View>

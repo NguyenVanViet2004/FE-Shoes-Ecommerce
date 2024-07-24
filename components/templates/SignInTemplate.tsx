@@ -9,7 +9,7 @@ import Header from '~/components/molecules/common/Header'
 import InputForm from '~/components/molecules/InputForm'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
-import InputForm from '~/components/molecules/InputForm'
+
 
 const SignInTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()
@@ -47,7 +47,6 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       <InputForm
         titleButton={t('signIn.signIn')}
         titleButtonGoogle={t('signIn.signInWithGoogle')}/>
-
 
       <FooterComponent
         onPress={handleSignUp}

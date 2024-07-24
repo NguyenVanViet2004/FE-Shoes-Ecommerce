@@ -10,7 +10,7 @@ import Header from '~/components/molecules/common/Header'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
-import InputForm from '../molecules/InputForm'
+import InputForm from '~/components/molecules/InputForm'
 
 const SignUpTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()

@@ -9,7 +9,12 @@ import { PositiveButton } from '~/components/atoms/PositiveButton'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
-const InputForm: React.FC = (): JSX.Element => {
+interface Props {
+  displayProp?: any
+  titleButton: string
+  titleButtonGoogle: string
+}
+const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
@@ -27,13 +32,13 @@ const InputForm: React.FC = (): JSX.Element => {
     <YStack flex={1}>
       <YStack gap={30} marginTop={68}>
         <FormInputWithLabel
-          label={t('signIn.emailAddress')}
-          placeholder={t('signIn.enterEmail')}
+          label={t('emailAddress')}
+          placeholder={t('enterEmail')}
           onChangeText={text => { setEmail(text) }}
         />
 
         <FormInputWithLabel
-          label={t('signIn.password')}
+          label={t('password')}
           placeholder="•••••••••••••"
           secureTextEntry={showPassword}
           onChangeText={text => { setPassword(text) }}
@@ -47,6 +52,7 @@ const InputForm: React.FC = (): JSX.Element => {
       </YStack>
 
       <Text
+        display={props.displayProp}
         fontWeight="400"
         fontSize={13}
         textAlign="right"
@@ -56,14 +62,14 @@ const InputForm: React.FC = (): JSX.Element => {
       </Text>
 
       <PositiveButton
-        title={t('signIn.signIn')}
+        title={props.titleButton}
         color={colors.white}
         height={54}
         backgroundColor={colors.cornflowerBlue}
         marginTop={30} />
 
       <NegativeButton
-        title={t('signIn.signInWithGoogle')}
+        title={props.titleButtonGoogle}
         backgroundColor={colors.white}
         color={colors.midnightBlue}
         marginTop={30}

@@ -9,7 +9,7 @@ type Props = {
   icon: number | React.ReactElement
 } & ButtonProps
 
-export const ButtonIcon = (props: Props): React.ReactElement => {
+export const ButtonRenderBranch = (props: Props): React.ReactElement => {
   const colors = getColors(useColorScheme())
 
   return (

@@ -1,17 +1,16 @@
-import { Entypo, Ionicons } from '@expo/vector-icons'
+import { Entypo, Feather, Ionicons } from '@expo/vector-icons'
 import { MotiView } from 'moti'
 import React, { useState } from 'react'
 import { FlatList, StyleSheet, useColorScheme } from 'react-native'
-import { Button, Image, ScrollView, Text, View } from 'tamagui'
+import { ScrollView, Text, View } from 'tamagui'
 
-import { ButtonIcon } from '~/components/atoms/ButtonIcon'
-import { TextInputSearch } from '~/components/atoms/TextInputSearch'
-import { InforShoes } from '~/components/molecules/InforShoes'
+import { ButtonRenderBranch } from '~/components/atoms/ButtonRenderBranch'
+import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
+import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
+import { ShoesItem } from '~/components/origanisms/ShoesItem'
 import getColors from '~/constants/Colors'
-
-import Header from '../molecules/common/Header'
 
 const brands = [
   {
@@ -43,39 +42,29 @@ const HomeTemplate: React.FC = () => {
     useState<{ logo: number, name: string }>()
   return (
     <ScrollView>
-      <View flex={1} paddingHorizontal={20} paddingTop={40}>
+      <View flex={1} paddingHorizontal={20} paddingTop={20} paddingBottom={130}>
 
         <Header
           leftIcon={
-            <Button
-              unstyled
-              padding={10}
-              borderRadius={50}
-              backgroundColor={colors.white}
-              alignSelf="baseline">
-              <Entypo
-                name="grid"
-                size={25}
-                color={colors.midnightBlue} />
-            </Button>
+            <Entypo
+              name="grid"
+              size={25}
+              color={colors.midnightBlue}/>
           }
           rightIcon={
-            <Button
-              unstyled
-              padding={10}
-              borderRadius={50}
-              backgroundColor={colors.white}
-              alignSelf="baseline">
-              <Ionicons
-                name="bag-handle-outline"
-                size={25}
-                color={colors.midnightBlue} />
-            </Button>
+            <Ionicons
+              name="bag-handle-outline"
+              size={25}
+              color={colors.midnightBlue} />
           }
         />
 
         <View marginBottom={32}>
-          <TextInputSearch placeholder="Looking for shoes" />
+          <FormInputWithLabel placeholder="Looking for shoes" iconLeft={<Feather
+            name="search"
+            size={23}
+            color={colors.slateGray}
+          />} />
         </View>
 
         <FlatList
@@ -94,16 +83,29 @@ const HomeTemplate: React.FC = () => {
                 transition={{ delay: index * 200 }}
                 style={transitionStyle}
               >
-                <ButtonIcon
+                <ButtonRenderBranch
                   style={isSelected ? styles.selectedLogo : {}}
                   icon={item.logo}
-                  onPress={() => { setSelectBranch(item) }}
+                  onPress={() => {
+                    if (isSelected) {
+                      setSelectBranch(undefined)
+                    } else {
+                      setSelectBranch(item)
+                    }
+                  }}
                   isSelected={isSelected}
                 />
                 {isSelected && (
                   <MotiView
-                    from={{ opacity: 0, translateX: -50 }}
-                    animate={{ opacity: 1, translateX: 0 }}
+                    from={{
+                      opacity: 0,
+                      translateX: -50
+                    }}
+                    animate={{
+                      opacity: 1,
+                      translateX: 0
+                    }}
+                    transition={{ duration: 350, type: 'timing' }}
                   >
                     <Text
                       fontSize={14}
@@ -132,7 +134,11 @@ const HomeTemplate: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           renderItem={({ item, index }) => {
             return (
-              <ListShoesItem index={index} />
+              <ListShoesItem
+                index={index}
+                label="bestSeller"
+                nameShoes="Nike Jordan"
+                price="493.00" />
             )
           }}
           keyExtractor={(item) => item.name}
@@ -142,36 +148,37 @@ const HomeTemplate: React.FC = () => {
           textCategory="newArrivals"
           marginBottom={16}
           marginTop={24} />
-        <View
-          alignItems="center"
-          borderRadius={16}
-          padding={20}
-          flexDirection="row"
-          justifyContent="space-between"
-          backgroundColor={colors.white}>
-          <InforShoes
-            gap={8}
-            flex={1}
-            label="BEST CHOICE"
-            nameShoes="Nike Air Jordan"
-            priceShoes="849.69" />
-          <Image
-            source={require('assets/images/shoes2.png')}
-            style={styles.img} />
-        </View>
+
+        <ShoesItem
+          label="bestChoice"
+          nameShoes="Nike Air Jordan"
+          price="849.69" />
+
+        <ShoesCategory
+          textCategory="topSeller"
+          marginBottom={16}
+          marginTop={24} />
+        <FlatList
+          horizontal
+          data={brands}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item, index }) => {
+            return (
+              <ListShoesItem
+                index={index}
+                label="bestSeller"
+                nameShoes="Nike Jordan"
+                price="493.00" />
+            )
+          }}
+          keyExtractor={(item) => item.name}
+        />
       </View>
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  img: {
-    aspectRatio: 1,
-    flex: 1,
-    maxHeight: 90,
-    maxWidth: 120,
-    resizeMode: 'contain'
-  },
   selectItem: {
     alignItems: 'center',
     borderRadius: 40,

@@ -20,5 +20,15 @@
         "topSeller": "Bán chạy",
         "bestChoice": "TỐT NHẤT",
         "bestSeller": "Bán chạy nhất"
+    },
+    "account":{
+        "notificationSetting":"Cài đặt thông báo",
+        "shippingAddress":"Địa chỉ giao hàng",
+        "paymentInfo":"Thông tin thanh toán",
+        "deleteAccount":"Xóa tài khoản",
+        "eneble-FaceID-For-LogIn":"Kích hoạt Face ID để đăng nhập",
+        "eneblePushNotifications":"Kích hoạt thông báo",
+        "enebleLocationServices":"Cho phép dịch vụ định vị",
+        "darkMode":"Chế độ tối"
     }
 }

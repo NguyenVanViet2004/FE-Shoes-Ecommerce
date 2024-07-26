@@ -1,14 +1,14 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useColorScheme } from 'react-native'
 import { Text, View } from 'tamagui'
-interface Colors {
-  blue: string
-}
 
-interface ProductInfoProps {
-  colors: Colors
-}
+import getColors from '~/constants/Colors'
 
-const ProductInfo: React.FC<ProductInfoProps> = ({ colors }) => {
+const ProductInfo: React.FC = () => {
+  const colors = getColors(useColorScheme())
+  const { t } = useTranslation()
+
   return (
     <View paddingHorizontal={20}>
       <Text
@@ -17,7 +17,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ colors }) => {
         marginVertical={8}
         color={colors.blue}
       >
-        BEST SELLER
+        {t('bestSeller')}
       </Text>
       <Text fontSize={24} fontWeight="bold" marginVertical={7}>
         Nike Air Jordan
@@ -26,8 +26,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ colors }) => {
         $967.800
       </Text>
       <Text fontSize={16} marginVertical={7}>
-        Air Jordan là một thương hiệu giày bóng rổ, thể thao, thời trang và quần
-        áo phong cách của Mỹ được sản xuất bởi Nike....
+        {t('productDescription')}
       </Text>
     </View>
   )

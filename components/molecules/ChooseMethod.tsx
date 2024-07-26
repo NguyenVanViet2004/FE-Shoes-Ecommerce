@@ -1,6 +1,6 @@
 import { isNil } from 'lodash'
 import React, { useState } from 'react'
-import { StyleSheet, useColorScheme } from 'react-native'
+import { useColorScheme } from 'react-native'
 import { Button, type ButtonProps, Switch, type SwitchProps, Text, View, XStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
@@ -48,21 +48,16 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
             <Switch
               unstyled
               onCheckedChange={handleSwitchChange}
-              style={[{
-                backgroundColor: isChecked
-                  ? colors.cornflowerBlue
-                  : colors.slateGray
-              }, styles.switch]}
+              padding={2}
+              borderRadius={30}
+              backgroundColor={isChecked
+                ? colors.cornflowerBlue
+                : colors.silverGray}
             >
               <Switch.Thumb
                 animation="quick"
-                style={[
-                  {
-                    backgroundColor: isChecked
-                      ? colors.white
-                      : colors.white
-                  }, styles.thumb
-                ]}
+                borderRadius={30}
+                backgroundColor={colors.white}
               />
             </Switch>)
 
@@ -73,12 +68,3 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
     </Button>
   )
 }
-const styles = StyleSheet.create({
-  switch: {
-    borderRadius: 30,
-    padding: 2
-  },
-  thumb: {
-    borderRadius: 30
-  }
-})

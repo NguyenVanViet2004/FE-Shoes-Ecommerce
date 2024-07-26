@@ -29,6 +29,8 @@
         "eneble-FaceID-For-LogIn":"Kích hoạt Face ID để đăng nhập",
         "eneblePushNotifications":"Kích hoạt thông báo",
         "enebleLocationServices":"Cho phép dịch vụ định vị",
-        "darkMode":"Chế độ tối"
+        "darkMode":"Chế độ tối",
+        "account":"Tài khoản",
+        "appSettings":"Cài đặt ứng dụng"
     }
 }

@@ -20,7 +20,11 @@ export const ButtonRenderBranch = (props: Props): React.ReactElement => {
       alignItems="center"
       justifyContent="center"
       onPress={props.onPress}
-      style={props.style}>
+      style={
+        props.isSelected === true
+          ? styles.selectedLogo
+          : {}
+      }>
       <View
         style={
           typeof props.icon === 'number'
@@ -59,5 +63,9 @@ const styles = StyleSheet.create({
   selectedImg: {
     height: 20,
     width: 20
+  },
+  selectedLogo: {
+    height: 25,
+    width: 25
   }
 })

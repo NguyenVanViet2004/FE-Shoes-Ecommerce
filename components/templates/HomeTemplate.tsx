@@ -84,7 +84,6 @@ const HomeTemplate: React.FC = () => {
                 style={transitionStyle}
               >
                 <ButtonRenderBranch
-                  style={isSelected ? styles.selectedLogo : {}}
                   icon={item.logo}
                   onPress={() => {
                     if (isSelected) {
@@ -185,10 +184,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginRight: 16,
     padding: 8
-  },
-  selectedLogo: {
-    height: 25,
-    width: 25
   },
   unSelectItem: {
     marginRight: 16

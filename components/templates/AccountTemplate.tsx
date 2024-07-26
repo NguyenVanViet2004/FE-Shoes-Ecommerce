@@ -3,12 +3,13 @@ import React from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
 import { ScrollView, Text, View } from 'tamagui'
 
+import SafeArea from '~/components/atoms/SafeArea'
+import { ChooseMethod } from '~/components/molecules/ChooseMethod'
 import Header from '~/components/molecules/common/Header'
 import getColors from '~/constants/Colors'
-
-import SafeArea from '../atoms/SafeArea'
-import { ChooseMethod } from '../molecules/ChooseMethod'
+import useTranslation from '~/hooks/useTranslation'
 const AccountScreen: React.FC = () => {
+  const { t } = useTranslation()
   const colors = getColors(useColorScheme())
   return (
     <SafeArea style={styles.container}>
@@ -26,7 +27,7 @@ const AccountScreen: React.FC = () => {
           <Text
             fontSize={18}
             fontWeight={500}
-            marginVertical={24}>Account</Text>
+            marginVertical={24}>{t('account.account')}</Text>
 
           <ChooseMethod
             leftIcon={<MaterialCommunityIcons
@@ -75,7 +76,7 @@ const AccountScreen: React.FC = () => {
           <Text
             fontSize={18}
             fontWeight={500}
-            marginVertical={24}>App Settings</Text>
+            marginVertical={24}>{t('account.appSettings')}</Text>
 
           <ChooseMethod nameMethod="eneble-FaceID-For-LogIn" useSwitch />
 

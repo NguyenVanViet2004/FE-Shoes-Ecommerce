@@ -6469,29 +6469,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"animatable@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "animatable@npm:1.2.3"
-  dependencies:
-    animated: "npm:^0.2.1"
-    gl-matrix: "npm:^2.4.0"
-  checksum: cab747b90677b63c6d66e907dfb548a1352c484af85e60350945262310c6583675ee95dc3649ecb8b6ab26fe4e400a515359135fc7c57dff34112b83e14bef9c
-  languageName: node
-  linkType: hard
-
-"animated@npm:^0.2.1":
-  version: 0.2.2
-  resolution: "animated@npm:0.2.2"
-  dependencies:
-    invariant: "npm:^2.2.0"
-    normalize-css-color: "npm:^1.0.1"
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 7e65a4fe537162590cd9c3e1cca5d689eda009238c59e125bfa8080aa1836f4e780d1cb6a8ad9c0ea3618f3ae37dc057bceb29d099a5c356c32fb872d32722c1
-  languageName: node
-  linkType: hard
-
 "anser@npm:^1.4.9":
   version: 1.4.10
   resolution: "anser@npm:1.4.10"
@@ -10104,7 +10081,6 @@ __metadata:
     "@types/react-redux": "npm:^7.1.33"
     "@types/react-test-renderer": "npm:^18"
     "@typescript-eslint/typescript-estree": "npm:^7.16.0"
-    animatable: "npm:^1.2.3"
     babel-jest: "npm:^29.7.0"
     babel-preset-expo: "npm:~11.0.0"
     burnt: "npm:^0.12.2"
@@ -10659,13 +10635,6 @@ __metadata:
   version: 1.0.0
   resolution: "getenv@npm:1.0.0"
   checksum: 0b8f5f6ddc2400712bf584765e0b218a7b9eabe41d3cafaf2b73fc36140248f72f7040a38f852804a321ec9813a6873a7cafd7bf1d3ab43e8b6f9a18aba663ad
-  languageName: node
-  linkType: hard
-
-"gl-matrix@npm:^2.4.0":
-  version: 2.8.1
-  resolution: "gl-matrix@npm:2.8.1"
-  checksum: 62dee9b422cc6b0d65784421f89f0b02a5e36bdf22d69d2190b6c5c237cdfa60eb840689aefba8c3a2ccaea3ab362832d0eb5a95916e616e2b4dc97ed3e0c8ce
   languageName: node
   linkType: hard
 
@@ -11299,7 +11268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.0, invariant@npm:^2.2.4":
+"invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -14214,13 +14183,6 @@ __metadata:
   bin:
     nopt: bin/nopt.js
   checksum: 95a1f6dec8a81cd18cdc2fed93e6f0b4e02cf6bdb4501c848752c6e34f9883d9942f036a5e3b21a699047d8a448562d891e67492df68ec9c373e6198133337ae
-  languageName: node
-  linkType: hard
-
-"normalize-css-color@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "normalize-css-color@npm:1.0.2"
-  checksum: 7c1c435dbfda7abe3f306d5bb2dbf8b1bb7bbe4f6ec53cbc2b95f4514061d9441c082dd31abda7857d98956b40e24845284319b0c57c3883d245b71b70d3aeda
   languageName: node
   linkType: hard
 

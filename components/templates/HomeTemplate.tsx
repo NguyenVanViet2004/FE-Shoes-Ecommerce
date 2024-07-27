@@ -9,31 +9,10 @@ import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
 import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
-import { ShoesItem } from '~/components/origanisms/ShoesItem'
 import getColors from '~/constants/Colors'
+import dataBranch from '~/constants/DataBranch'
 
-const brands = [
-  {
-    logo: require('assets/images/iconNike.png'),
-    name: 'Nike'
-  },
-  {
-    logo: require('assets/images/iconPuma.png'),
-    name: 'Puma'
-  },
-  {
-    logo: require('assets/images/iconAdidas.png'),
-    name: 'Adidas'
-  },
-  {
-    logo: require('assets/images/iconConverse.png'),
-    name: 'Converse'
-  },
-  {
-    logo: require('assets/images/iconUnderAmour.png'),
-    name: 'Under Armour'
-  }
-]
+import { BannerShoesItem } from '../origanisms/BannerShoesItem'
 
 const HomeTemplate: React.FC = () => {
   const colors = getColors(useColorScheme())
@@ -42,14 +21,14 @@ const HomeTemplate: React.FC = () => {
     useState<{ logo: number, name: string }>()
   return (
     <ScrollView>
-      <View flex={1} paddingHorizontal={20} paddingTop={20} paddingBottom={130}>
+      <View flex={1} paddingHorizontal={20} paddingBottom={130}>
 
         <Header
           leftIcon={
             <Entypo
               name="grid"
               size={25}
-              color={colors.midnightBlue}/>
+              color={colors.midnightBlue} />
           }
           rightIcon={
             <Ionicons
@@ -60,7 +39,7 @@ const HomeTemplate: React.FC = () => {
         />
 
         <View marginBottom={32}>
-          <FormInputWithLabel placeholder="Looking for shoes" iconLeft={<Feather
+          <FormInputWithLabel iconLeft={<Feather
             name="search"
             size={23}
             color={colors.slateGray}
@@ -68,7 +47,7 @@ const HomeTemplate: React.FC = () => {
         </View>
 
         <FlatList
-          data={brands}
+          data={dataBranch}
           horizontal
           showsHorizontalScrollIndicator={false}
           renderItem={({ item, index }) => {
@@ -127,28 +106,14 @@ const HomeTemplate: React.FC = () => {
           marginBottom={16}
           marginTop={24} />
 
-        <FlatList
-          horizontal
-          data={brands}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item, index }) => {
-            return (
-              <ListShoesItem
-                index={index}
-                label="bestSeller"
-                nameShoes="Nike Jordan"
-                price="493.00" />
-            )
-          }}
-          keyExtractor={(item) => item.name}
-        />
+        <ListShoesItem dataShoes={dataBranch} />
 
         <ShoesCategory
           textCategory="newArrivals"
           marginBottom={16}
           marginTop={24} />
 
-        <ShoesItem
+        <BannerShoesItem
           label="bestChoice"
           nameShoes="Nike Air Jordan"
           price="849.69" />
@@ -157,21 +122,7 @@ const HomeTemplate: React.FC = () => {
           textCategory="topSeller"
           marginBottom={16}
           marginTop={24} />
-        <FlatList
-          horizontal
-          data={brands}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item, index }) => {
-            return (
-              <ListShoesItem
-                index={index}
-                label="bestSeller"
-                nameShoes="Nike Jordan"
-                price="493.00" />
-            )
-          }}
-          keyExtractor={(item) => item.name}
-        />
+        <ListShoesItem dataShoes={dataBranch}/>
       </View>
     </ScrollView>
   )

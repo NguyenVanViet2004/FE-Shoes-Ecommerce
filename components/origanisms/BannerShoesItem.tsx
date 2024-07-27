@@ -12,7 +12,7 @@ type Props = {
   price: string
 } & ViewProps
 
-export const ShoesItem = (props: Props): React.ReactElement => {
+export const BannerShoesItem = (props: Props): React.ReactElement => {
   const colors = getColors(useColorScheme())
   const { t } = useTranslation()
 

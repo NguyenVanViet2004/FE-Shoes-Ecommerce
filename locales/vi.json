@@ -12,5 +12,13 @@
         "signInWithGoogle": "Sign in with google",
         "doNotHaveAnAccount": "Don’t have an account?",
         "signUpForFree": "Sign Up for free"
+    },
+    "home":{
+        "seeAll":"Tất cả",
+        "popularShoes":"Phổ biến",
+        "newArrivals": "Mới",
+        "topSeller": "Bán chạy",
+        "bestChoice": "TỐT NHẤT",
+        "bestSeller": "Bán chạy nhất"
     }
 }

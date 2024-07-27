@@ -26,7 +26,9 @@ export const ListShoesItem = (props: Props): React.ReactElement => {
       transition={{ delay: props.index * 200 }}>
       <Image
         source={require('assets/images/shoes3.png')}
-        style={styles.img1} />
+        height={100}
+        maxWidth={120}
+      />
       <View
         flexDirection="row"
         justifyContent="space-between"
@@ -58,10 +60,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: 'column',
     marginRight: 12
-  },
-  img1: {
-    height: 100,
-    maxWidth: 120,
-    resizeMode: 'contain'
   }
 })

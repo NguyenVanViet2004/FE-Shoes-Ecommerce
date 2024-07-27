@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, useColorScheme, View } from 'react-native'
-import { Button, type ButtonProps, Image } from 'tamagui'
+import { useColorScheme } from 'react-native'
+import { Button, type ButtonProps, Image, View } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -20,52 +20,22 @@ export const ButtonRenderBranch = (props: Props): React.ReactElement => {
       alignItems="center"
       justifyContent="center"
       onPress={props.onPress}
-      style={
-        props.isSelected === true
-          ? styles.selectedLogo
-          : {}
-      }>
+      height={props.isSelected === true ? 25 : null}
+      width={props.isSelected === true ? 25 : null}
+    >
       <View
-        style={
-          typeof props.icon === 'number'
-            ? styles.iconWrapperWithImage
-            : styles.iconWrapper
-        }>
+        padding= {typeof props.icon === 'number' ? 8 : 0}>
 
         {typeof props.icon === 'number'
           ? (
             <Image
               source={props.icon}
-              style={[
-                styles.img,
-                props.isSelected === true && styles.selectedImg
-              ]}
+              resizeMode="contain"
+              height={props.isSelected === true ? 20 : 25}
+              width={props.isSelected === true ? 20 : 25}
             />)
-          : (props.icon)
-        }
+          : (props.icon)}
       </View>
     </Button>
   )
 }
-
-const styles = StyleSheet.create({
-  iconWrapper: {
-    padding: 0
-  },
-  iconWrapperWithImage: {
-    padding: 8
-  },
-  img: {
-    height: 25,
-    resizeMode: 'contain',
-    width: 25
-  },
-  selectedImg: {
-    height: 20,
-    width: 20
-  },
-  selectedLogo: {
-    height: 25,
-    width: 25
-  }
-})

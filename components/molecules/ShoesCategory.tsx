@@ -24,7 +24,7 @@ export const ShoesCategory = (props: Props): React.ReactElement => {
         fontSize={16}
         fontWeight={500}
         lineHeight={24}
-        color={colors.midnightBlue}>{t('home.' + props.textCategory)}</Text>
+      >{t('home.' + props.textCategory)}</Text>
       <Button unstyled>
         <Text
           color={colors.cornflowerBlue}
@@ -32,6 +32,6 @@ export const ShoesCategory = (props: Props): React.ReactElement => {
           fontWeight={400}
           lineHeight={16}>{t('home.seeAll')}</Text>
       </Button>
-    </View>
+    </View >
   )
 }

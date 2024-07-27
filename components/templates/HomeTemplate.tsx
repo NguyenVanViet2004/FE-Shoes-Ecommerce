@@ -6,13 +6,12 @@ import { ScrollView, Text, View } from 'tamagui'
 
 import { ButtonRenderBranch } from '~/components/atoms/ButtonRenderBranch'
 import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
+import { BannerShoesItem } from '~/components/molecules/BannerShoesItem'
 import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
 import getColors from '~/constants/Colors'
 import dataBranch from '~/constants/DataBranch'
-
-import { BannerShoesItem } from '../origanisms/BannerShoesItem'
 
 const HomeTemplate: React.FC = () => {
   const colors = getColors(useColorScheme())

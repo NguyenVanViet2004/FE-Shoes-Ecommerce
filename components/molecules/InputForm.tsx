@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { useColorScheme } from 'react-native'
-import { Image, Text, YStack } from 'tamagui'
+import { Image, Text, View, YStack } from 'tamagui'
 
 import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
 import { NegativeButton } from '~/components/atoms/NegativeButton'
@@ -10,19 +10,22 @@ import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 interface Props {
-  displayProp?: any
+  displayRecoveryPassword?: any
+  displayFormInput?: any
   titleButton: string
   titleButtonGoogle: string
+  onPressRecoveryPassword?: () => void
 }
 const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const [rePassword, setRepassword] = useState<string>('')
   const colors = getColors(useColorScheme())
 
   useEffect((): void => {
-  }, [email, password])
+  }, [email, password, rePassword])
 
   const togglePasswordVisibility = (): void => {
     setShowPassword(!showPassword)
@@ -49,10 +52,27 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
               : <Feather name="eye" size={24}
                 onPress={togglePasswordVisibility} />
             } />
+
+        <View display={props.displayFormInput}>
+          <FormInputWithLabel
+            display={props.displayFormInput}
+            label={t('confirmpassword')}
+            placeholder="•••••••••••••"
+            secureTextEntry={showPassword}
+            onChangeText={text => { setRepassword(text) }}
+            icon=
+              {showPassword
+                ? <Feather name="eye-off" size={24}
+                  onPress={togglePasswordVisibility} />
+                : <Feather name="eye" size={24}
+                  onPress={togglePasswordVisibility} />
+              } />
+        </View>
       </YStack>
 
       <Text
-        display={props.displayProp}
+        onPress={props.onPressRecoveryPassword}
+        display={props.displayRecoveryPassword}
         fontWeight="400"
         fontSize={13}
         textAlign="right"

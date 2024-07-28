@@ -4,6 +4,7 @@
     "emailAddress": "Email Address",
     "enterEmail": "Enter email",
     "password": "Password",
+    "confirmpassword": "Confirm Password",
     "signIn": {
         "helloAgain": "Hello Again!",
         "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",

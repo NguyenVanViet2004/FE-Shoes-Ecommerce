@@ -1,4 +1,5 @@
 import { AntDesign } from '@expo/vector-icons'
+import { useRouter } from 'expo-router'
 import React from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
 import { Button } from 'tamagui'
@@ -13,11 +14,18 @@ import useTranslation from '~/hooks/useTranslation'
 const SignInTemplate: React.FC = (): JSX.Element => {
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
+  const router = useRouter()
 
   const handleBack = (): void => {
+    router.back()
   }
 
   const handleSignUp = (): void => {
+    router.push('/authentication/SignUpScreen')
+  }
+
+  const handleRecoveryPassword = (): void => {
+    router.push('/authentication/ForgotPasswordScreen')
   }
 
   return (
@@ -42,6 +50,8 @@ const SignInTemplate: React.FC = (): JSX.Element => {
         } />
 
       <InputForm
+        displayFormInput={'none'}
+        onPressRecoveryPassword={handleRecoveryPassword}
         titleButton={t('signIn.signIn')}
         titleButtonGoogle={t('signIn.signInWithGoogle')}/>
 

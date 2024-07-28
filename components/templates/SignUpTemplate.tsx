@@ -20,6 +20,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
     router.back()
   }
   const handleSignIn = (): void => {
+    router.replace('/authentication/SignInScreen')
   }
 
   return (
@@ -44,13 +45,13 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
         } />
 
       <InputForm
-        displayProp={'none'}
+        displayRecoveryPassword={'none'}
         titleButton={t('signUp.signUp')}
         titleButtonGoogle={t('signUp.signInWithGoogle')} />
 
       <FooterComponent
         onPress={handleSignIn}
-        title={t('Already have an account?')}
+        title={t('signUp.alreadyHaveAnAccount')}
         subtitle={t('signUp.signIn')} />
 
     </SafeArea>

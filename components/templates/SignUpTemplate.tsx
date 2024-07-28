@@ -20,7 +20,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
     router.back()
   }
   const handleSignIn = (): void => {
-    router.replace('/authentication/SignInScreen')
+    router.push('/authentication/OnlySignIn')
   }
 
   return (
@@ -45,7 +45,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
         } />
 
       <InputForm
-        displayRecoveryPassword={'none'}
+        recoveryPassword={'none'}
         titleButton={t('signUp.signUp')}
         titleButtonGoogle={t('signUp.signInWithGoogle')} />
 

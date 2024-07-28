@@ -10,8 +10,8 @@ import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 interface Props {
-  displayRecoveryPassword?: any
-  displayFormInput?: any
+  recoveryPassword?: any
+  FormInputWithLabel?: any
   titleButton: string
   titleButtonGoogle: string
   onPressRecoveryPassword?: () => void
@@ -53,9 +53,8 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
                 onPress={togglePasswordVisibility} />
             } />
 
-        <View display={props.displayFormInput}>
+        <View display={props.FormInputWithLabel}>
           <FormInputWithLabel
-            display={props.displayFormInput}
             label={t('confirmpassword')}
             placeholder="•••••••••••••"
             secureTextEntry={showPassword}
@@ -72,7 +71,7 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
 
       <Text
         onPress={props.onPressRecoveryPassword}
-        display={props.displayRecoveryPassword}
+        display={props.recoveryPassword}
         fontWeight="400"
         fontSize={13}
         textAlign="right"

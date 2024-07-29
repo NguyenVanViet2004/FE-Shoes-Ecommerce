@@ -1,10 +1,6 @@
 {
     "next": "Next",
     "getStarted": "Get Started",
-    "emailAddress": "Email Address",
-    "enterEmail": "Enter email",
-    "password": "Password",
-    "confirmpassword": "Confirm Password",
     "signIn": {
         "helloAgain": "Hello Again!",
         "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",
@@ -14,6 +10,18 @@
         "doNotHaveAnAccount": "Don’t have an account?",
         "signUpForFree": "Sign Up for free"
     },
+    "home":{
+        "seeAll":"See all",
+        "popularShoes":"Popular Shoes",
+        "newArrivals": "New Arrivals",
+        "topSeller": "Top Sell",
+        "bestChoice": "BEST CHOICE",
+        "bestSeller": "Best Seller"
+    },
+    "emailAddress": "Email Address",
+    "enterEmail": "Enter email",
+    "password": "Password",
+    "confirmpassword": "Confirm Password",
     "signUp": {
         "createAccount": "Create Account",
         "letsCreateAccountTogether": "Let’s Create Account Together",

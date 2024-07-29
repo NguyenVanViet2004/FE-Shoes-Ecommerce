@@ -10,6 +10,7 @@ export const NegativeButton = (props: Props): React.ReactElement => {
   return (
     <Button
       {...props}
+      testID='negative-button'
       fontWeight={'500'}
       fontSize={18}
       borderWidth={0}

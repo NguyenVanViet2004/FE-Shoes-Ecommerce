@@ -20,7 +20,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
     router.back()
   }
   const handleSignIn = (): void => {
-    router.push('/authentication/OnlySignIn')
+    router.push('/authentication/SignIn')
   }
 
   return (

@@ -61,10 +61,10 @@ function RootLayoutNav (): React.ReactElement {
           <Stack.Screen name="index" options={{ headerShown: false }}/>
           <Stack.Screen name="BottomBar" options={{ headerShown: false }}/>
           <Stack.Screen
-            name="authentication/OnlySignIn"
+            name="authentication/SignIn"
             options={{ headerShown: false }}/>
           <Stack.Screen
-            name="authentication/OnlySignUp"
+            name="authentication/SignUp"
             options={{ headerShown: false }}/>
         </Stack>
       </ThemeProvider>

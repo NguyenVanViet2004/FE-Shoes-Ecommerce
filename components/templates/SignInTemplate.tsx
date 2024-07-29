@@ -21,11 +21,10 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   }
 
   const handleSignUp = (): void => {
-    router.push('/authentication/OnlySignUp')
+    router.push('/authentication/SignUp')
   }
 
   const handleRecoveryPassword = (): void => {
-    router.push('/authentication/ForgotPasswordScreen')
   }
 
   return (

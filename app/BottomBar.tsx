@@ -71,40 +71,40 @@ const TabButton: React.FC<TabButtonProps> = ({
     }
   }, [focused])
 
-    return (
-      <Button
-        unstyled
-        onPress={onPress}
+  return (
+    <Button
+      unstyled
+      onPress={onPress}
+      style={styles.container}>
+      <Animatable.View
+        ref={viewRef}
+        duration={1000}
         style={styles.container}>
-        <Animatable.View
-          ref={viewRef}
-          duration={1000}
-          style={styles.container}>
-          <View
-            style={
-              [styles.btn,
-                {
-                  backgroundColor: focused ? colors.primary : backgroundColor,
-                  borderColor: backgroundColor
-                }
-              ]}>
-            <Animatable.View
-              ref={circleRef}
-              style={styles.circle} />
-            <Icon
-              type={item.type}
-              name={item.icon}
-              color={focused ? colors.white : colors.primary} />
-          </View>
-          <Animatable.Text
-            ref={textRef}
-            style={[styles.text, { fontSize: responsiveFontSize }]}>
-            {item.label}
-          </Animatable.Text>
-        </Animatable.View>
-      </Button>
-    )
-  }
+        <View
+          style={
+            [styles.btn,
+              {
+                backgroundColor: focused ? colors.primary : backgroundColor,
+                borderColor: backgroundColor
+              }
+            ]}>
+          <Animatable.View
+            ref={circleRef}
+            style={styles.circle} />
+          <Icon
+            type={item.type}
+            name={item.icon}
+            color={focused ? colors.white : colors.primary} />
+        </View>
+        <Animatable.Text
+          ref={textRef}
+          style={[styles.text, { fontSize: responsiveFontSize }]}>
+          {item.label}
+        </Animatable.Text>
+      </Animatable.View>
+    </Button>
+  )
+}
 
 const BottomTabBar: React.FC = () => {
   const Tab = createBottomTabNavigator()

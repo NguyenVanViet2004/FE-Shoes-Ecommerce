@@ -4,6 +4,7 @@ import { useColorScheme } from 'react-native'
 import { Button, Image, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
+import useTranslation from '~/hooks/useTranslation'
 
 interface props {
   leftIcon?: number | React.ReactElement
@@ -16,6 +17,7 @@ interface props {
 const Header: React.FC<props> =
   ({ leftIcon, rightIcon, title, subtitle, label }) => {
     const colors = getColors(useColorScheme())
+    const { t } = useTranslation()
     const renderIcon = (icon: number | ReactElement): React.ReactElement => {
       if (isNumber(icon)) {
         return <Image source={icon} />
@@ -30,7 +32,10 @@ const Header: React.FC<props> =
 
     const renderLabel = (label: string): React.ReactElement => {
       return (
-        <Text fontSize={16} fontWeight={500} >{label}</Text>
+        <Text
+          fontSize={16}
+          fontWeight={500} >
+          {t('account.' + label)}</Text>
       )
     }
 

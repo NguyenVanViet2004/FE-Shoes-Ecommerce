@@ -15,6 +15,7 @@ interface Props {
   titleButton: string
   titleButtonGoogle: string
   onPressRecoveryPassword?: () => void
+  onpressPositiveButton?: () => void
 }
 const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
@@ -81,6 +82,7 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
       </Text>
 
       <PositiveButton
+      onPress={props.onpressPositiveButton}
         title={props.titleButton}
         color={colors.white}
         height={54}

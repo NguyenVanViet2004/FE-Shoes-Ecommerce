@@ -23,6 +23,7 @@ const HomeTemplate: React.FC = () => {
       <View flex={1} paddingHorizontal={20} paddingBottom={130}>
 
         <Header
+          titleSubtile={'none'}
           leftIcon={
             <Entypo
               name="grid"
@@ -37,7 +38,7 @@ const HomeTemplate: React.FC = () => {
           }
         />
 
-        <View marginBottom={32}>
+        <View marginVertical={32}>
           <FormInputWithLabel iconLeft={<Feather
             name="search"
             size={23}

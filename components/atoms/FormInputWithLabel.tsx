@@ -6,8 +6,9 @@ import { Input, type InputProps, Text, XStack, YStack } from 'tamagui'
 import getColors from '~/constants/Colors'
 
 type props = {
-  label: string
+  label?: string
   icon?: JSX.Element
+  iconLeft?: JSX.Element
 } & InputProps
 
 const FormInputWithLabel: React.FC<props> = (props: props) => {
@@ -23,11 +24,13 @@ const FormInputWithLabel: React.FC<props> = (props: props) => {
       </Text>
 
       <XStack
+        gap={12}
         paddingHorizontal={16}
         borderRadius={50}
         height={48}
         backgroundColor={colors.white}
         alignItems="center">
+        {!isNil(props.iconLeft) && props.iconLeft}
         <Input
           unstyled
           {...props}

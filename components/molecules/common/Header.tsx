@@ -1,14 +1,14 @@
 import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import { Image, Text, XStack, YStack } from 'tamagui'
+import { Button, Image, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
 interface props {
   leftIcon?: number | React.ReactElement
   rightIcon?: number | React.ReactElement
-  title: string
+  title?: string
   subtitle?: string
 }
 
@@ -18,16 +18,19 @@ const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
     if (isNumber(icon)) {
       return <Image source={icon} />
     }
-    return icon
+    return <Button unstyled
+      padding={10}
+      borderRadius={50}
+      backgroundColor={colors.white}
+      alignSelf="baseline">{icon}</Button>
   }
 
   return (
     <YStack marginTop={20}>
-      {!isNil(leftIcon) && renderIcon(leftIcon)}
-      <XStack alignItems="center" justifyContent="center">
+      <XStack alignItems="center" justifyContent="space-between">
+        {!isNil(leftIcon) && renderIcon(leftIcon)}
         <YStack
           alignItems="center"
-          marginTop={50}
           gap={10}>
           <Text
             fontSize={28}

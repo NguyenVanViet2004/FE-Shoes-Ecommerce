@@ -1,7 +1,7 @@
 import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Image, Text, XStack, YStack } from 'tamagui'
+import { Button, Image, Text, View, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -10,9 +10,12 @@ interface props {
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
+  titleSubtile?: any
 }
 
-const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
+const Header: React.FC<props> = (
+  { leftIcon, rightIcon, title, subtitle, titleSubtile }
+) => {
   const colors = getColors(useColorScheme())
   const renderIcon = (icon: number | ReactElement): React.ReactElement => {
     if (isNumber(icon)) {
@@ -26,10 +29,14 @@ const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
   }
 
   return (
-    <YStack marginTop={20}>
-      <XStack alignItems="center" justifyContent="space-between">
+    <XStack marginTop={20} justifyContent="center">
+      <View position="absolute" left={0}>
         {!isNil(leftIcon) && renderIcon(leftIcon)}
+      </View>
+
         <YStack
+          display={titleSubtile}
+          marginTop={70}
           alignItems="center"
           gap={10}>
           <Text
@@ -45,9 +52,11 @@ const Header: React.FC<props> = ({ leftIcon, rightIcon, title, subtitle }) => {
             {subtitle}
           </Text>
         </YStack>
+
+      <View position="absolute" right={0}>
         {!isNil(rightIcon) && renderIcon(rightIcon)}
-      </XStack>
-    </YStack>
+      </View>
+    </XStack>
   )
 }
 export default Header

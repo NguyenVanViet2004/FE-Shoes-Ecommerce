@@ -26,11 +26,12 @@
         "shippingAddress":"Địa chỉ giao hàng",
         "paymentInfo":"Thông tin thanh toán",
         "deleteAccount":"Xóa tài khoản",
-        "eneble-FaceID-For-LogIn":"Kích hoạt Face ID để đăng nhập",
+        "enebleFaceIDForLogIn":"Kích hoạt Face ID để đăng nhập",
         "eneblePushNotifications":"Kích hoạt thông báo",
         "enebleLocationServices":"Cho phép dịch vụ định vị",
         "darkMode":"Chế độ tối",
         "account":"Tài khoản",
-        "appSettings":"Cài đặt ứng dụng"
+        "appSettings":"Cài đặt ứng dụng",
+        "account&Settings":"Tài khoản & Cài đặt"
     }
 }

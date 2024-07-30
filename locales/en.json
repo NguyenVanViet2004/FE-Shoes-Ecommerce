@@ -26,11 +26,12 @@
         "shippingAddress":"Shipping Address",
         "paymentInfo":"Payment Info",
         "deleteAccount":"Delete Account",
-        "eneble-FaceID-For-LogIn":"Eneble Face ID For Log In",
+        "enebleFaceIDForLogIn":"Eneble Face ID For Log In",
         "eneblePushNotifications":"Eneble Push Notifications",
         "enebleLocationServices":"Eneble Location Services",
         "darkMode":"Dark Mode",
         "account":"Account",
-        "appSettings":"App Settings"
+        "appSettings":"App Settings",
+        "account&Settings":"Account & Settings"
     }
 }

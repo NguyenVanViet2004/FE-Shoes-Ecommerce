@@ -82,7 +82,7 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
       </Text>
 
       <PositiveButton
-      onPress={props.onpressPositiveButton}
+        onPress={props.onpressPositiveButton}
         title={props.titleButton}
         color={colors.white}
         height={54}

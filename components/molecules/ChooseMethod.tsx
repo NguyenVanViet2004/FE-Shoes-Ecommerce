@@ -29,7 +29,7 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
   return (
     <Button unstyled gap={16} marginTop={16}>
       <XStack
-        justifyContent="space-between"
+        justifyContent="center"
         alignItems="center"
         onPress={props.onPress}>
         <XStack flex={1} alignItems="center" gap={16}>
@@ -37,8 +37,7 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
           {!isNil(props.leftIcon) && renderIcon(props.leftIcon)}
 
           <Text fontSize={16}
-            fontWeight={400}
-            color={colors.midnightBlue}>
+            fontWeight={400}>
             {t('account.' + props.nameMethod)}</Text>
 
         </XStack>

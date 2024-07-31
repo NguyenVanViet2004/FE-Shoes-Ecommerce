@@ -14,17 +14,39 @@ const AccountTemplate: React.FC = () => {
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
 
-  const renderIcon = (type: 'MaterialCommunityIcons' | 'AntDesign' | 'Ionicons',
-    name: any, size: number, color: any): React.ReactElement => {
+  type IconType = 'MaterialCommunityIcons' | 'AntDesign' | 'Ionicons'
+
+  const handleSwitchChange = (checked: boolean): void => {
+    console.log('Switch state :', checked)
+  }
+
+  const renderIcon = (
+    type: IconType,
+    name: string,
+    size: number,
+    color: string
+  ): React.ReactElement => {
     switch (type) {
       case 'MaterialCommunityIcons':
-        return <MaterialCommunityIcons name={name} size={size} color={color} />
+        return <MaterialCommunityIcons
+          name={name as keyof typeof MaterialCommunityIcons.glyphMap}
+          size={size}
+          color={color} />
       case 'AntDesign':
-        return <AntDesign name={name} size={size} color={color} />
+        return <AntDesign
+          name={name as keyof typeof AntDesign.glyphMap}
+          size={size}
+          color={color} />
       case 'Ionicons':
-        return <Ionicons name={name} size={size} color={color} />
+        return <Ionicons
+          name={name as keyof typeof Ionicons.glyphMap}
+          size={size}
+          color={color} />
       default:
-        return <Ionicons name={name} size={size} color={color} />
+        return <Ionicons
+          name={name as keyof typeof Ionicons.glyphMap}
+          size={size}
+          color={color} />
     }
   }
   return (
@@ -50,12 +72,12 @@ const AccountTemplate: React.FC = () => {
                 renderIcon(method.leftIconType,
                   method.leftIconName,
                   24,
-                  colors.slateGray)}
+                  colors.slateGray as string)}
               rightIcon={
                 renderIcon(method.rightIconType,
                   method.rightIconName,
                   15,
-                  colors.slateGray)} />
+                  colors.slateGray as string)} />
           ))}
 
           <Text
@@ -67,7 +89,8 @@ const AccountTemplate: React.FC = () => {
             <ChooseMethod
               key={methodSetting.id}
               nameMethod={methodSetting.nameMethod}
-              useSwitch />
+              useSwitch
+              onCheckedChange={handleSwitchChange} />
           ))}
         </View>
       </ScrollView>

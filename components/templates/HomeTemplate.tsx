@@ -23,7 +23,7 @@ const HomeTemplate: React.FC = () => {
       <View flex={1} paddingHorizontal={20} paddingBottom={130}>
 
         <Header
-          titleSubtile={false}
+          visibleTitleSubtitle={false}
           leftIcon={
             <Entypo
               name="grid"

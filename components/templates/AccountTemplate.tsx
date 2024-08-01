@@ -1,8 +1,8 @@
-import { AntDesign, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import React from 'react'
 import { StatusBar, StyleSheet, useColorScheme } from 'react-native'
 import { ScrollView, Text, View } from 'tamagui'
 
+import Icon from '~/components/atoms/Icons'
 import SafeArea from '~/components/atoms/SafeArea'
 import { ChooseMethod } from '~/components/molecules/ChooseMethod'
 import Header from '~/components/molecules/common/Header'
@@ -14,40 +14,19 @@ const AccountTemplate: React.FC = () => {
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
 
-  type IconType = 'MaterialCommunityIcons' | 'AntDesign' | 'Ionicons'
-
   const handleSwitchChange = (checked: boolean): void => {
     console.log('Switch state :', checked)
   }
 
   const renderIcon = (
-    type: IconType,
+    IconComponent: any,
     name: string,
     size: number,
     color: string
   ): React.ReactElement => {
-    switch (type) {
-      case 'MaterialCommunityIcons':
-        return <MaterialCommunityIcons
-          name={name as keyof typeof MaterialCommunityIcons.glyphMap}
-          size={size}
-          color={color} />
-      case 'AntDesign':
-        return <AntDesign
-          name={name as keyof typeof AntDesign.glyphMap}
-          size={size}
-          color={color} />
-      case 'Ionicons':
-        return <Ionicons
-          name={name as keyof typeof Ionicons.glyphMap}
-          size={size}
-          color={color} />
-      default:
-        return <Ionicons
-          name={name as keyof typeof Ionicons.glyphMap}
-          size={size}
-          color={color} />
-    }
+    return (
+      <Icon type={IconComponent} name={name} size={size} color={color}/>
+    )
   }
   return (
     <SafeArea style={styles.container}>
@@ -69,15 +48,14 @@ const AccountTemplate: React.FC = () => {
           {dataMethodAccount.map((method) => (
             <ChooseMethod key={method.id} nameMethod={method.nameMethod}
               leftIcon={
-                renderIcon(method.leftIconType,
+                renderIcon(method.typeIconLeft,
                   method.leftIconName,
-                  24,
+                  25,
                   colors.slateGray as string)}
-              rightIcon={
-                renderIcon(method.rightIconType,
-                  method.rightIconName,
-                  15,
-                  colors.slateGray as string)} />
+              rightIcon={renderIcon(method.typeIconRight,
+                method.rightIconName,
+                16,
+                colors.slateGray as string)} />
           ))}
 
           <Text

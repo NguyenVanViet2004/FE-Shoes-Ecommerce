@@ -1,9 +1,11 @@
+import { Icons } from '~/components/atoms/Icons'
+
 interface DataMethodAccount {
   id: string
   nameMethod: string
-  leftIconType: 'MaterialCommunityIcons' | 'AntDesign' | 'Ionicons'
+  typeIconLeft: any
+  typeIconRight: any
   leftIconName: string
-  rightIconType: 'MaterialCommunityIcons' | 'AntDesign' | 'Ionicons'
   rightIconName: string
 }
 
@@ -11,34 +13,34 @@ const dataMethodAccount: DataMethodAccount[] = [
   {
     id: '1',
     leftIconName: 'bell-ring-outline',
-    leftIconType: 'MaterialCommunityIcons',
     nameMethod: 'notificationSetting',
     rightIconName: 'right',
-    rightIconType: 'AntDesign'
+    typeIconLeft: Icons.MaterialCommunityIcons,
+    typeIconRight: Icons.AntDesign
   },
   {
     id: '2',
     leftIconName: 'bag-handle-outline',
-    leftIconType: 'Ionicons',
     nameMethod: 'shippingAddress',
     rightIconName: 'right',
-    rightIconType: 'AntDesign'
+    typeIconLeft: Icons.Ionicons,
+    typeIconRight: Icons.AntDesign
   },
   {
     id: '3',
     leftIconName: 'wallet',
-    leftIconType: 'AntDesign',
     nameMethod: 'paymentInfo',
     rightIconName: 'right',
-    rightIconType: 'AntDesign'
+    typeIconLeft: Icons.AntDesign,
+    typeIconRight: Icons.AntDesign
   },
   {
     id: '4',
     leftIconName: 'delete',
-    leftIconType: 'AntDesign',
     nameMethod: 'deleteAccount',
     rightIconName: 'right',
-    rightIconType: 'AntDesign'
+    typeIconLeft: Icons.AntDesign,
+    typeIconRight: Icons.AntDesign
   }
 ]
 

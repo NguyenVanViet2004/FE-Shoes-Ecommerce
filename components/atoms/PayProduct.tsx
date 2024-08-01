@@ -1,7 +1,7 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { Button, Separator, Text, XStack, YStack } from 'tamagui'
-
+import { useTranslation } from 'react-i18next'
 import getColors from '~/constants/Colors'
 interface CheckoutSummaryProps {
   subtotal: string
@@ -16,6 +16,7 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
   totalCost,
   onCheckout
 }) => {
+  const { t } = useTranslation()
   const colors = getColors(useColorScheme())
   return (
     <YStack
@@ -23,15 +24,10 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
       padding="$4"
       borderRadius={25}
       marginTop={70}
-    //   shadowColor="$shadowColor"
-    //   shadowOffset={{ width: 0, height: 2 }}
-    //   shadowOpacity={0.1}
-    //   shadowRadius="$4"
-    //   elevation={4}
     >
       <XStack justifyContent="space-between" marginVertical="$2">
         <Text fontSize="$4" color={colors.gray} fontWeight="bold">
-          Subtotal
+          {t('Subtotal')}
         </Text>
         <Text fontSize="$4" color="$black" fontWeight="bold">
           {subtotal}
@@ -39,7 +35,7 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
       </XStack>
       <XStack justifyContent="space-between" marginVertical="$2">
         <Text fontSize="$4" color={colors.gray} fontWeight="bold">
-          Shopping
+          {t('Shopping')}
         </Text>
         <Text fontSize="$4" color="$black" fontWeight="bold">
           {shipping}
@@ -50,7 +46,7 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
         marginVertical="$3" />
       <XStack justifyContent="space-between" marginVertical="$2">
         <Text fontSize="$5" fontWeight="bold">
-          Total Cost
+          {t('TotalCost')}
         </Text>
         <Text fontSize="$5" fontWeight="bold">
           {totalCost}
@@ -66,7 +62,7 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
         onPress={onCheckout}
       >
         <Text color={colors.white} fontSize="$4" fontWeight="bold">
-          Checkout
+          {t('Checkout')}
         </Text>
       </Button>
     </YStack>

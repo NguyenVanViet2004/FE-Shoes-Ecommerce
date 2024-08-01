@@ -61,5 +61,9 @@
     "permissionsToContinue": "các quyền để tiếp tục.",
     "youCanChangePermissions": "Bạn có thể thay đổi các quyền trong ứng dụng Cài đặt.",
     "openSettings": "Mở Cài đặt"
-  }
+  }, 
+  "Subtotal" : "Tổng chi phí",
+    "Shopping" : "Giá mua ",
+    "TotalCost" : "Tổng thanh toán",
+    "Checkout" : "Thanh Toán "
 }

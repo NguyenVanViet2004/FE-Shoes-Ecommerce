@@ -26,7 +26,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const handleRecoveryPassword = (): void => {
   }
 
-  const positiveButtonSignin = (): void => {
+  const ButtonSignin = (): void => {
     router.replace('/BottomBar')
   }
   return (
@@ -35,6 +35,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       backgroundColor: colors.lightSilver
     }}>
       <Header
+        titleSubtile={true}
         title={t('signIn.helloAgain')}
         subtitle={t('signIn.welcomeBackYouHaveBeenMissed')}
         leftIcon={
@@ -45,14 +46,15 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       />
 
       <InputForm
-        onpressPositiveButton={positiveButtonSignin}
-        FormInputWithLabel={'none'}
-        onPressRecoveryPassword={handleRecoveryPassword}
-        titleButton={t('signIn.signIn')}
-        titleButtonGoogle={t('signIn.signInWithGoogle')}/>
+        visiableRecoveryPassword={true}
+        onPositiveButtonPress={ButtonSignin}
+        visiableFormInputWithLabel={false}
+        onRecoveryPasswordPress={handleRecoveryPassword}
+        buttonTitle={t('signIn.signIn')}
+        googleButtonTitle={t('signIn.signInWithGoogle')}/>
 
       <FooterComponent
-        onPress={handleSignUp}
+        onPressAuthScreen={handleSignUp}
         title={t('signIn.doNotHaveAnAccount')}
         subtitle={t('signIn.signUpForFree')} />
 

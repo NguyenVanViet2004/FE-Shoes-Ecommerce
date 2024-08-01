@@ -28,6 +28,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
       backgroundColor: colors.lightSilver
     }}>
       <Header
+        titleSubtile={true}
         title={t('signUp.createAccount')}
         subtitle={t('signUp.letsCreateAccountTogether')}
         leftIcon={
@@ -38,12 +39,13 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
       />
 
       <InputForm
-        recoveryPassword={'none'}
-        titleButton={t('signUp.signUp')}
-        titleButtonGoogle={t('signUp.signInWithGoogle')} />
+        visiableFormInputWithLabel={true}
+        visiableRecoveryPassword={false}
+        buttonTitle={t('signUp.signUp')}
+        googleButtonTitle={t('signUp.signInWithGoogle')} />
 
       <FooterComponent
-        onPress={handleSignIn}
+        onPressAuthScreen={handleSignIn}
         title={t('signUp.alreadyHaveAnAccount')}
         subtitle={t('signUp.signIn')} />
 

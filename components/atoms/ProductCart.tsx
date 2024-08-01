@@ -4,11 +4,8 @@ import { useColorScheme } from 'react-native'
 import { Button, Image, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
-interface ProductCardProps {
-  imageUrl: string
-  title: string
-  price: string
-  size: string
+import Shoes from '~/interfaces/Shoes'
+interface ProductCardProps extends Shoes {
   quantity: number
   onIncrease: () => void
   onDecrease: () => void
@@ -16,10 +13,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
-  imageUrl,
-  title,
+  images,
+  name,
   price,
-  size,
+  sizes,
   quantity,
   onIncrease,
   onDecrease,
@@ -33,6 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       prevColor === colors.gray ? colors.red : colors.gray
     )
   }
+  const imageUri = images[0];
   return (
     <YStack
       flexDirection="row"
@@ -42,7 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       marginBottom={10}
     >
       <Image
-        source={{ uri: imageUrl }}
+        source={{ uri: imageUri }}
         backgroundColor={colors.whiteSmoke}
         borderRadius={10}
         borderWidth={1}
@@ -51,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       />
       <YStack flex={1} marginLeft={10}>
         <Text fontSize={16} fontWeight="bold">
-          {title}
+          {name}
         </Text>
         <Text fontSize={14} color="#666">
           {price}
@@ -88,7 +86,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </XStack>
       </YStack>
       <YStack>
-        <Text fontSize={16}>{size}</Text>
+        <Text fontSize={16}>{sizes}</Text>
         <Trash2
           size={24}
           color={iconColor}

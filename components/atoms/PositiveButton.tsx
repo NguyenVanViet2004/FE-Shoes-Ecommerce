@@ -13,7 +13,7 @@ export const PositiveButton = (props: Props): React.ReactElement => {
   return (
     <Button
       {...props}
-      testID='positive-button'
+      testID="positive-button"
       fontWeight={'500'}
       fontSize={18}
       color={colors.white}

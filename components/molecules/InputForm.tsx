@@ -11,12 +11,12 @@ import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 interface Props {
-  visiableRecoveryPassword?: boolean
-  visiableFormInputWithLabel?: boolean
+  visibleRecoveryPassword?: boolean
+  visibleFormInputWithLabel?: boolean
   buttonTitle: string
   googleButtonTitle: string
   onRecoveryPasswordPress?: () => void
-  onPositiveButtonPress?: () => void
+  onLoginPress?: () => void
 }
 const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
@@ -44,14 +44,14 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
         <FormInputWithLabel
           label={t('emailAddress')}
           placeholder={t('enterEmail')}
-          onChangeText={text => { setEmail(text) }}
+          onChangeText={setEmail}
         />
 
         <FormInputWithLabel
           label={t('password')}
           placeholder="•••••••••••••"
           secureTextEntry={showPassword}
-          onChangeText={text => { setPassword(text) }}
+          onChangeText={setPassword}
           icon=
             {showPassword
               ? <Feather name="eye-off" size={24}
@@ -61,8 +61,8 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
             } />
 
         <View display={
-          !isNil(props.visiableFormInputWithLabel) &&
-          props.visiableFormInputWithLabel
+          !isNil(props.visibleFormInputWithLabel) &&
+          props.visibleFormInputWithLabel
             ? 'flex'
             : 'none'}>
           <FormInputWithLabel
@@ -83,8 +83,8 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
       <Text
         onPress={props.onRecoveryPasswordPress}
         display={
-          !isNil(props.visiableRecoveryPassword) &&
-          props.visiableRecoveryPassword
+          !isNil(props.visibleRecoveryPassword) &&
+          props.visibleRecoveryPassword
             ? 'flex'
             : 'none'
         }
@@ -97,7 +97,7 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
       </Text>
 
       <PositiveButton
-        onPress={props.onPositiveButtonPress}
+        onPress={props.onLoginPress}
         title={props.buttonTitle}
         color={colors.white}
         height={54}

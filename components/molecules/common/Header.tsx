@@ -10,11 +10,11 @@ interface props {
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
-  titleSubtile?: boolean
+  visibleTitleSubtitle?: boolean
 }
 
 const Header: React.FC<props> = (
-  { leftIcon, rightIcon, title, subtitle, titleSubtile }
+  { leftIcon, rightIcon, title, subtitle, visibleTitleSubtitle }
 ) => {
   const colors = getColors(useColorScheme())
   const renderIcon = (icon: number | ReactElement): React.ReactElement => {
@@ -35,7 +35,7 @@ const Header: React.FC<props> = (
       </View>
 
       <YStack
-        display={!isNil(titleSubtile) && titleSubtile ? 'flex' : 'none'}
+        display={!isNil(visibleTitleSubtitle) && visibleTitleSubtitle ? 'flex' : 'none'}
         marginTop={70}
         alignItems="center"
         gap={10}>

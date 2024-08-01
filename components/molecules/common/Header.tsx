@@ -10,7 +10,7 @@ interface props {
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
-  titleSubtile?: any
+  titleSubtile?: boolean
 }
 
 const Header: React.FC<props> = (
@@ -34,24 +34,23 @@ const Header: React.FC<props> = (
         {!isNil(leftIcon) && renderIcon(leftIcon)}
       </View>
 
-        <YStack
-          display={titleSubtile}
-          marginTop={70}
-          alignItems="center"
-          gap={10}>
-          <Text
-            fontSize={28}
-            fontWeight="bold"
-            color={colors.midnightBlue}>
-            {title}
-          </Text>
-          <Text
-            fontSize={16}
-            fontWeight="500"
-            color={colors.slateGray}>
-            {subtitle}
-          </Text>
-        </YStack>
+      <YStack
+        display={!isNil(titleSubtile) && titleSubtile ? 'flex' : 'none'}
+        marginTop={70}
+        alignItems="center"
+        gap={10}>
+        <Text
+          fontSize={28}
+          fontWeight="bold">
+          {title}
+        </Text>
+        <Text
+          fontSize={16}
+          fontWeight="500"
+          color={colors.slateGray}>
+          {subtitle}
+        </Text>
+      </YStack>
 
       <View position="absolute" right={0}>
         {!isNil(rightIcon) && renderIcon(rightIcon)}

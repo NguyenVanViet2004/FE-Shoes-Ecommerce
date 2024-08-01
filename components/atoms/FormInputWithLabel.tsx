@@ -18,8 +18,7 @@ const FormInputWithLabel: React.FC<props> = (props: props) => {
     <YStack gap={10}>
       <Text
         fontSize={16}
-        fontWeight="bold"
-        color={colors.midnightBlue}>
+        fontWeight="bold">
         {props.label}
       </Text>
 

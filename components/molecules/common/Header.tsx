@@ -35,7 +35,12 @@ const Header: React.FC<props> = (
       </View>
 
       <YStack
-        display={!isNil(visibleTitleSubtitle) && visibleTitleSubtitle ? 'flex' : 'none'}
+        display={
+          !isNil(visibleTitleSubtitle) &&
+          visibleTitleSubtitle
+            ? 'flex'
+            : 'none'
+        }
         marginTop={70}
         alignItems="center"
         gap={10}>

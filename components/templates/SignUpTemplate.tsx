@@ -18,7 +18,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
   const handleBack = (): void => {
     router.back()
   }
-  const handleSignIn = (): void => {
+  const redirectToSignIn = (): void => {
     router.push('/authentication/SignIn')
   }
 
@@ -28,7 +28,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
       backgroundColor: colors.lightSilver
     }}>
       <Header
-        titleSubtile={true}
+        visibleTitleSubtitle={true}
         title={t('signUp.createAccount')}
         subtitle={t('signUp.letsCreateAccountTogether')}
         leftIcon={
@@ -39,13 +39,13 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
       />
 
       <InputForm
-        visiableFormInputWithLabel={true}
-        visiableRecoveryPassword={false}
+        visibleFormInputWithLabel={true}
+        visibleRecoveryPassword={false}
         buttonTitle={t('signUp.signUp')}
         googleButtonTitle={t('signUp.signInWithGoogle')} />
 
       <FooterComponent
-        onPressAuthScreen={handleSignIn}
+        onPressAuthScreen={redirectToSignIn}
         title={t('signUp.alreadyHaveAnAccount')}
         subtitle={t('signUp.signIn')} />
 

@@ -1,4 +1,5 @@
 import { Feather } from '@expo/vector-icons'
+import { isNil } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import { useColorScheme } from 'react-native'
 import { Image, Text, View, YStack } from 'tamagui'
@@ -10,30 +11,35 @@ import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 interface Props {
-  recoveryPassword?: any
-  FormInputWithLabel?: any
-  titleButton: string
-  titleButtonGoogle: string
-  onPressRecoveryPassword?: () => void
-  onpressPositiveButton?: () => void
+  visiableRecoveryPassword?: boolean
+  visiableFormInputWithLabel?: boolean
+  buttonTitle: string
+  googleButtonTitle: string
+  onRecoveryPasswordPress?: () => void
+  onPositiveButtonPress?: () => void
 }
 const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(true)
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-  const [rePassword, setRepassword] = useState<string>('')
+  const [confirmPassword, setConfirmPassword] = useState<string>('')
   const colors = getColors(useColorScheme())
 
   useEffect((): void => {
-  }, [email, password, rePassword])
+  }, [email, password, confirmPassword])
 
   const togglePasswordVisibility = (): void => {
     setShowPassword(!showPassword)
   }
 
+  const toggleConfirmPasswordVisibility = (): void => {
+    setShowConfirmPassword(!showConfirmPassword)
+  }
+
   return (
-    <YStack flex={1}>
+    <View>
       <YStack gap={30} marginTop={68}>
         <FormInputWithLabel
           label={t('emailAddress')}
@@ -54,25 +60,34 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
                 onPress={togglePasswordVisibility} />
             } />
 
-        <View display={props.FormInputWithLabel}>
+        <View display={
+          !isNil(props.visiableFormInputWithLabel) &&
+          props.visiableFormInputWithLabel
+            ? 'flex'
+            : 'none'}>
           <FormInputWithLabel
             label={t('confirmpassword')}
             placeholder="•••••••••••••"
-            secureTextEntry={showPassword}
-            onChangeText={text => { setRepassword(text) }}
+            secureTextEntry={showConfirmPassword}
+            onChangeText={setConfirmPassword}
             icon=
-              {showPassword
+              {showConfirmPassword
                 ? <Feather name="eye-off" size={24}
-                  onPress={togglePasswordVisibility} />
+                  onPress={toggleConfirmPasswordVisibility} />
                 : <Feather name="eye" size={24}
-                  onPress={togglePasswordVisibility} />
+                  onPress={toggleConfirmPasswordVisibility} />
               } />
         </View>
       </YStack>
 
       <Text
-        onPress={props.onPressRecoveryPassword}
-        display={props.recoveryPassword}
+        onPress={props.onRecoveryPasswordPress}
+        display={
+          !isNil(props.visiableRecoveryPassword) &&
+          props.visiableRecoveryPassword
+            ? 'flex'
+            : 'none'
+        }
         fontWeight="400"
         fontSize={13}
         textAlign="right"
@@ -82,15 +97,15 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
       </Text>
 
       <PositiveButton
-        onPress={props.onpressPositiveButton}
-        title={props.titleButton}
+        onPress={props.onPositiveButtonPress}
+        title={props.buttonTitle}
         color={colors.white}
         height={54}
         backgroundColor={colors.cornflowerBlue}
         marginTop={30} />
 
       <NegativeButton
-        title={props.titleButtonGoogle}
+        title={props.googleButtonTitle}
         backgroundColor={colors.white}
         color={colors.midnightBlue}
         marginTop={30}
@@ -99,7 +114,7 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
           <Image src={require('~/assets/images/icon_google.png')} />
         } />
 
-    </YStack>
+    </View>
   )
 }
 

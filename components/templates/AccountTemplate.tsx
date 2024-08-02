@@ -2,7 +2,7 @@ import React from 'react'
 import { StatusBar, StyleSheet, useColorScheme } from 'react-native'
 import { ScrollView, Text, View } from 'tamagui'
 
-import Icon from '~/components/atoms/Icons'
+import { RenderIcon } from '~/components/atoms/RenderIcon'
 import SafeArea from '~/components/atoms/SafeArea'
 import { ChooseMethod } from '~/components/molecules/ChooseMethod'
 import Header from '~/components/molecules/common/Header'
@@ -18,16 +18,6 @@ const AccountTemplate: React.FC = () => {
     console.log('Switch state :', checked)
   }
 
-  const renderIcon = (
-    IconComponent: any,
-    name: string,
-    size: number,
-    color: string
-  ): React.ReactElement => {
-    return (
-      <Icon type={IconComponent} name={name} size={size} color={color}/>
-    )
-  }
   return (
     <SafeArea style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -38,7 +28,7 @@ const AccountTemplate: React.FC = () => {
           paddingHorizontal={20}
           backgroundColor={colors.lightSilver}>
           <Header
-            label="account&Settings" />
+            title="account&Settings" />
 
           <Text
             fontSize={18}
@@ -48,14 +38,21 @@ const AccountTemplate: React.FC = () => {
           {dataMethodAccount.map((method) => (
             <ChooseMethod key={method.id} nameMethod={method.nameMethod}
               leftIcon={
-                renderIcon(method.typeIconLeft,
-                  method.leftIconName,
-                  25,
-                  colors.slateGray as string)}
-              rightIcon={renderIcon(method.typeIconRight,
-                method.rightIconName,
-                16,
-                colors.slateGray as string)} />
+                <RenderIcon
+                  iconComponent={method.typeIconLeft}
+                  name={method.leftIconName}
+                  size={25}
+                  color={colors.slateGray as string}
+                />
+              }
+              rightIcon={
+                <RenderIcon
+                  iconComponent={method.typeIconRight}
+                  name={method.rightIconName}
+                  size={16}
+                  color={colors.slateGray as string}
+                />
+              } />
           ))}
 
           <Text

@@ -1,6 +1,6 @@
 import React from 'react'
-import { StatusBar, StyleSheet, useColorScheme } from 'react-native'
-import { ScrollView, Text, View } from 'tamagui'
+import { useColorScheme } from 'react-native'
+import { ScrollView, View } from 'tamagui'
 
 import { RenderIcon } from '~/components/atoms/RenderIcon'
 import SafeArea from '~/components/atoms/SafeArea'
@@ -9,9 +9,7 @@ import Header from '~/components/molecules/common/Header'
 import getColors from '~/constants/Colors'
 import dataMethodAccount from '~/constants/DataMethodAccount'
 import dataMethodSetting from '~/constants/DataMethodSetting'
-import useTranslation from '~/hooks/useTranslation'
 const AccountTemplate: React.FC = () => {
-  const { t } = useTranslation()
   const colors = getColors(useColorScheme())
 
   const handleSwitchChange = (checked: boolean): void => {
@@ -19,21 +17,18 @@ const AccountTemplate: React.FC = () => {
   }
 
   return (
-    <SafeArea style={styles.container}>
+    <SafeArea>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <StatusBar backgroundColor={colors.lightSilver} />
         <View
           flex={1}
           paddingBottom={120}
-          paddingHorizontal={20}
-          backgroundColor={colors.lightSilver}>
-          <Header
-            title="account&Settings" />
+          paddingHorizontal={20}>
 
-          <Text
-            fontSize={18}
-            fontWeight={500}
-            marginVertical={24}>{t('account.account')}</Text>
+          <Header title="account&Settings" centered />
+
+          <View marginVertical={24}>
+            <Header title="account" centered={false} fontSize={24}/>
+          </View>
 
           {dataMethodAccount.map((method) => (
             <ChooseMethod key={method.id} nameMethod={method.nameMethod}
@@ -55,10 +50,9 @@ const AccountTemplate: React.FC = () => {
               } />
           ))}
 
-          <Text
-            fontSize={18}
-            fontWeight={500}
-            marginVertical={24}>{t('account.appSettings')}</Text>
+          <View marginVertical={24}>
+            <Header title="appSettings" centered={false} fontSize={24}/>
+          </View>
 
           {dataMethodSetting.map((methodSetting) => (
             <ChooseMethod
@@ -72,11 +66,4 @@ const AccountTemplate: React.FC = () => {
     </SafeArea>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-})
-
 export default AccountTemplate

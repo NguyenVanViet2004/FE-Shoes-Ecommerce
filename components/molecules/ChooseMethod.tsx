@@ -17,6 +17,7 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
   const { t } = useTranslation()
   const [isChecked, setIsChecked] = useState(false)
   const colors = getColors(useColorScheme())
+  const isDarkMode = useColorScheme() === 'dark'
   const renderIcon = (icon: React.ReactElement): React.ReactElement => {
     return icon
   }
@@ -51,7 +52,8 @@ export const ChooseMethod = (props: Props): React.ReactElement => {
               borderRadius={30}
               backgroundColor={isChecked
                 ? colors.cornflowerBlue
-                : colors.silverGray}
+                : (isDarkMode ? colors.charcoalGray : colors.softSilver)}
+
             >
               <Switch.Thumb
                 animation="quick"

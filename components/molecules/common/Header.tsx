@@ -11,11 +11,10 @@ interface props {
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
-  label?: string
 }
 
 const Header: React.FC<props> =
-  ({ leftIcon, rightIcon, title, subtitle, label }) => {
+  ({ leftIcon, rightIcon, title, subtitle }) => {
     const colors = getColors(useColorScheme())
     const { t } = useTranslation()
     const renderIcon = (icon: number | ReactElement): React.ReactElement => {
@@ -30,12 +29,12 @@ const Header: React.FC<props> =
         alignSelf="baseline">{icon}</Button>
     }
 
-    const renderLabel = (label: string): React.ReactElement => {
+    const renderTitleAlone = (title: string): React.ReactElement => {
       return (
         <Text
           fontSize={16}
           fontWeight={500} >
-          {t('account.' + label)}</Text>
+          {t('account.' + title)}</Text>
       )
     }
 
@@ -44,9 +43,9 @@ const Header: React.FC<props> =
         <XStack alignItems="center" justifyContent="space-between" >
           {!isNil(leftIcon) && renderIcon(leftIcon)}
 
-          {!isNil(label) && (
+          {!isNil(title) && (
             <XStack flex={1} alignItems="center" justifyContent="center">
-              {renderLabel(label)}
+              {renderTitleAlone(title)}
             </XStack>
           )}
 

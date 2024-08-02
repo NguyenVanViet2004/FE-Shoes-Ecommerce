@@ -20,5 +20,18 @@
         "topSeller": "Top Sell",
         "bestChoice": "BEST CHOICE",
         "bestSeller": "Best Seller"
+    },
+    "account":{
+        "notificationSetting":"Notification Setting",
+        "shippingAddress":"Shipping Address",
+        "paymentInfo":"Payment Info",
+        "deleteAccount":"Delete Account",
+        "enebleFaceIDForLogIn":"Eneble Face ID For Log In",
+        "eneblePushNotifications":"Eneble Push Notifications",
+        "enebleLocationServices":"Eneble Location Services",
+        "darkMode":"Dark Mode",
+        "account":"Account",
+        "appSettings":"App Settings",
+        "account&Settings":"Account & Settings"
     }
 }

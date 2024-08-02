@@ -1,50 +1,62 @@
 import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Image, Text, XStack, YStack } from 'tamagui'
+import { Button, Image, Text, type TextProps, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
-interface props {
+type Props = {
   leftIcon?: number | React.ReactElement
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
-}
+  centered?: boolean
+} & TextProps
 
-const Header: React.FC<props> =
-  ({ leftIcon, rightIcon, title, subtitle }) => {
+const Header: React.FC<Props> =
+  ({ leftIcon, rightIcon, title, subtitle, centered = true, ...textProp }) => {
     const colors = getColors(useColorScheme())
     const { t } = useTranslation()
     const renderIcon = (icon: number | ReactElement): React.ReactElement => {
       if (isNumber(icon)) {
         return <Image source={icon} />
       }
-      return <Button
-        unstyled
-        padding={10}
-        borderRadius={50}
-        backgroundColor={colors.white}
-        alignSelf="baseline">{icon}</Button>
+      return (
+        <Button
+          unstyled
+          padding={10}
+          borderRadius={50}
+          backgroundColor={colors.white}
+          alignSelf="baseline"
+        >
+          {icon}
+        </Button>
+      )
     }
 
     const renderTitleAlone = (title: string): React.ReactElement => {
       return (
         <Text
           fontSize={16}
-          fontWeight={500} >
+          fontWeight={500}
+          {...textProp}>
           {t('account.' + title)}</Text>
       )
     }
 
     return (
       <YStack marginTop={20}>
-        <XStack alignItems="center" justifyContent="space-between" >
+        <XStack
+          alignItems="center"
+          justifyContent={centered ? 'space-between' : 'flex-start'}>
           {!isNil(leftIcon) && renderIcon(leftIcon)}
 
           {!isNil(title) && (
-            <XStack flex={1} alignItems="center" justifyContent="center">
+            <XStack
+              flex={1}
+              alignItems="center"
+              justifyContent={centered ? 'center' : 'flex-start'}>
               {renderTitleAlone(title)}
             </XStack>
           )}
@@ -64,4 +76,5 @@ const Header: React.FC<props> =
       </YStack>
     )
   }
+
 export default Header

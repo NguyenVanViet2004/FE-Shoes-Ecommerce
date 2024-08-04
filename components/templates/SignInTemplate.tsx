@@ -29,6 +29,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   }
 
   const redirectToForgot = (): void => {
+    router.push('/authentication/Forgot')
   }
 
   const ButtonSignin = (): void => {

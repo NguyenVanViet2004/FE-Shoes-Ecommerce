@@ -45,5 +45,10 @@
         "account":"Tài khoản",
         "appSettings":"Cài đặt ứng dụng",
         "account&Settings":"Tài khoản & Cài đặt"
+    },
+    "forgotPassword": {
+        "recoveryPassword": "Khôi phục mật khẩu",
+        "pleaseEnterYourEmail": "Vui lòng nhập địa chỉ email của bạn để nhận mã xác nhận",
+        "continue": "Tiếp tục"
     }
 }

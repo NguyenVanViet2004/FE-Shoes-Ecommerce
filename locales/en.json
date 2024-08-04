@@ -45,5 +45,10 @@
         "account":"Account",
         "appSettings":"App Settings",
         "account&Settings":"Account & Settings"
+    },
+    "forgotPassword": {
+        "recoveryPassword": "Recovery Password",
+        "pleaseEnterYourEmail": "Please Enter Your Email Address To Recieve a Verification Code",
+        "continue": "Continue"
     }
 }

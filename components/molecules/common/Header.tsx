@@ -1,66 +1,67 @@
 import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Image, Text, View, XStack, YStack } from 'tamagui'
+import { Button, Image, Text, type TextProps, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
-interface props {
+type Props = {
   leftIcon?: number | React.ReactElement
   rightIcon?: number | React.ReactElement
   title?: string
-  subtitle?: string
-  visibleTitleSubtitle?: boolean
-}
+  centered?: boolean
+} & TextProps
 
-const Header: React.FC<props> = (
-  { leftIcon, rightIcon, title, subtitle, visibleTitleSubtitle }
-) => {
-  const colors = getColors(useColorScheme())
-  const renderIcon = (icon: number | ReactElement): React.ReactElement => {
-    if (isNumber(icon)) {
-      return <Image source={icon} />
+const Header: React.FC<Props> =
+  ({ leftIcon, rightIcon, title, centered = true, ...textProp }) => {
+    const colors = getColors(useColorScheme())
+    const renderIcon = (icon: number | ReactElement): React.ReactElement => {
+      if (isNumber(icon)) {
+        return <Image source={icon} />
+      }
+      return (
+        <Button
+          unstyled
+          padding={10}
+          borderRadius={50}
+          backgroundColor={colors.white}
+          alignSelf="baseline"
+        >
+          {icon}
+        </Button>
+      )
     }
-    return <Button unstyled
-      padding={10}
-      borderRadius={50}
-      backgroundColor={colors.white}
-      alignSelf="baseline">{icon}</Button>
-  }
 
-  return (
-    <XStack marginTop={20} justifyContent="center">
-      <View position="absolute" left={0}>
-        {!isNil(leftIcon) && renderIcon(leftIcon)}
-      </View>
-
-      <YStack
-        display={
-          !isNil(visibleTitleSubtitle) &&
-          visibleTitleSubtitle
-            ? 'flex'
-            : 'none'
-        }
-        marginTop={70}
-        alignItems="center"
-        gap={10}>
-        <Text
-          fontSize={28}
-          fontWeight="bold">
-          {title}
-        </Text>
+    const renderTitleAlone = (title: string): React.ReactElement => {
+      return (
         <Text
           fontSize={16}
-          fontWeight="500"
-          color={colors.slateGray}>
-          {subtitle}
-        </Text>
-      </YStack>
+          fontWeight={500}
+          {...textProp}>
+          {title}</Text>
+      )
+    }
 
-      <View position="absolute" right={0}>
-        {!isNil(rightIcon) && renderIcon(rightIcon)}
-      </View>
-    </XStack>
-  )
-}
+    return (
+      <YStack >
+        <XStack
+          alignItems="center"
+          justifyContent={centered ? 'space-between' : 'flex-start'}>
+
+          {!isNil(leftIcon) && renderIcon(leftIcon)}
+
+          {!isNil(title) && (
+            <XStack
+              flex={1}
+              alignItems="center"
+              justifyContent={centered ? 'center' : 'flex-start'}>
+              {renderTitleAlone(title)}
+            </XStack>
+          )}
+
+          {!isNil(rightIcon) && renderIcon(rightIcon)}
+        </XStack>
+      </YStack>
+    )
+  }
 export default Header

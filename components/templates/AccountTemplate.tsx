@@ -1,23 +1,76 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
-import { Text } from 'tamagui'
-const AccountScreen: React.FC = () => {
+import { useColorScheme } from 'react-native'
+import { ScrollView, View } from 'tamagui'
+
+import { RenderIcon } from '~/components/atoms/RenderIcon'
+import SafeArea from '~/components/atoms/SafeArea'
+import { ChooseMethod } from '~/components/molecules/ChooseMethod'
+import Header from '~/components/molecules/common/Header'
+import getColors from '~/constants/Colors'
+import dataMethodAccount from '~/constants/DataMethodAccount'
+import dataMethodSetting from '~/constants/DataMethodSetting'
+
+import useTranslation from './../../hooks/useTranslation'
+const AccountTemplate: React.FC = () => {
+  const colors = getColors(useColorScheme())
+  const { t } = useTranslation()
+
+  const handleSwitchChange = (checked: boolean): void => {
+    console.log('Switch state :', checked)
+  }
+
   return (
-    <SafeAreaView style={styles.container}>
-      <Text
-        textAlign="center"
-        fontSize={20}
-      >AccountScreen</Text>
-    </SafeAreaView>
+    <SafeArea>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          flex={1}
+          paddingBottom={120}
+          paddingHorizontal={20}
+          marginTop={20}>
+
+          <Header title={t('account.account&Settings')} centered />
+
+          <View marginVertical={24}>
+            <Header
+              title={t('account.account')}
+              centered={false}
+              fontSize={24}/>
+          </View>
+
+          {dataMethodAccount.map((method) => (
+            <ChooseMethod key={method.id} nameMethod={method.nameMethod}
+              leftIcon={
+                <RenderIcon
+                  iconComponent={method.typeIconLeft}
+                  name={method.leftIconName}
+                  size={25}
+                  color={colors.slateGray as string}
+                />
+              }
+              rightIcon={
+                <RenderIcon
+                  iconComponent={method.typeIconRight}
+                  name={method.rightIconName}
+                  size={16}
+                  color={colors.slateGray as string}
+                />
+              } />
+          ))}
+
+          <View marginVertical={24}>
+            <Header title="appSettings" centered={false} fontSize={24}/>
+          </View>
+
+          {dataMethodSetting.map((methodSetting) => (
+            <ChooseMethod
+              key={methodSetting.id}
+              nameMethod={methodSetting.nameMethod}
+              useSwitch
+              onCheckedChange={handleSwitchChange} />
+          ))}
+        </View>
+      </ScrollView>
+    </SafeArea>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center'
-  }
-})
-
-export default AccountScreen
+export default AccountTemplate

@@ -1,5 +1,5 @@
 import { Icons } from '~/components/atoms/Icons'
-import AccountScreen from '~/components/templates/AccountTemplate'
+import AccountTemplate from '~/components/templates/AccountTemplate'
 import Favorite from '~/components/templates/FavouriteTempalte'
 import HomeScreen from '~/components/templates/HomeTemplate'
 import NotificationScreen from '~/components/templates/NotificationTemplate'
@@ -43,7 +43,7 @@ const TabItems: TabItem[] = [
     type: Icons.MaterialIcons
   },
   {
-    component: AccountScreen,
+    component: AccountTemplate,
     icon: 'user-circle-o',
     label: 'Account',
     route: 'Account',

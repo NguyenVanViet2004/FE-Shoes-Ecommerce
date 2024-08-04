@@ -2,6 +2,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import React from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
+import { View } from 'tamagui'
 
 import SafeArea from '~/components/atoms/SafeArea'
 import FooterComponent from '~/components/molecules/common/Footer'
@@ -27,16 +28,28 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
       ...styles.container,
       backgroundColor: colors.lightSilver
     }}>
-      <Header
-        visibleTitleSubtitle={true}
-        title={t('signUp.createAccount')}
-        subtitle={t('signUp.letsCreateAccountTogether')}
-        leftIcon={
-          <AntDesign name="left" size={18}
-            color={colors.black}
-            onPress={handleBack} />
-        }
-      />
+
+      <View marginTop={20}>
+        <Header
+          leftIcon={
+            <AntDesign name="left" size={18}
+              color={colors.black}
+              onPress={handleBack}/>
+          }/>
+
+        <Header
+          title={t('signUp.createAccount')}
+          fontSize={28}
+          fontWeight="bold"
+        />
+
+        <Header
+          marginTop={8}
+          title={t('signUp.letsCreateAccountTogether')}
+          fontSize={16}
+          color={colors.slateGray}
+        />
+      </View>
 
       <InputForm
         visibleFormInputWithLabel={true}

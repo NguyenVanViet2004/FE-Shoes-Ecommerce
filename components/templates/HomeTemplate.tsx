@@ -15,8 +15,6 @@ import getColors from '~/constants/Colors'
 import dataBranch from '~/constants/DataBranch'
 import useTranslation from '~/hooks/useTranslation'
 
-import { RenderButtonIcon } from '../atoms/RenderButtonIcon'
-
 const HomeTemplate: React.FC = () => {
   const color = getColors(useColorScheme())
 
@@ -31,16 +29,16 @@ const HomeTemplate: React.FC = () => {
 
           <Header
             leftIcon={
-              <RenderButtonIcon icon={<Entypo
+              <Entypo
                 name="grid"
                 size={25}
-                color={color.midnightBlue} />} />
+                color={color.midnightBlue} />
             }
             rightIcon={
-              <RenderButtonIcon icon={<Ionicons
+              <Ionicons
                 name="bag-handle-outline"
                 size={25}
-                color={color.midnightBlue} />} />
+                color={color.midnightBlue} />
             }
           />
 

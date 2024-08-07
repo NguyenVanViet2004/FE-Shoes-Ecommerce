@@ -1,7 +1,7 @@
 import { isNil, isNumber } from 'lodash'
 import React, { type ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import { Image, Text, type TextProps, XStack, YStack } from 'tamagui'
+import { Button, Image, Text, type TextProps, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
@@ -10,6 +10,7 @@ type Props = {
   rightIcon?: number | React.ReactElement
   title?: string
   subtitle?: string
+  position?: boolean
 } & TextProps
 
 const Header = (props: Props): React.ReactElement => {
@@ -19,7 +20,13 @@ const Header = (props: Props): React.ReactElement => {
     if (isNumber(icon)) {
       return <Image source={icon} />
     }
-    return icon
+    return <Button unstyled
+      padding={10}
+      borderRadius={50}
+      backgroundColor={colors.white}
+      alignSelf="baseline"
+      icon={icon}
+      position= {props.position === true ? 'absolute' : undefined} />
   }
 
   const renderTitleAlone = (title: string): React.ReactElement => {

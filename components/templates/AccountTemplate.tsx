@@ -6,11 +6,15 @@ import { RenderIcon } from '~/components/atoms/RenderIcon'
 import SafeArea from '~/components/atoms/SafeArea'
 import { ChooseMethod } from '~/components/molecules/ChooseMethod'
 import Header from '~/components/molecules/common/Header'
+import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import getColors from '~/constants/Colors'
 import dataMethodAccount from '~/constants/DataMethodAccount'
 import dataMethodSetting from '~/constants/DataMethodSetting'
+import useTranslation from '~/hooks/useTranslation'
+
 const AccountTemplate: React.FC = () => {
   const colors = getColors(useColorScheme())
+  const { t } = useTranslation()
 
   const handleSwitchChange = (checked: boolean): void => {
     console.log('Switch state :', checked)
@@ -24,12 +28,13 @@ const AccountTemplate: React.FC = () => {
           paddingBottom={120}
           paddingHorizontal={20}>
 
-          <Header title="account&Settings" centered />
+          <Header title={t('account.account&Settings')} fontSize={18}/>
 
-          <View marginVertical={24}>
-            <Header title="account" centered={false} fontSize={24}/>
-          </View>
-
+          <ShoesCategory
+            leftText={t('account.account')}
+            fontSize={20}
+            marginVertical={10}
+          />
           {dataMethodAccount.map((method) => (
             <ChooseMethod key={method.id} nameMethod={method.nameMethod}
               leftIcon={
@@ -50,9 +55,11 @@ const AccountTemplate: React.FC = () => {
               } />
           ))}
 
-          <View marginVertical={24}>
-            <Header title="appSettings" centered={false} fontSize={24}/>
-          </View>
+          <ShoesCategory
+            leftText={t('account.appSettings')}
+            fontSize={20}
+            marginVertical={10}
+          />
 
           {dataMethodSetting.map((methodSetting) => (
             <ChooseMethod

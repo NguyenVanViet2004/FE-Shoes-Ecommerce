@@ -13,12 +13,17 @@ import { ShoesCategory } from '~/components/molecules/ShoesCategory'
 import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
 import getColors from '~/constants/Colors'
 import dataBranch from '~/constants/DataBranch'
+import useTranslation from '~/hooks/useTranslation'
+
+import { RenderButtonIcon } from '../atoms/RenderButtonIcon'
 
 const HomeTemplate: React.FC = () => {
   const color = getColors(useColorScheme())
 
   const [selectedBranch, setSelectBranch] =
     useState<{ logo: number, name: string }>()
+  const { t } = useTranslation()
+
   return (
     <SafeArea>
       <ScrollView>
@@ -26,16 +31,16 @@ const HomeTemplate: React.FC = () => {
 
           <Header
             leftIcon={
-              <Entypo
+              <RenderButtonIcon icon={<Entypo
                 name="grid"
                 size={25}
-                color={color.midnightBlue} />
+                color={color.midnightBlue} />} />
             }
             rightIcon={
-              <Ionicons
+              <RenderButtonIcon icon={<Ionicons
                 name="bag-handle-outline"
                 size={25}
-                color={color.midnightBlue} />
+                color={color.midnightBlue} />} />
             }
           />
 
@@ -103,27 +108,33 @@ const HomeTemplate: React.FC = () => {
           />
 
           <ShoesCategory
-            textCategory="popularShoes"
+            fontSize={16}
+            leftText={t('home.popularShoes')}
+            rightText={t('home.seeAll')}
             marginBottom={16}
             marginTop={24} />
 
           <ListShoesItem dataShoes={dataBranch} />
 
           <ShoesCategory
-            textCategory="newArrivals"
+            fontSize={16}
+            leftText={t('home.newArrivals')}
+            rightText={t('home.seeAll')}
             marginBottom={16}
             marginTop={24} />
 
           <BannerShoesItem
-            label="bestChoice"
+            label={t('home.bestChoice')}
             nameShoes="Nike Air Jordan"
             price="849.69" />
 
           <ShoesCategory
-            textCategory="topSeller"
+            fontSize={16}
+            leftText={t('home.topSeller')}
+            rightText={t('home.seeAll')}
             marginBottom={16}
             marginTop={24} />
-          <ListShoesItem dataShoes={dataBranch}/>
+          <ListShoesItem dataShoes={dataBranch} />
         </View>
       </ScrollView>
     </SafeArea>

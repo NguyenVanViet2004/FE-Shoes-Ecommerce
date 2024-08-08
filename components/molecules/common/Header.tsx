@@ -11,12 +11,15 @@ type Props = {
   title?: string
   subtitle?: string
   position?: boolean
+  onPressLeftIcon?: () => void
+  onPressRightIcon?: () => void
 } & TextProps
 
 const Header = (props: Props): React.ReactElement => {
   const colors = getColors(useColorScheme())
 
-  const renderIcon = (icon: number | ReactElement): React.ReactElement => {
+  const renderIcon = (icon: number | ReactElement,
+    onPress?: () => void): React.ReactElement => {
     if (isNumber(icon)) {
       return <Image source={icon} />
     }
@@ -26,7 +29,8 @@ const Header = (props: Props): React.ReactElement => {
       backgroundColor={colors.white}
       alignSelf="baseline"
       icon={icon}
-      position= {props.position === true ? 'absolute' : undefined} />
+      onPress={onPress}
+      position={props.position === true ? 'absolute' : undefined} />
   }
 
   const renderTitleAlone = (title: string): React.ReactElement => {
@@ -44,7 +48,8 @@ const Header = (props: Props): React.ReactElement => {
       <XStack
         alignItems="center"
         justifyContent="space-between">
-        {!isNil(props.leftIcon) && renderIcon(props.leftIcon)}
+        {!isNil(props.leftIcon) &&
+          renderIcon(props.leftIcon, props.onPressLeftIcon)}
         {!isNil(props.title) && isNil(props.subtitle) && (
           <XStack
             flex={1}
@@ -68,7 +73,8 @@ const Header = (props: Props): React.ReactElement => {
             </Text>
           </YStack>
         )}
-        {!isNil(props.rightIcon) && renderIcon(props.rightIcon)}
+        {!isNil(props.rightIcon) &&
+          renderIcon(props.rightIcon, props.onPressRightIcon)}
       </XStack>
     </YStack>
   )

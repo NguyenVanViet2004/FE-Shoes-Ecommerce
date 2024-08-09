@@ -4,10 +4,10 @@ import React, { useRef, useState } from 'react'
 import { Dimensions, FlatList, StatusBar, useColorScheme } from 'react-native'
 import { Button, Image, ScrollView, Theme, XStack, YStack } from 'tamagui'
 
-import Gallery from '~/components/molecules/Gallery'
 import PriceSection from '~/components/atoms/PriceSection'
 import ProductInfo from '~/components/atoms/ProductInfo'
 import SizeSelector from '~/components/atoms/SizeSelector'
+import Gallery from '~/components/molecules/Gallery'
 import HeaderDetails from '~/components/molecules/HeaderDetails'
 import getColors from '~/constants/Colors'
 

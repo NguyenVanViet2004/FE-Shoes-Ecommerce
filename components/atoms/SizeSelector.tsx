@@ -1,6 +1,7 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { Button, Text, XStack, YStack } from 'tamagui'
+
 import getColors from '~/constants/Colors'
 
 interface SizeSelectorProps {
@@ -23,12 +24,15 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
       <XStack alignItems="center" justifyContent="space-between">
         <Text fontSize={18} fontWeight="bold">Size</Text>
         <XStack flexDirection="row">
-          <Text marginHorizontal={8} color={colors.black} fontWeight="bold">EU</Text>
+          <Text marginHorizontal={8}
+            color={colors.black}
+            fontWeight="bold">EU</Text>
           <Text color={colors.darkGray} marginHorizontal={8}>US</Text>
           <Text color={colors.darkGray} marginHorizontal={8}>UK</Text>
         </XStack>
       </XStack>
-      <YStack borderBottomColor={colors.blue} borderStyle="dotted" marginTop={8} />
+      <YStack borderBottomColor={colors.blue}
+        borderStyle="dotted" marginTop={8} />
       <XStack justifyContent="space-between" >
         {sizes.map((size) => {
           const isOutOfStock = outOfStockSizes.includes(size)

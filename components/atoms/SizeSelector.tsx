@@ -1,7 +1,6 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { Button, Text, XStack, YStack } from 'tamagui'
-
 import getColors from '~/constants/Colors'
 
 interface SizeSelectorProps {
@@ -22,45 +21,38 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
   return (
     <YStack marginHorizontal={18} marginTop={10}>
       <XStack alignItems="center" justifyContent="space-between">
-        <Text fontSize={18} fontWeight="bold">
-          Size
-        </Text>
+        <Text fontSize={18} fontWeight="bold">Size</Text>
         <XStack flexDirection="row">
-          <Text marginHorizontal={8} color={colors.black} fontWeight="bold">
-            EU
-          </Text>
-          <Text color={colors.darkGray} marginHorizontal={8}>
-            US
-          </Text>
-          <Text color={colors.darkGray} marginHorizontal={8}>
-            UK
-          </Text>
+          <Text marginHorizontal={8} color={colors.black} fontWeight="bold">EU</Text>
+          <Text color={colors.darkGray} marginHorizontal={8}>US</Text>
+          <Text color={colors.darkGray} marginHorizontal={8}>UK</Text>
         </XStack>
       </XStack>
-      <YStack borderBottomColor={colors.blue}
-        borderStyle="dotted"
-        marginTop={8} />
-      <XStack justifyContent="space-between">
+      <YStack borderBottomColor={colors.blue} borderStyle="dotted" marginTop={8} />
+      <XStack justifyContent="space-between" >
         {sizes.map((size) => {
           const isOutOfStock = outOfStockSizes.includes(size)
           return (
             <Button
               key={size}
               alignItems="center"
+              justifyContent="center"
               backgroundColor={isOutOfStock
                 ? colors.lightGray
                 : size === selectedSize
                   ? colors.blue
                   : colors.whiteSmoke}
               borderColor={colors.whiteSmoke}
-              borderRadius={50}
-              elevation={3}
+              borderRadius={20}
+              elevation={5}
               marginVertical={10}
               shadowColor={colors.black}
               shadowOffset={{ height: 2, width: 0 }}
               shadowOpacity={0.1}
               shadowRadius={9}
               width={40}
+              height={40}
+              padding={10}
               onPress={() => {
                 if (!isOutOfStock) {
                   setSelectedSize(size)
@@ -74,9 +66,8 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
                   : size === selectedSize
                     ? colors.whiteSmoke
                     : colors.black}
-                fontSize={16}
-                fontWeight="500"
-                marginVertical={7}
+                fontSize={12}
+                fontWeight="bold"
               >
                 {size}
               </Text>

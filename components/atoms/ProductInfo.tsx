@@ -5,7 +5,12 @@ import { Text, View } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
-const ProductInfo: React.FC = () => {
+interface ProductInfoProps {
+  name: string
+  price: string
+}
+
+const ProductInfo: React.FC<ProductInfoProps> = ({ name, price }) => {
   const colors = getColors(useColorScheme())
   const { t } = useTranslation()
 
@@ -20,10 +25,10 @@ const ProductInfo: React.FC = () => {
         {t('bestSeller')}
       </Text>
       <Text fontSize={24} fontWeight="bold" marginVertical={7}>
-        Nike Air Jordan
+        {name}
       </Text>
       <Text fontSize={20} fontWeight="bold" marginVertical={7}>
-        $967.800
+        {price}
       </Text>
       <Text fontSize={16} marginVertical={7}>
         {t('productDescription')}

@@ -113,7 +113,7 @@ const DetailTemplate: React.FC = (): JSX.Element => {
             borderTopRightRadius={25}
             borderTopLeftRadius={25}
           >
-            <ProductInfo />
+            <ProductInfo name="Nike Air Jordan" price="$967.800" />
             <Gallery
               images={images}
               colors={colors}

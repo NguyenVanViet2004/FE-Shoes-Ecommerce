@@ -1,7 +1,6 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
-import { Button } from 'tamagui'
 
 import SafeArea from '~/components/atoms/SafeArea'
 import FooterComponent from '~/components/molecules/common/Footer'
@@ -25,17 +24,9 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       <Header
         title={t('signIn.helloAgain')}
         subtitle={t('signIn.welcomeBackYouHaveBeenMissed')}
-        leftIcon={
-          <Button
-            unstyled
-            onPress={handleBack}
-            padding={10}
-            borderRadius={50}
-            backgroundColor={colors.white}
-            alignSelf="baseline">
-            <AntDesign name="left" size={18}
-              color={colors.black} />
-          </Button>
+        backIcon={
+          <AntDesign name="left" size={18}
+            color={colors.black} onPress={handleBack}/>
         } />
 
       <InputForm />

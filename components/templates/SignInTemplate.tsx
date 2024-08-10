@@ -17,7 +17,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const colors = getColors(useColorScheme())
   const router = useRouter()
 
-  useEffect(() => {
+  useEffect((): void => {
   }, [email, password])
 
   const handleBack = (): void => {

@@ -38,7 +38,7 @@ const SignUpTemplate: React.FC = (): JSX.Element => {
   const colors = getColors(useColorScheme())
   const router = useRouter()
 
-  useEffect(() => {
+  useEffect((): void => {
     const emailError = isValidEmail(email) ? '' : t('invalidEmail')
     const passwordError = isValidPassword(password) ? '' : t('invalidPassword')
     const confirmPasswordError = password === confirmPassword

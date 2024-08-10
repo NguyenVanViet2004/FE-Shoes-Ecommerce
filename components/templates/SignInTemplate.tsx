@@ -18,7 +18,7 @@ const SignInTemplate: React.FC = (): JSX.Element => {
   const router = useRouter()
 
   useEffect(() => {
-  }, [email, password]);
+  }, [email, password])
 
   const handleBack = (): void => {
     router.back()

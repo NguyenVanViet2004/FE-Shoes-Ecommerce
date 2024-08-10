@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons'
 import { isNil } from 'lodash'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useColorScheme } from 'react-native'
 import { Image, Text, View, YStack } from 'tamagui'
 
@@ -17,18 +17,18 @@ interface Props {
   googleButtonTitle: string
   onRecoveryPasswordPress?: () => void
   onLoginPress?: () => void
+  onChangeEmailText: (text: string) => void
+  onChangePasswordText: (text: string) => void
+  onChangeConfirmPasswordText?: (text: string) => void
+  emailError?: string
+  passwordError?: string
+  confirmPasswordError?: string
 }
 const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(true)
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(true)
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [confirmPassword, setConfirmPassword] = useState<string>('')
   const colors = getColors(useColorScheme())
-
-  useEffect((): void => {
-  }, [email, password, confirmPassword])
 
   const togglePasswordVisibility = (): void => {
     setShowPassword(!showPassword)
@@ -44,14 +44,16 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
         <FormInputWithLabel
           label={t('emailAddress')}
           placeholder={t('enterEmail')}
-          onChangeText={setEmail}
+          onChangeText={props.onChangeEmailText}
+          errorMessage={props.emailError}
         />
 
         <FormInputWithLabel
           label={t('password')}
           placeholder="•••••••••••••"
           secureTextEntry={showPassword}
-          onChangeText={setPassword}
+          onChangeText={props.onChangePasswordText}
+          errorMessage={props.passwordError}
           icon=
             {showPassword
               ? <Feather name="eye-off" size={24}
@@ -69,7 +71,8 @@ const InputForm: React.FC<Props> = (props: Props): JSX.Element => {
             label={t('confirmpassword')}
             placeholder="•••••••••••••"
             secureTextEntry={showConfirmPassword}
-            onChangeText={setConfirmPassword}
+            onChangeText={props.onChangeConfirmPasswordText}
+            errorMessage={props.confirmPasswordError}
             icon=
               {showConfirmPassword
                 ? <Feather name="eye-off" size={24}

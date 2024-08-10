@@ -1,24 +1,25 @@
 import { isNil, isUndefined } from 'lodash'
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, H3, Text, View, XStack } from 'tamagui'
+import { Button, H3, Text, View, type ViewProps, XStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
-interface Props {
+type Props = {
   backIcon?: React.ReactElement
   title?: string
   subtitle?: string
   leftIcon?: React.ReactElement
   rightIcon?: React.ReactElement
-}
+} & ViewProps
 
 export default function Header ({
   backIcon,
   title,
   subtitle,
   leftIcon,
-  rightIcon
+  rightIcon,
+  ...viewProps
 }: Props): React.ReactElement {
   const colors = getColors(useColorScheme())
 
@@ -36,7 +37,7 @@ export default function Header ({
   }
 
   return (
-    <View testID="Header">
+    <View {...viewProps} testID="Header">
       {!isNil(backIcon) && (
         <Button
           unstyled

@@ -22,14 +22,16 @@ const Footer: React.FC<Props> = (
           fontSize={12}
           color={colors.slateGray}
           textAlign="center"
-          fontWeight="400">
+          fontWeight="400"
+          testID="title">
           {title}
         </Text>
 
         <Text
           onPress={onPressAuthScreen}
           fontSize={12}
-          fontWeight="bold">
+          fontWeight="bold"
+          testID="subtitle">
           {subtitle}
         </Text>
 

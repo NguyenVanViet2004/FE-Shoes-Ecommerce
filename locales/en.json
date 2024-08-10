@@ -5,6 +5,9 @@
     "enterEmail": "Enter email",
     "password": "Password",
     "confirmpassword": "Confirm Password",
+    "invalidEmail": "Invalid email!",
+    "invalidPassword": "Invalid password!",
+    "passwordsDoNotMatch": "Passwords do not match!",
     "signIn": {
         "helloAgain": "Hello Again!",
         "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",

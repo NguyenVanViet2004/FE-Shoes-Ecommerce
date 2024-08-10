@@ -5,6 +5,9 @@
     "enterEmail": "Nhập email",
     "password": "Mật khẩu",
     "confirmpassword": "Nhập lại mật khẩu",
+    "invalidEmail": "Email không hợp lệ!",
+    "invalidPassword": "Mật khẩu không hợp lệ!",
+    "passwordsDoNotMatch": "Mật khẩu không trùng khớp!",
     "signIn": {
         "helloAgain": "Xin chào trở lại!",
         "welcomeBackYouHaveBeenMissed": "Chào mừng trở lại! Chúng tôi rất nhớ bạn!",

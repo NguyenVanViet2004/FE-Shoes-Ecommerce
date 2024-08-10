@@ -1,6 +1,5 @@
-import { render } from '~/utils/testing'
-
 import Footer from '~/components/molecules/common/Footer'
+import { render } from '~/utils/testing'
 
 describe('Footer', () => {
   it('renders correctly', () => {

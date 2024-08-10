@@ -1,4 +1,4 @@
-import { isNil } from 'lodash'
+import { isNil, isUndefined } from 'lodash'
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { Input, type InputProps, Text, XStack, YStack } from 'tamagui'
@@ -9,6 +9,7 @@ type props = {
   label?: string
   icon?: JSX.Element
   iconLeft?: JSX.Element
+  errorMessage?: string
 } & InputProps
 
 const FormInputWithLabel: React.FC<props> = (props: props) => {
@@ -39,6 +40,12 @@ const FormInputWithLabel: React.FC<props> = (props: props) => {
 
         {!isNil(props.icon) && props.icon}
       </XStack>
+
+      {!isUndefined(props.errorMessage) && props.errorMessage !== '' && (
+        <Text fontSize={12} color="$red10">
+          {props.errorMessage}
+        </Text>
+      )}
 
     </YStack>
   )

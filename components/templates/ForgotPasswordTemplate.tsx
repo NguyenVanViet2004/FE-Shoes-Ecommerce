@@ -1,8 +1,7 @@
 import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
-import { View } from 'tamagui'
 
 import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
 import { PositiveButton } from '~/components/atoms/PositiveButton'
@@ -11,7 +10,20 @@ import Header from '~/components/molecules/common/Header'
 import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
 const ForgotPasswordTemplate: React.FC = (): JSX.Element => {
+  const [email, setEmail] = useState<string>('')
+  const [emailError, setEmailError] = useState<string>('')
+
+  useEffect((): void => {
+    const emailError = isValidEmail(email) ? '' : t('invalidEmail')
+    setEmailError(emailError)
+  }, [email])
+
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
   const router = useRouter()
@@ -25,30 +37,20 @@ const ForgotPasswordTemplate: React.FC = (): JSX.Element => {
       ...styles.container,
       backgroundColor: colors.lightSilver
     }}>
-      <View marginTop={20}>
-        <Header
-          leftIcon={
-            <AntDesign name="left" size={18}
-              color={colors.black}
-              onPress={handleBack}/>
-          }/>
 
-        <Header
-          title={t('forgotPassword.recoveryPassword')}
-          fontSize={28}
-          fontWeight="bold"/>
-
-        <Header
-          textAlign="center"
-          marginTop={8}
-          title={t('forgotPassword.pleaseEnterYourEmail')}
-          fontSize={16}
-          color={colors.slateGray}/>
-      </View>
+      <Header
+        title={t('forgotPassword.recoveryPassword')}
+        subtitle={t('forgotPassword.pleaseEnterYourEmail')}
+        backIcon={
+          <AntDesign name="left" size={18}
+            color={colors.black} onPress={handleBack}/>
+        } />
 
       <FormInputWithLabel
+        onChangeText={setEmail}
         label={t('emailAddress')}
         placeholder={t('enterEmail')}
+        errorMessage={emailError}
       />
 
       <PositiveButton

@@ -1,8 +1,7 @@
 import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
-import { View } from 'tamagui'
 
 import SafeArea from '~/components/atoms/SafeArea'
 import FooterComponent from '~/components/molecules/common/Footer'
@@ -12,9 +11,14 @@ import getColors from '~/constants/Colors'
 import useTranslation from '~/hooks/useTranslation'
 
 const SignInTemplate: React.FC = (): JSX.Element => {
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
   const { t } = useTranslation()
   const colors = getColors(useColorScheme())
   const router = useRouter()
+
+  useEffect(() => {
+  }, [email, password]);
 
   const handleBack = (): void => {
     router.back()
@@ -36,31 +40,19 @@ const SignInTemplate: React.FC = (): JSX.Element => {
       backgroundColor: colors.lightSilver
     }}>
 
-      <View marginTop={20}>
-        <Header
-          leftIcon={
-            <AntDesign name="left" size={18}
-              color={colors.black}
-              onPress={handleBack}/>
-          }/>
-
-        <Header
-          title={t('signIn.helloAgain')}
-          fontSize={28}
-          fontWeight="bold"
-        />
-
-        <Header
-          marginTop={8}
-          title={t('signIn.welcomeBackYouHaveBeenMissed')}
-          fontSize={16}
-          color={colors.slateGray}
-        />
-      </View>
+      <Header
+        title={t('signIn.helloAgain')}
+        subtitle={t('signIn.welcomeBackYouHaveBeenMissed')}
+        backIcon={
+          <AntDesign name="left" size={18}
+            color={colors.black} onPress={handleBack}/>
+        } />
 
       <InputForm
         visibleRecoveryPassword={true}
         visibleFormInputWithLabel={false}
+        onChangeEmailText={setEmail}
+        onChangePasswordText={setPassword}
         onLoginPress={ButtonSignin}
         onRecoveryPasswordPress={redirectToForgot}
         buttonTitle={t('signIn.signIn')}

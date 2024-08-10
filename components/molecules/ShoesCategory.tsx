@@ -1,18 +1,16 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Text } from 'tamagui'
-import { View, type ViewProps } from 'tamagui'
+import { Button, Text, type TextProps, View, type ViewProps } from 'tamagui'
 
 import getColors from '~/constants/Colors'
-import useTranslation from '~/hooks/useTranslation'
 
 type Props = {
-  textCategory: string
-} & ViewProps
+  leftText: string
+  rightText?: string
+} & ViewProps & TextProps
 
 export const ShoesCategory = (props: Props): React.ReactElement => {
   const colors = getColors(useColorScheme())
-  const { t } = useTranslation()
   return (
     <View
       {...props}
@@ -21,16 +19,16 @@ export const ShoesCategory = (props: Props): React.ReactElement => {
       alignItems="center"
     >
       <Text
-        fontSize={16}
+        {...props}
         fontWeight={500}
         lineHeight={24}
-      >{t('home.' + props.textCategory)}</Text>
+      >{ props.leftText}</Text>
       <Button unstyled>
         <Text
           color={colors.cornflowerBlue}
           fontSize={13}
           fontWeight={400}
-          lineHeight={16}>{t('home.seeAll')}</Text>
+          lineHeight={16}>{ props.rightText}</Text>
       </Button>
     </View >
   )

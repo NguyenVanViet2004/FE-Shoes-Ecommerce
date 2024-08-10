@@ -1,67 +1,76 @@
-import { isNil, isNumber } from 'lodash'
-import React, { type ReactElement } from 'react'
+import { isNil, isUndefined } from 'lodash'
+import React from 'react'
 import { useColorScheme } from 'react-native'
-import { Button, Image, Text, type TextProps, XStack, YStack } from 'tamagui'
+import { Button, H3, Text, View, XStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
 
-type Props = {
-  leftIcon?: number | React.ReactElement
-  rightIcon?: number | React.ReactElement
+interface Props {
+  backIcon?: React.ReactElement
   title?: string
-  centered?: boolean
-} & TextProps
+  subtitle?: string
+  leftIcon?: React.ReactElement
+  rightIcon?: React.ReactElement
+}
 
-const Header: React.FC<Props> =
-  ({ leftIcon, rightIcon, title, centered = true, ...textProp }) => {
-    const colors = getColors(useColorScheme())
-    const renderIcon = (icon: number | ReactElement): React.ReactElement => {
-      if (isNumber(icon)) {
-        return <Image source={icon} />
-      }
-      return (
+export default function Header ({
+  backIcon,
+  title,
+  subtitle,
+  leftIcon,
+  rightIcon
+}: Props): React.ReactElement {
+  const colors = getColors(useColorScheme())
+
+  const renderIcon = (
+    icon: React.ReactElement | undefined,
+    position: 'left' | 'right'
+  ): React.ReactElement | null => {
+    if (isNil(icon)) return null
+    const style = position === 'left' ? { left: 10 } : { right: 10 }
+    return (
+      <View position="absolute" {...style} testID={`${position}-icon`}>
+        {icon}
+      </View>
+    )
+  }
+
+  return (
+    <View testID="Header">
+      {!isNil(backIcon) && (
         <Button
           unstyled
           padding={10}
           borderRadius={50}
+          marginBottom={20}
           backgroundColor={colors.white}
           alignSelf="baseline"
+          testID="back-icon"
         >
-          {icon}
+          {backIcon}
         </Button>
-      )
-    }
-
-    const renderTitleAlone = (title: string): React.ReactElement => {
-      return (
-        <Text
-          fontSize={16}
-          fontWeight={500}
-          {...textProp}>
-          {title}</Text>
-      )
-    }
-
-    return (
-      <YStack >
-        <XStack
-          alignItems="center"
-          justifyContent={centered ? 'space-between' : 'flex-start'}>
-
-          {!isNil(leftIcon) && renderIcon(leftIcon)}
-
-          {!isNil(title) && (
-            <XStack
-              flex={1}
-              alignItems="center"
-              justifyContent={centered ? 'center' : 'flex-start'}>
-              {renderTitleAlone(title)}
-            </XStack>
+      )}
+      <XStack marginTop={30} gap={5} alignItems="center">
+        {renderIcon(leftIcon, 'left')}
+        <View flex={1} alignItems="center">
+          {!isUndefined(title) && (
+            <H3
+              fontWeight="bold"
+              textAlign="center"
+              alignSelf="center"
+              testID="title"
+            >
+              {title}
+            </H3>
           )}
-
-          {!isNil(rightIcon) && renderIcon(rightIcon)}
-        </XStack>
-      </YStack>
-    )
-  }
-export default Header
+          {!isUndefined(subtitle) && (
+            <Text color={colors.slateGray} testID="subtitle">
+              {subtitle}
+            </Text>
+          )}
+        </View>
+        {renderIcon(rightIcon, 'right')}
+      </XStack>
+    </View>
+  )
+}

@@ -7,6 +7,7 @@ import { ScrollView, Text, View } from 'tamagui'
 
 import { ButtonRenderBranch } from '~/components/atoms/ButtonRenderBranch'
 import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
+import SafeArea from '~/components/atoms/SafeArea'
 import { BannerShoesItem } from '~/components/molecules/BannerShoesItem'
 import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
@@ -41,11 +42,11 @@ const HomeTemplate: React.FC = () => {
 
   return (
     <ScrollView>
-      <View flex={1} paddingHorizontal={20} paddingBottom={130}>
+      <SafeArea style={styles.container}>
         <Header
           leftIcon={leftIconOfHeader}
           rightIcon={rightIconOfHeader}
-          subtitle={ !isNil(location)
+          subtitle={!isNil(location)
             ? `📍 ${address?.country}\n${address?.street}, ${address?.city}`
             : '???'
           }
@@ -146,12 +147,17 @@ const HomeTemplate: React.FC = () => {
           marginTop={24}
         />
         <ListShoesItem dataShoes={dataBranch} />
-      </View>
+      </SafeArea>
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingBottom: 130,
+    paddingHorizontal: 20
+  },
   selectItem: {
     alignItems: 'center',
     borderRadius: 40,

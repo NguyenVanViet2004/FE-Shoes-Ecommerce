@@ -8,8 +8,9 @@ import PriceSection from '~/components/atoms/PriceSection'
 import ProductInfo from '~/components/atoms/ProductInfo'
 import SizeSelector from '~/components/atoms/SizeSelector'
 import Gallery from '~/components/molecules/Gallery'
-import HeaderDetails from '~/components/molecules/HeaderDetails'
 import getColors from '~/constants/Colors'
+
+import Header from '../molecules/common/Header'
 
 const images = [
   require('~/assets/images/shoes5.png'),
@@ -28,46 +29,38 @@ const DetailTemplate: React.FC = (): JSX.Element => {
     flatListRef.current?.scrollToIndex({ animated: true, index })
     setCurrentImageIndex(index)
   }
-
+  const leftIconOfHeader = (
+    <Button
+      unstyled
+      padding={10}
+      borderRadius={50}
+      backgroundColor={colors.white}
+      alignSelf="baseline"
+    >
+      <Entypo name="chevron-left" size={18} color={colors.midnightBlue} />
+    </Button>
+  )
+  const rightIconOfHeader = (
+    <Button
+      unstyled
+      padding={10}
+      borderRadius={50}
+      backgroundColor={colors.white}
+      alignSelf="baseline"
+    >
+      <Ionicons
+        name="bag-handle-outline"
+        size={18}
+        color={colors.midnightBlue}
+      />
+    </Button>
+  )
   return (
-
     <YStack flex={1}>
       <ScrollView>
         <StatusBar hidden />
-        <HeaderDetails
-          leftIcon={
-            <Button
-              unstyled
-              padding={10}
-              borderRadius={50}
-              backgroundColor={colors.white}
-              alignSelf="baseline"
-            >
-              <Entypo
-                name="chevron-left"
-                size={18}
-                color={colors.midnightBlue}
-              />
-            </Button>
-          }
-          title="Men's Shoes"
-          rightIcon={
-            <Button
-              unstyled
-              padding={10}
-              borderRadius={50}
-              backgroundColor={colors.white}
-              alignSelf="baseline"
-            >
-              <Ionicons
-                name="bag-handle-outline"
-                size={18}
-                color={colors.midnightBlue}
-              />
-            </Button>
-          }
-        />
-        <YStack backgroundColor={colors.whiteSmoke} height={270}>
+        <Header leftIcon={leftIconOfHeader} rightIcon={rightIconOfHeader} />
+        <YStack backgroundColor={colors.whiteSmoke} height={270} marginTop={30}>
           <FlatList
             ref={flatListRef}
             data={images}
@@ -129,7 +122,6 @@ const DetailTemplate: React.FC = (): JSX.Element => {
         </YStack>
       </ScrollView>
     </YStack>
-
   )
 }
 

@@ -4,7 +4,8 @@ import { useColorScheme } from 'react-native'
 import { Button, Image, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
-import Shoes from '~/interfaces/Shoes'
+import type Shoes from '~/interfaces/Shoes'
+
 interface ProductCardProps extends Shoes {
   quantity: number
   onIncrease: () => void
@@ -24,13 +25,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const colors = getColors(useColorScheme())
   const [iconColor, setIconColor] = useState<any>(colors.gray)
-
   const handlePress = (): void => {
-    setIconColor((prevColor: string) =>
+    setIconColor((prevColor: string): string =>
       prevColor === colors.gray ? colors.red : colors.gray
     )
   }
-  const imageUri = images[0];
+
+  const imageUri = images[0]
+
   return (
     <YStack
       flexDirection="row"
@@ -86,7 +88,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </XStack>
       </YStack>
       <YStack>
-        <Text fontSize={16}>{sizes}</Text>
+        <Text fontSize={16}>{sizes.join(', ')}</Text>
         <Trash2
           size={24}
           color={iconColor}

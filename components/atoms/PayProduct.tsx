@@ -1,7 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useColorScheme } from 'react-native'
 import { Button, Separator, Text, XStack, YStack } from 'tamagui'
-import { useTranslation } from 'react-i18next'
+
 import getColors from '~/constants/Colors'
 interface CheckoutSummaryProps {
   subtotal: string
@@ -23,7 +24,7 @@ const PayProduct: React.FC<CheckoutSummaryProps> = ({
       backgroundColor={colors.white}
       padding="$4"
       borderRadius={25}
-      marginTop={70}
+      bottom={0}
     >
       <XStack justifyContent="space-between" marginVertical="$2">
         <Text fontSize="$4" color={colors.gray} fontWeight="bold">

@@ -64,7 +64,10 @@ export default function Header ({
             </H3>
           )}
           {!isUndefined(subtitle) && (
-            <Text color={colors.slateGray} testID="subtitle">
+            <Text
+              textAlign="center"
+              color={colors.slateGray}
+              testID="subtitle">
               {subtitle}
             </Text>
           )}

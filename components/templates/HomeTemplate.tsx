@@ -7,7 +7,6 @@ import { ScrollView, Text, View } from 'tamagui'
 
 import { ButtonRenderBranch } from '~/components/atoms/ButtonRenderBranch'
 import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
-import SafeArea from '~/components/atoms/SafeArea'
 import { BannerShoesItem } from '~/components/molecules/BannerShoesItem'
 import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
@@ -42,7 +41,7 @@ const HomeTemplate: React.FC = () => {
 
   return (
     <ScrollView>
-      <SafeArea style={styles.container}>
+      <View style={styles.container}>
         <Header
           leftIcon={leftIconOfHeader}
           rightIcon={rightIconOfHeader}
@@ -147,7 +146,7 @@ const HomeTemplate: React.FC = () => {
           marginTop={24}
         />
         <ListShoesItem dataShoes={dataBranch} />
-      </SafeArea>
+      </View>
     </ScrollView>
   )
 }

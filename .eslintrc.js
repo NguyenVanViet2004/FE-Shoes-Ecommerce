@@ -46,7 +46,7 @@ module.exports = {
     'no-jp/no-jp-identifier': 2,
     'no-jp/no-jp-comment': 2,
     'jsx-quotes': ['error', 'prefer-double'],
-    'max-len': ['warn', { ignorePattern: '^import\\s.+\\sfrom\\s.+' }]
+    'max-len': ['warn', { ignorePattern: '^import\\s.+\\sfrom\\s.+', ignoreComments: true }]
   },
   ignorePatterns: [
     '.eslintrc.js',

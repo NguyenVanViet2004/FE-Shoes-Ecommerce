@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router'
 import React, { useRef, useState } from 'react'
 import { Animated, FlatList, StyleSheet, useColorScheme, useWindowDimensions, type ViewToken } from 'react-native'
 import { View } from 'tamagui'
@@ -14,6 +15,7 @@ const OnboardingTemplate = (): JSX.Element => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const scrollX = useRef(new Animated.Value(0)).current
   const [buttonText, setButtonText] = useState<string>('Get Started')
+  const router = useRouter()
 
   const viewableItemsChanged = useRef(({ viewableItems }:
   { viewableItems: ViewToken[] }) => {
@@ -101,7 +103,11 @@ const OnboardingTemplate = (): JSX.Element => {
         <PositiveButton
           paddingHorizontal={32}
           title={buttonText}
-          onPress={() => { scrollToNext() }} />
+          onPress={() => {
+            currentIndex === 2
+              ? router.replace('/BottomBar')
+              : scrollToNext()
+          }} />
       </View>
     </View>
   )

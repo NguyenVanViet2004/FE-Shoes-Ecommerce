@@ -1,4 +1,5 @@
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons'
+import { isNil } from 'lodash'
 import { MotiView } from 'moti'
 import React, { useState } from 'react'
 import { FlatList, StyleSheet, useColorScheme } from 'react-native'
@@ -9,34 +10,53 @@ import FormInputWithLabel from '~/components/atoms/FormInputWithLabel'
 import { BannerShoesItem } from '~/components/molecules/BannerShoesItem'
 import Header from '~/components/molecules/common/Header'
 import { ShoesCategory } from '~/components/molecules/ShoesCategory'
-import { ListShoesItem } from '~/components/origanisms/ListShoesItem'
+import { ListShoesItem } from '~/components/organisms/ListShoesItem'
 import getColors from '~/constants/Colors'
 import dataBranch from '~/constants/DataBranch'
 import useTranslation from '~/hooks/useTranslation'
+import { useUserLocation } from '~/hooks/useUserLocation'
 
 const HomeTemplate: React.FC = () => {
   const color = getColors(useColorScheme())
 
-  const [selectedBranch, setSelectBranch] =
-    useState<{ logo: number, name: string }>()
+  const [selectedBranch, setSelectBranch] = useState<{
+    logo: number
+    name: string
+  }>()
   const { t } = useTranslation()
-  const leftIconOfHeader =
+  const { location, address, requestLocation } = useUserLocation()
+
+  const leftIconOfHeader = (
     <Entypo name="grid" size={25} color={color.midnightBlue} />
-  const rightIconOfHeader =
+  )
+  const rightIconOfHeader = (
     <Ionicons name="bag-handle-outline" size={25} color={color.midnightBlue} />
+  )
+
+  React.useEffect(() => {
+    requestLocation().catch((e) => {
+      console.error(e)
+    })
+  }, [])
 
   return (
     <ScrollView>
       <View flex={1} paddingHorizontal={20} paddingBottom={130}>
-
-        <Header leftIcon={leftIconOfHeader} rightIcon={rightIconOfHeader} />
+        <Header
+          leftIcon={leftIconOfHeader}
+          rightIcon={rightIconOfHeader}
+          subtitle={ !isNil(location)
+            ? `📍 ${address?.country}\n${address?.street}, ${address?.city}`
+            : '???'
+          }
+        />
 
         <View marginBottom={32} marginTop={30}>
-          <FormInputWithLabel iconLeft={<Feather
-            name="search"
-            size={23}
-            color={color.slateGray}
-          />} />
+          <FormInputWithLabel
+            iconLeft={
+              <Feather name="search" size={23} color={color.slateGray} />
+            }
+          />
         </View>
 
         <FlatList
@@ -53,7 +73,8 @@ const HomeTemplate: React.FC = () => {
                 from={{ opacity: 0, translateY: 50 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 transition={{ delay: index * 200 }}
-                style={transitionStyle} >
+                style={transitionStyle}
+              >
                 <ButtonRenderBranch
                   icon={item.logo}
                   onPress={() => {
@@ -75,12 +96,14 @@ const HomeTemplate: React.FC = () => {
                       opacity: 1,
                       translateX: 0
                     }}
-                    transition={{ duration: 350, type: 'timing' }}>
+                    transition={{ duration: 350, type: 'timing' }}
+                  >
                     <Text
                       fontSize={14}
                       fontWeight={500}
                       color={color.white}
-                      marginLeft={8}>
+                      marginLeft={8}
+                    >
                       {item.name}
                     </Text>
                   </MotiView>
@@ -96,7 +119,8 @@ const HomeTemplate: React.FC = () => {
           leftText={t('home.popularShoes')}
           rightText={t('home.seeAll')}
           marginBottom={16}
-          marginTop={24} />
+          marginTop={24}
+        />
 
         <ListShoesItem dataShoes={dataBranch} />
 
@@ -105,19 +129,22 @@ const HomeTemplate: React.FC = () => {
           leftText={t('home.newArrivals')}
           rightText={t('home.seeAll')}
           marginBottom={16}
-          marginTop={24} />
+          marginTop={24}
+        />
 
         <BannerShoesItem
           label={t('home.bestChoice')}
           nameShoes="Nike Air Jordan"
-          price="849.69" />
+          price="849.69"
+        />
 
         <ShoesCategory
           fontSize={16}
           leftText={t('home.topSeller')}
           rightText={t('home.seeAll')}
           marginBottom={16}
-          marginTop={24} />
+          marginTop={24}
+        />
         <ListShoesItem dataShoes={dataBranch} />
       </View>
     </ScrollView>

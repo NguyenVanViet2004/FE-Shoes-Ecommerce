@@ -7,30 +7,35 @@ import getColors from '~/constants/Colors'
 interface Props {
   title: string
   subtitle?: string
+  onPressAuthScreen?: () => void
 }
 
-const Footer: React.FC<Props> = ({ title, subtitle }) => {
+const Footer: React.FC<Props> = (
+  { title, subtitle, onPressAuthScreen }
+) => {
   const colors = getColors(useColorScheme())
 
   return (
-    <XStack justifyContent="center"
-      gap={8} bottom={10} testID="Footer">
-      <Text
-        fontSize={12}
-        color={colors.slateGray}
-        textAlign="center"
-        fontWeight="400"
-        testID="title">
-        {title}
-      </Text>
+    <XStack flex={1} justifyContent="center" alignItems="flex-end">
+      <XStack justifyContent="center" gap={8} marginBottom={10}>
+        <Text
+          fontSize={12}
+          color={colors.slateGray}
+          textAlign="center"
+          fontWeight="400"
+          testID="title">
+          {title}
+        </Text>
 
-      <Text
-        fontSize={12}
-        fontWeight="bold"
-        color={colors.midnightBlue}
-        testID="subtitle">
-        {subtitle}
-      </Text>
+        <Text
+          onPress={onPressAuthScreen}
+          fontSize={12}
+          fontWeight="bold"
+          testID="subtitle">
+          {subtitle}
+        </Text>
+
+      </XStack>
     </XStack>
 
   )

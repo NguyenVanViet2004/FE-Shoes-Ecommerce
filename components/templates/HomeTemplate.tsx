@@ -41,7 +41,7 @@ const HomeTemplate: React.FC = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View flex={1} paddingBottom={130} paddingHorizontal={20}>
         <Header
           leftIcon={leftIconOfHeader}
           rightIcon={rightIconOfHeader}
@@ -147,16 +147,11 @@ const HomeTemplate: React.FC = () => {
         />
         <ListShoesItem dataShoes={dataBranch} />
       </View>
-    </ScrollView>
+    </ScrollView >
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingBottom: 130,
-    paddingHorizontal: 20
-  },
   selectItem: {
     alignItems: 'center',
     borderRadius: 40,

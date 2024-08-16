@@ -61,5 +61,9 @@
     "permissionsToContinue": "permissions to continue.",
     "youCanChangePermissions": "You can change permissions in the Settings app.",
     "openSettings": "Open Settings"
-  }
+  },
+  "Subtotal" : "Subtotal",
+  "Shopping" : "Shopping",
+  "TotalCost" : "Total Cost",
+  "Checkout" : "Checkout" ,
 }

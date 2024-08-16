@@ -41,11 +41,11 @@ const HomeTemplate: React.FC = () => {
 
   return (
     <ScrollView>
-      <View flex={1} paddingHorizontal={20} paddingBottom={130}>
+      <View flex={1} paddingBottom={130} paddingHorizontal={20}>
         <Header
           leftIcon={leftIconOfHeader}
           rightIcon={rightIconOfHeader}
-          subtitle={ !isNil(location)
+          subtitle={!isNil(location)
             ? `📍 ${address?.country}\n${address?.street}, ${address?.city}`
             : '???'
           }
@@ -147,7 +147,7 @@ const HomeTemplate: React.FC = () => {
         />
         <ListShoesItem dataShoes={dataBranch} />
       </View>
-    </ScrollView>
+    </ScrollView >
   )
 }
 

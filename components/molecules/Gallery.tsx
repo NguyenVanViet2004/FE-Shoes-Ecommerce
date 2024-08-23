@@ -1,8 +1,9 @@
-import { useTranslation } from 'react-i18next'
+
 import { type ImageSourcePropType, TouchableOpacity, useColorScheme } from 'react-native'
 import { Image, Text, View } from 'tamagui'
 
 import getColors from '~/constants/Colors'
+import useTranslation from '~/hooks/useTranslation'
 
 interface GalleryProps {
   images: ImageSourcePropType[]

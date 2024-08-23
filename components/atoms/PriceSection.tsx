@@ -36,7 +36,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ inStock }) => {
           {t('Price')}
         </Text>
         <Text fontSize={20} fontWeight="bold" marginVertical={7}>
-          $849.69
+          {"987.800$"}
         </Text>
       </YStack>
       <YStack>
@@ -47,7 +47,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ inStock }) => {
           paddingVertical={12}
           disabled={!inStock}
         >
-          <Text color={currentColors.white} fontSize={16} fontWeight="bold">
+          <Text color={currentColors.white} fontSize={14} fontWeight="bold">
             {t(inStock ? 'AddToCart' : 'OutOfStock')}
           </Text>
         </Button>

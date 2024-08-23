@@ -1,4 +1,3 @@
-
 import { type ImageSourcePropType, TouchableOpacity, useColorScheme } from 'react-native'
 import { Image, Text, View } from 'tamagui'
 

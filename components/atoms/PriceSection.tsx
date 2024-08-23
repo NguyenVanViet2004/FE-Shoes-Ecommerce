@@ -36,7 +36,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ inStock }) => {
           {t('Price')}
         </Text>
         <Text fontSize={20} fontWeight="bold" marginVertical={7}>
-          {"987.800$"}
+          {'987.800$'}
         </Text>
       </YStack>
       <YStack>

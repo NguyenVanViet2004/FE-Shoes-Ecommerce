@@ -1,6 +1,12 @@
 {
   "next": "Next",
   "getStarted": "Get Started",
+    "bestSeller": "BEST SELLER",
+  "productDescription": "Air Jordan is a basketball, sports, and fashion brand from America produced by Nike...",
+  "Gallery" : "Gallery",
+  "Price" : "Price",
+  "AddToCart" : "Add To Cart",
+  "Size" : "Size",
   "signIn": {
     "helloAgain": "Hello Again!",
     "welcomeBackYouHaveBeenMissed": "Welcome Back You’ve Been Missed!",

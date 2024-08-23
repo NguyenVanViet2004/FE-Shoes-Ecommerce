@@ -59,6 +59,7 @@ const colors = {
     text: '#fff',
     tint: tintColorDark,
     white: '#FFFFFF',
+    whiteSmoke: '#f5f5f5',
     yellow: '#f8c907'
   },
   light: {
@@ -78,7 +79,6 @@ const colors = {
     bag9Bg: '#eb849c',
     black: '#000000',
     blue: '#0984FF',
-    charcoalGray: '#444444',
     cornflowerBlue: '#5B9EE1',
     dark: '#333',
     darkGray: '#22313a',
@@ -118,6 +118,7 @@ const colors = {
     text: '#000',
     tint: tintColorLight,
     white: '#FFFFFF',
+    whiteSmoke: '#f5f5f5',
     yellow: '#f8c907'
   }
 

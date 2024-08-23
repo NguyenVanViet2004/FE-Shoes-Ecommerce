@@ -3,6 +3,7 @@ import { useColorScheme } from 'react-native'
 import { Button, Text, XStack, YStack } from 'tamagui'
 
 import getColors from '~/constants/Colors'
+import useTranslation from '~/hooks/useTranslation'
 
 interface SizeSelectorProps {
   sizes: string[]
@@ -18,11 +19,11 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
   outOfStockSizes
 }) => {
   const colors = getColors(useColorScheme())
-
+  const { t } = useTranslation()
   return (
     <YStack marginHorizontal={18} marginTop={10}>
       <XStack alignItems="center" justifyContent="space-between">
-        <Text fontSize={18} fontWeight="bold">Size</Text>
+        <Text fontSize={18} fontWeight="bold">{t('Size')}</Text>
         <XStack flexDirection="row">
           <Text marginHorizontal={8}
             color={colors.black}
